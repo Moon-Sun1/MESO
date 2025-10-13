@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+ية <!DOCTYPE html>
 <html lang="ar" dir="rtl">
   <!-- Shop Page for Al-Rafidain Club -->
   <head>
@@ -33,84 +33,334 @@
       type="text/css"
     />
 
-    <!-- Custom Styles for Enhanced Product Design -->
+    <!-- Custom Styles for Shop -->
     <style>
-      /* Enhanced Product Card Styles */
-      .de-card, .de-card-large {
+      /* Product Card Styles */
+      .product-card {
         transition: all 0.3s ease;
         border-radius: 15px;
         overflow: hidden;
         position: relative;
+        background: #1a1a1a;
+        border: 1px solid #333;
       }
 
-      .de-card:hover, .de-card-large:hover {
+      .product-card:hover {
         transform: translateY(-10px);
         box-shadow: 0 20px 40px rgba(0, 184, 148, 0.3);
       }
 
-      .d-image {
+      .product-image {
         position: relative;
         overflow: hidden;
+        height: 200px;
       }
 
-      .d-image img {
+      .product-image img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
         transition: transform 0.3s ease;
       }
 
-      .de-card:hover .d-image img, .de-card-large:hover .d-image img {
+      .product-card:hover .product-image img {
         transform: scale(1.05);
       }
 
-      /* Discount Badge */
-      .discount-badge {
-        position: absolute;
-        top: 15px;
-        right: 15px;
-        background: linear-gradient(45deg, #e74c3c, #c0392b);
-        color: white;
-        padding: 5px 10px;
-        border-radius: 20px;
-        font-size: 12px;
-        font-weight: bold;
-        z-index: 2;
-        box-shadow: 0 2px 5px rgba(0,0,0,0.3);
+      .product-details {
+        padding: 15px;
+        text-align: center;
       }
 
-      /* Star Rating */
-      .star-rating {
+      .product-title {
+        font-size: 16px;
+        font-weight: 600;
+        margin-bottom: 5px;
+      }
+
+      .product-price {
+        font-size: 18px;
+        font-weight: bold;
+        color: #00b894;
+        margin: 10px 0;
+      }
+
+      .product-rating {
         display: flex;
         justify-content: center;
         margin: 10px 0;
         direction: ltr;
       }
 
-      .star-rating .fa-star {
+      .product-rating .fa-star {
         color: #f39c12;
         margin: 0 2px;
         font-size: 14px;
       }
 
-      /* Enhanced Button */
+      .btn-add-cart, .btn-view-details {
+        background: linear-gradient(45deg, #00b894, #00cec9);
+        border: none;
+        padding: 8px 15px;
+        border-radius: 20px;
+        font-weight: 600;
+        margin: 5px;
+        transition: all 0.3s ease;
+      }
+
+      .btn-add-cart:hover, .btn-view-details:hover {
+        background: linear-gradient(45deg, #00cec9, #00b894);
+        transform: translateY(-2px);
+      }
+
+      /* Search and Filter */
+      .search-filter {
+        background: #111;
+        padding: 20px 0;
+        border-bottom: 1px solid #333;
+      }
+
+      .search-bar {
+        position: relative;
+        max-width: 400px;
+        margin: 0 auto;
+      }
+
+      .search-bar input {
+        width: 100%;
+        padding: 10px 40px 10px 15px;
+        border-radius: 25px;
+        border: 1px solid #333;
+        background: #222;
+        color: #fff;
+      }
+
+      .search-bar .fa-search {
+        position: absolute;
+        right: 15px;
+        top: 50%;
+        transform: translateY(-50%);
+        color: #666;
+      }
+
+      .filters {
+        display: flex;
+        justify-content: center;
+        gap: 10px;
+        margin-top: 15px;
+        flex-wrap: wrap;
+      }
+
+      .filter-btn {
+        background: #333;
+        border: none;
+        padding: 8px 15px;
+        border-radius: 20px;
+        color: #fff;
+        cursor: pointer;
+        transition: background 0.3s;
+      }
+
+      .filter-btn.active, .filter-btn:hover {
+        background: #00b894;
+      }
+
+      /* Cart Sidebar */
+      .cart-sidebar {
+        position: fixed;
+        right: -350px;
+        top: 0;
+        width: 350px;
+        height: 100%;
+        background: #1a1a1a;
+        border-left: 1px solid #333;
+        transition: right 0.3s;
+        z-index: 1000;
+        overflow-y: auto;
+      }
+
+      .cart-sidebar.open {
+        right: 0;
+      }
+
+      .cart-header {
+        padding: 20px;
+        border-bottom: 1px solid #333;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+      }
+
+      .cart-items {
+        padding: 20px;
+      }
+
+      .cart-item {
+        display: flex;
+        align-items: center;
+        margin-bottom: 15px;
+        padding-bottom: 15px;
+        border-bottom: 1px solid #333;
+      }
+
+      .cart-item img {
+        width: 50px;
+        height: 50px;
+        object-fit: cover;
+        border-radius: 5px;
+        margin-left: 10px;
+      }
+
+      .cart-item-details {
+        flex: 1;
+      }
+
+      .cart-total {
+        padding: 20px;
+        border-top: 1px solid #333;
+        text-align: center;
+      }
+
+      .btn-checkout {
+        width: 100%;
+        background: #00b894;
+        border: none;
+        padding: 15px;
+        border-radius: 5px;
+        color: #fff;
+        font-weight: 600;
+      }
+
+      /* Product Modal */
+      .product-modal .modal-content {
+        background: #1a1a1a;
+        color: #fff;
+      }
+
+      .product-modal .modal-body {
+        padding: 30px;
+      }
+
+      .modal-product-image {
+        width: 100%;
+        max-height: 300px;
+        object-fit: cover;
+        border-radius: 10px;
+      }
+
+      /* Product Row Spacing */
+      .product-item {
+        margin-bottom: 30px;
+      }
+
+      /* Modern Card Styles */
+      .de-card, .de-card-large {
+        background: linear-gradient(135deg, #1a1a1a 0%, #2d2d2d 100%);
+        border-radius: 20px;
+        box-shadow: 0 10px 30px rgba(0, 184, 148, 0.1);
+        transition: all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+        overflow: hidden;
+        border: 1px solid #333;
+        position: relative;
+      }
+
+      .de-card:hover, .de-card-large:hover {
+        transform: translateY(-10px);
+        box-shadow: 0 20px 50px rgba(0, 184, 148, 0.3);
+        border-color: #00b894;
+      }
+
+      .de-card .d-image, .de-card-large .d-image {
+        position: relative;
+        overflow: hidden;
+        border-radius: 20px 20px 0 0;
+      }
+
+      .de-card .d-image img, .de-card-large .d-image img {
+        transition: transform 0.4s ease;
+        width: 100%;
+        height: 200px;
+        object-fit: cover;
+      }
+
+      .de-card:hover .d-image img, .de-card-large:hover .d-image img {
+        transform: scale(1.05);
+      }
+
+      .discount-badge {
+        position: absolute;
+        top: 15px;
+        right: 15px;
+        background: linear-gradient(45deg, #e74c3c, #c0392b);
+        color: #fff;
+        padding: 8px 12px;
+        border-radius: 25px;
+        font-weight: 700;
+        font-size: 12px;
+        box-shadow: 0 4px 15px rgba(231, 76, 60, 0.4);
+        z-index: 10;
+      }
+
+      .de-card .d-content, .de-card-large .d-content {
+        padding: 25px;
+        text-align: center;
+        background: #1a1a1a;
+      }
+
+      .de-card h4, .de-card-large h4 {
+        font-size: 20px;
+        font-weight: 700;
+        margin-bottom: 15px;
+        color: #fff;
+        text-transform: uppercase;
+        letter-spacing: 1px;
+      }
+
+      .star-rating {
+        display: flex;
+        justify-content: center;
+        margin: 15px 0;
+        direction: ltr;
+      }
+
+      .star-rating .fa-star {
+        color: #f39c12;
+        margin: 0 3px;
+        font-size: 16px;
+        transition: color 0.3s ease;
+      }
+
+      .de-card p, .de-card-large p {
+        color: #ccc;
+        font-size: 14px;
+        line-height: 1.6;
+        margin-bottom: 20px;
+      }
+
+      .d-price {
+        font-size: 18px;
+        font-weight: 600;
+        color: #00b894;
+        margin-bottom: 20px;
+        text-shadow: 0 0 10px rgba(0, 184, 148, 0.5);
+      }
+
       .btn-main {
         background: linear-gradient(45deg, #00b894, #00cec9);
         border: none;
         padding: 12px 25px;
-        border-radius: 25px;
+        border-radius: 30px;
+        color: #fff;
         font-weight: 600;
         text-transform: uppercase;
         letter-spacing: 1px;
         transition: all 0.3s ease;
+        box-shadow: 0 5px 15px rgba(0, 184, 148, 0.3);
         position: relative;
         overflow: hidden;
       }
 
-      .btn-main:hover {
-        background: linear-gradient(45deg, #00cec9, #00b894);
-        transform: translateY(-2px);
-        box-shadow: 0 5px 15px rgba(0, 184, 148, 0.4);
-      }
-
-      .btn-main::before {
+      .btn-main:before {
         content: '';
         position: absolute;
         top: 0;
@@ -121,51 +371,42 @@
         transition: left 0.5s;
       }
 
-      .btn-main:hover::before {
+      .btn-main:hover:before {
         left: 100%;
       }
 
-      /* Price Styling */
-      .d-price {
-        font-size: 18px;
-        font-weight: bold;
-        color: #00b894;
-        margin: 10px 0;
-        text-align: center;
+      .btn-main:hover {
+        background: linear-gradient(45deg, #00cec9, #00b894);
+        transform: translateY(-3px);
+        box-shadow: 0 10px 25px rgba(0, 184, 148, 0.5);
       }
 
-      /* Card Content Spacing */
-      .d-content {
-        padding: 20px;
-        text-align: center;
-      }
-
-      .d-content h4 {
-        margin-bottom: 10px;
-        font-weight: 600;
-      }
-
-      .d-content p {
-        margin-bottom: 15px;
-        color: #ccc;
-        line-height: 1.5;
-      }
-
-      /* RTL Adjustments */
-      .discount-badge {
-        right: auto;
-        left: 15px;
-      }
-
-      /* Responsive Design */
+      /* Responsive */
       @media (max-width: 768px) {
-        .de-card:hover, .de-card-large:hover {
-          transform: none;
+        .cart-sidebar {
+          width: 100%;
+          right: -100%;
         }
 
-        .btn-main {
-          padding: 10px 20px;
-          font-size: 14px;
+        .filters {
+          flex-direction: column;
+          align-items: center;
+        }
+
+        .de-card, .de-card-large {
+          margin-bottom: 30px;
+        }
+
+        .de-card .d-content, .de-card-large .d-content {
+          padding: 20px;
+        }
+
+        .de-card h4, .de-card-large h4 {
+          font-size: 18px;
+        }
+
+        .de-card p, .de-card-large p {
+          font-size: 13px;
         }
       }
     </style>
@@ -311,6 +552,304 @@
           </div>
           <div class="de-gradient-edge-bottom"></div>
         </section>
+
+        <!-- Search and Filter Section -->
+        <section class="search-filter">
+          <div class="container">
+            <div class="row">
+              <div class="col-lg-12">
+                <div class="search-bar">
+                  <input type="text" id="search-input" placeholder="ابحث عن المنتجات...">
+                  <i class="fa fa-search"></i>
+                </div>
+                <div class="filters">
+                  <button class="filter-btn active" data-filter="all">الكل</button>
+                  <button class="filter-btn" data-filter="clothes">الملابس</button>
+                  <button class="filter-btn" data-filter="accessories">الإكسسوارات</button>
+                  <button class="filter-btn" data-filter="badges">الشارات</button>
+                  <button class="filter-btn" data-filter="mugs">الأكواب</button>
+                  <button class="filter-btn" data-filter="other">أخرى</button>
+                </div>
+              </div>
+            </div> 
+          </div>
+        </section>
+
+        <!-- Products Section -->
+        <section id="section-products">
+          <div class="container">
+            <div class="row" id="products-grid">
+              <!-- Product 1 -->
+              <div class="col-lg-3 col-md-4 col-sm-6 product-item" data-category="clothes" data-name="تيشرت نادي بلاد الرافدين">
+                <div class="product-card">
+                  <div class="product-image">
+                    <img src="images/products/T-shirt.png" alt="تيشرت نادي بلاد الرافدين">
+                  </div>
+                  <div class="product-details">
+                    <h4 class="product-title">تيشرت نادي بلاد الرافدين</h4>
+                    <div class="product-rating">
+                      <i class="fa fa-star"></i>
+                      <i class="fa fa-star"></i>
+                      <i class="fa fa-star"></i>
+                      <i class="fa fa-star"></i>
+                      <i class="fa fa-star-half-o"></i>
+                    </div>
+                    <div class="product-price">25,000 دينار</div>
+                    <button class="btn-add-cart" onclick="addToCart(1)">أضف للسلة</button>
+                    <button class="btn-view-details" data-bs-toggle="modal" data-bs-target="#productModal" onclick="viewDetails(1)">عرض التفاصيل</button>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Product 2 -->
+              <div class="col-lg-3 col-md-4 col-sm-6 product-item" data-category="clothes" data-name="هودي نادي بلاد الرافدين">
+                <div class="product-card">
+                  <div class="product-image">
+                    <img src="images/products/hody.png" alt="هودي نادي بلاد الرافدين">
+                  </div>
+                  <div class="product-details">
+                    <h4 class="product-title">هودي نادي بلاد الرافدين</h4>
+                    <div class="product-rating">
+                      <i class="fa fa-star"></i>
+                      <i class="fa fa-star"></i>
+                      <i class="fa fa-star"></i>
+                      <i class="fa fa-star"></i>
+                      <i class="fa fa-star"></i>
+                    </div>
+                    <div class="product-price">45,000 دينار</div>
+                    <button class="btn-add-cart" onclick="addToCart(2)">أضف للسلة</button>
+                    <button class="btn-view-details" data-bs-toggle="modal" data-bs-target="#productModal" onclick="viewDetails(2)">عرض التفاصيل</button>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Product 3 -->
+              <div class="col-lg-3 col-md-4 col-sm-6 product-item" data-category="accessories" data-name="قبعة نادي بلاد الرافدين">
+                <div class="product-card">
+                  <div class="product-image">
+                    <img src="images/products/cap.png" alt="قبعة نادي بلاد الرافدين">
+                  </div>
+                  <div class="product-details">
+                    <h4 class="product-title">قبعة نادي بلاد الرافدين</h4>
+                    <div class="product-rating">
+                      <i class="fa fa-star"></i>
+                      <i class="fa fa-star"></i>
+                      <i class="fa fa-star"></i>
+                      <i class="fa fa-star"></i>
+                      <i class="fa fa-star-o"></i>
+                    </div>
+                    <div class="product-price">15,000 دينار</div>
+                    <button class="btn-add-cart" onclick="addToCart(3)">أضف للسلة</button>
+                    <button class="btn-view-details" data-bs-toggle="modal" data-bs-target="#productModal" onclick="viewDetails(3)">عرض التفاصيل</button>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Product 4 -->
+              <div class="col-lg-3 col-md-4 col-sm-6 product-item" data-category="badges" data-name="شارة نادي بلاد الرافدين">
+                <div class="product-card">
+                  <div class="product-image">
+                    <img src="images/products/badge.png" alt="شارة نادي بلاد الرافدين">
+                  </div>
+                  <div class="product-details">
+                    <h4 class="product-title">شارة نادي بلاد الرافدين</h4>
+                    <div class="product-rating">
+                      <i class="fa fa-star"></i>
+                      <i class="fa fa-star"></i>
+                      <i class="fa fa-star"></i>
+                      <i class="fa fa-star"></i>
+                      <i class="fa fa-star-half-o"></i>
+                    </div>
+                    <div class="product-price">5,000 دينار</div>
+                    <button class="btn-add-cart" onclick="addToCart(4)">أضف للسلة</button>
+                    <button class="btn-view-details" data-bs-toggle="modal" data-bs-target="#productModal" onclick="viewDetails(4)">عرض التفاصيل</button>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Product 5 -->
+              <div class="col-lg-3 col-md-4 col-sm-6 product-item" data-category="mugs" data-name="كوب نادي بلاد الرافدين">
+                <div class="product-card">
+                  <div class="product-image">
+                    <img src="images/products/coffeCub.png" alt="كوب نادي بلاد الرافدين">
+                  </div>
+                  <div class="product-details">
+                    <h4 class="product-title">كوب نادي بلاد الرافدين</h4>
+                    <div class="product-rating">
+                      <i class="fa fa-star"></i>
+                      <i class="fa fa-star"></i>
+                      <i class="fa fa-star"></i>
+                      <i class="fa fa-star"></i>
+                      <i class="fa fa-star"></i>
+                    </div>
+                    <div class="product-price">8,000 دينار</div>
+                    <button class="btn-add-cart" onclick="addToCart(5)">أضف للسلة</button>
+                    <button class="btn-view-details" data-bs-toggle="modal" data-bs-target="#productModal" onclick="viewDetails(5)">عرض التفاصيل</button>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Product 6 -->
+              <div class="col-lg-3 col-md-4 col-sm-6 product-item" data-category="clothes" data-name="جاكيت نادي بلاد الرافدين">
+                <div class="product-card">
+                  <div class="product-image">
+                    <img src="images/products/jacket.png" alt="جاكيت نادي بلاد الرافدين">
+                  </div>
+                  <div class="product-details">
+                    <h4 class="product-title">جاكيت نادي بلاد الرافدين</h4>
+                    <div class="product-rating">
+                      <i class="fa fa-star"></i>
+                      <i class="fa fa-star"></i>
+                      <i class="fa fa-star"></i>
+                      <i class="fa fa-star"></i>
+                      <i class="fa fa-star-half-o"></i>
+                    </div>
+                    <div class="product-price">65,000 دينار</div>
+                    <button class="btn-add-cart" onclick="addToCart(6)">أضف للسلة</button>
+                    <button class="btn-view-details" data-bs-toggle="modal" data-bs-target="#productModal" onclick="viewDetails(6)">عرض التفاصيل</button>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Product 7 -->
+              <div class="col-lg-3 col-md-4 col-sm-6 product-item" data-category="accessories" data-name="حقيبة ظهر نادي بلاد الرافدين">
+                <div class="product-card">
+                  <div class="product-image">
+                    <img src="images/products/bag.png" alt="حقيبة ظهر نادي بلاد الرافدين">
+                  </div>
+                  <div class="product-details">
+                    <h4 class="product-title">حقيبة ظهر نادي بلاد الرافدين</h4>
+                    <div class="product-rating">
+                      <i class="fa fa-star"></i>
+                      <i class="fa fa-star"></i>
+                      <i class="fa fa-star"></i>
+                      <i class="fa fa-star"></i>
+                      <i class="fa fa-star"></i>
+                    </div>
+                    <div class="product-price">35,000 دينار</div>
+                    <button class="btn-add-cart" onclick="addToCart(7)">أضف للسلة</button>
+                    <button class="btn-view-details" data-bs-toggle="modal" data-bs-target="#productModal" onclick="viewDetails(7)">عرض التفاصيل</button>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Product 8 -->
+              <div class="col-lg-3 col-md-4 col-sm-6 product-item" data-category="badges" data-name="مجموعة شارات نادي بلاد الرافدين">
+                <div class="product-card">
+                  <div class="product-image">
+                    <img src="images/products/badges-set.png" alt="مجموعة شارات نادي بلاد الرافدين">
+                  </div>
+                  <div class="product-details">
+                    <h4 class="product-title">مجموعة شارات نادي بلاد الرافدين</h4>
+                    <div class="product-rating">
+                      <i class="fa fa-star"></i>
+                      <i class="fa fa-star"></i>
+                      <i class="fa fa-star"></i>
+                      <i class="fa fa-star"></i>
+                      <i class="fa fa-star-half-o"></i>
+                    </div>
+                    <div class="product-price">12,000 دينار</div>
+                    <button class="btn-add-cart" onclick="addToCart(8)">أضف للسلة</button>
+                    <button class="btn-view-details" data-bs-toggle="modal" data-bs-target="#productModal" onclick="viewDetails(8)">عرض التفاصيل</button>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Product 9 -->
+              <div class="col-lg-3 col-md-4 col-sm-6 product-item" data-category="mugs" data-name="كوب سيراميك نادي بلاد الرافدين">
+                <div class="product-card">
+                  <div class="product-image">
+                    <img src="images/products/ceramic-mug.png" alt="كوب سيراميك نادي بلاد الرافدين">
+                  </div>
+                  <div class="product-details">
+                    <h4 class="product-title">كوب سيراميك نادي بلاد الرافدين</h4>
+                    <div class="product-rating">
+                      <i class="fa fa-star"></i>
+                      <i class="fa fa-star"></i>
+                      <i class="fa fa-star"></i>
+                      <i class="fa fa-star"></i>
+                      <i class="fa fa-star"></i>
+                    </div>
+                    <div class="product-price">10,000 دينار</div>
+                    <button class="btn-add-cart" onclick="addToCart(9)">أضف للسلة</button>
+                    <button class="btn-view-details" data-bs-toggle="modal" data-bs-target="#productModal" onclick="viewDetails(9)">عرض التفاصيل</button>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Product 10 -->
+              <div class="col-lg-3 col-md-4 col-sm-6 product-item" data-category="other" data-name="كرة قدم موقعة نادي بلاد الرافدين">
+                <div class="product-card">
+                  <div class="product-image">
+                    <img src="images/products/football.png" alt="كرة قدم موقعة نادي بلاد الرافدين">
+                  </div>
+                  <div class="product-details">
+                    <h4 class="product-title">كرة قدم موقعة نادي بلاد الرافدين</h4>
+                    <div class="product-rating">
+                      <i class="fa fa-star"></i>
+                      <i class="fa fa-star"></i>
+                      <i class="fa fa-star"></i>
+                      <i class="fa fa-star"></i>
+                      <i class="fa fa-star-half-o"></i>
+                    </div>
+                    <div class="product-price">50,000 دينار</div>
+                    <button class="btn-add-cart" onclick="addToCart(10)">أضف للسلة</button>
+                    <button class="btn-view-details" data-bs-toggle="modal" data-bs-target="#productModal" onclick="viewDetails(10)">عرض التفاصيل</button>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <!-- Cart Sidebar -->
+        <div class="cart-sidebar" id="cartSidebar">
+          <div class="cart-header">
+            <h4>سلة التسوق</h4>
+            <button class="btn-close" onclick="closeCart()">&times;</button>
+          </div>
+          <div class="cart-items" id="cartItems">
+            <!-- Cart items will be added here dynamically -->
+          </div>
+          <div class="cart-total">
+            <h5>المجموع: <span id="cartTotal">0 دينار</span></h5>
+            <button class="btn-checkout" onclick="checkout()">إتمام الشراء</button>
+          </div>
+        </div>
+
+        <!-- Product Modal -->
+        <div class="modal fade product-modal" id="productModal" tabindex="-1">
+          <div class="modal-dialog modal-lg">
+            <div class="modal-content">
+              <div class="modal-header">
+                <h5 class="modal-title" id="productModalTitle"></h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+              </div>
+              <div class="modal-body">
+                <div class="row">
+                  <div class="col-md-6">
+                    <img id="modalProductImage" src="" alt="" class="modal-product-image">
+                  </div>
+                  <div class="col-md-6">
+                    <div id="modalProductDetails">
+                      <!-- Product details will be populated here -->
+                    </div>
+                    <div class="mt-3">
+                      <button class="btn-add-cart" onclick="addToCartFromModal()">أضف للسلة</button>
+                      <button class="btn-checkout" onclick="buyNow()">اشترِ الآن</button>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Floating Cart Button -->
+        <button class="btn-main" id="floatingCartBtn" onclick="openCart()" style="position: fixed; bottom: 20px; right: 20px; z-index: 1000; border-radius: 50%; width: 60px; height: 60px; padding: 0;">
+          <i class="fa fa-shopping-cart"></i>
+          <span id="cartCount" style="position: absolute; top: -5px; right: -5px; background: #e74c3c; color: white; border-radius: 50%; width: 20px; height: 20px; font-size: 12px; display: flex; align-items: center; justify-content: center;">0</span>
+        </button>
 
         <!-- Seasonal Offers Section -->
         <section id="section-seasonal" class="no-bottom">
