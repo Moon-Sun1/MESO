@@ -32,6 +32,51 @@
       rel="stylesheet"
       type="text/css"
     />
+    <style>
+      /* Live content modern cards */
+      .live-card { position: relative; background: rgba(20,20,22,.8); border: 1px solid #242426; border-radius: 18px; overflow: hidden; box-shadow: 0 10px 30px rgba(0,0,0,.25); transition: transform .25s ease, box-shadow .25s ease, border-color .25s ease; height: 100%; }
+      .live-card:hover { transform: translateY(-6px); box-shadow: 0 16px 40px rgba(0,0,0,.35); border-color: #2d2f33; }
+      .live-thumb { position: relative; height: 210px; overflow: hidden; }
+      .live-thumb img { width: 100%; height: 100%; object-fit: cover; transform: scale(1.02); transition: transform .6s ease; }
+      .live-card:hover .live-thumb img { transform: scale(1.07); }
+      .live-overlay { position: absolute; inset: 0; background: linear-gradient(180deg, rgba(0,0,0,.0) 40%, rgba(0,0,0,.55) 100%); display: flex; align-items: flex-end; justify-content: space-between; padding: 14px; }
+      .live-badges { display: flex; gap: 8px; }
+      .badge-live { background: linear-gradient(45deg, #e74c3c, #ff6b6b); color: #fff; font-weight: 800; border-radius: 999px; padding: 6px 10px; font-size: 11px; display: inline-flex; align-items: center; gap: 6px; box-shadow: 0 6px 16px rgba(231,76,60,.4); }
+      .badge-type { background: rgba(255,255,255,.12); color: #fff; border: 1px solid rgba(255,255,255,.14); padding: 6px 10px; border-radius: 999px; font-size: 11px; }
+      .play-btn { width: 64px; height: 64px; border-radius: 50%; display: grid; place-items: center; background: rgba(255,255,255,.18); border: 1px solid rgba(255,255,255,.3); backdrop-filter: blur(8px); -webkit-backdrop-filter: blur(8px); box-shadow: 0 8px 24px rgba(0,0,0,.35); transition: transform .2s ease, background .2s ease; }
+      .play-btn:hover { transform: scale(1.06); background: rgba(255,255,255,.24); }
+      .live-body { padding: 16px; display: flex; flex-direction: column; height: calc(100% - 210px); }
+      .live-title { margin: 0 0 8px 0; font-weight: 800; letter-spacing: .2px; }
+      .live-meta { display: flex; gap: 10px; flex-wrap: wrap; margin-bottom: 12px; }
+      .chip { background:#141417; border:1px solid #26282b; color:#cfd3d6; padding:6px 10px; border-radius:10px; font-size:12px; display:inline-flex; align-items:center; gap:6px; }
+      .chip i { color:#8aa1ff; }
+      .progress-wrap { background:#17181b; border:1px solid #24262a; border-radius: 999px; height: 10px; overflow: hidden; position: relative; }
+      .progress-bar { height: 100%; background: linear-gradient(90deg, #00b894, #00cec9); width: 0; transition: width .8s ease; }
+      .live-actions { margin-top: auto; display: flex; gap: 10px; }
+      .btn-soft { background: #16181b; border: 1px solid #292b2f; color: #eaecef; border-radius: 12px; padding: 10px 14px; font-weight: 700; transition: transform .2s ease, background .2s ease, border-color .2s ease; display: inline-flex; align-items: center; gap: 8px; }
+      .btn-soft:hover { transform: translateY(-2px); background:#1b1e22; border-color:#2f3237; }
+
+      /* Live matches table */
+      .live-table-wrap { background: rgba(20,20,22,.8); border:1px solid #242426; border-radius: 16px; overflow: hidden; box-shadow: 0 10px 30px rgba(0,0,0,.2); }
+      .live-table { width: 100%; border-collapse: separate; border-spacing: 0; }
+      .live-table thead th { background: linear-gradient(180deg, #141416, #121214); color:#cfd3d6; font-weight:800; letter-spacing:.2px; padding:14px; border-bottom:1px solid #242426; }
+      .live-table tbody td { padding:14px; border-bottom:1px solid #202124; vertical-align: middle; }
+      .live-row { transition: background .2s ease; }
+      .live-row:hover { background: rgba(255,255,255,.03); }
+      .pill { display:inline-flex; align-items:center; gap:6px; padding:6px 10px; border-radius:999px; font-size:12px; font-weight:700; }
+      .pill-live { background: linear-gradient(45deg, #e74c3c, #ff6b6b); color:#fff; box-shadow:0 6px 16px rgba(231,76,60,.35); }
+      .pill-upcoming { background:#16221f; color:#7ce8d8; border:1px solid #224a43; }
+      .pill-finished { background:#1b1b1b; color:#aab1b8; border:1px solid #2b2f33; }
+      .team { display:flex; align-items:center; gap:10px; }
+      .badge-team { width:28px; height:28px; border-radius:8px; display:grid; place-items:center; color:#fff; font-weight:800; font-size:12px; }
+      .badge-blue { background: linear-gradient(135deg,#2563eb,#3b82f6); }
+      .badge-red { background: linear-gradient(135deg,#ef4444,#f97316); }
+      .badge-green { background: linear-gradient(135deg,#10b981,#22d3ee); }
+      .badge-gold { background: linear-gradient(135deg,#d97706,#f59e0b); }
+      .btn-stream { background: linear-gradient(45deg, #00b894, #00cec9); color:#fff; padding:8px 12px; border-radius:10px; font-weight:800; text-decoration:none; display:inline-flex; align-items:center; gap:8px; }
+      .btn-stream:hover { filter: brightness(1.05); }
+      .score { font-weight:900; color:#eaeaea; }
+    </style>
   </head>
 
   <body class="dark-scheme">
@@ -63,6 +108,7 @@
         font-size: 22px;
         font-weight: 700;
         background: linear-gradient(90deg, #00b894, #e74c3c);
+        background-clip: text;
         -webkit-background-clip: text;
         -webkit-text-fill-color: transparent;
         margin-right: 10px;
@@ -103,11 +149,10 @@
               </li>
               <li><a class="menu-item" href="about.html">حول</a></li>
               <li><a class="menu-item" href="team.html">الفريق</a></li>
-              <li><a class="menu-item" href="#section-experts">الخبراء</a></li>
+ 
               <li><a class="menu-item" href="#section-schedule">الجدول الزمني</a></li>
               <li><a class="menu-item" href="tickets.html">التذاكر</a></li>
               <li><a class="menu-item" href="#section-gallery">المعرض</a></li>
-              <li><a class="menu-item" href="#section-location">الوصول إلى هناك</a></li>
               <li><a class="menu-item" href="shop.html">المتجر</a></li>
               <li><a class="menu-item" href="news.html">الأخبار</a></li>
             </ul>
@@ -1089,52 +1134,123 @@
               </div>
 
               <div class="col-md-12 wow fadeInUp">
-                <div class="table-responsive">
-                  <table class="table table-dark table-striped">
+                <div class="live-table-wrap">
+                  <table class="live-table">
                     <thead>
                       <tr>
-                        <th scope="col">الوقت</th>
-                        <th scope="col">الفريق الأول</th>
-                        <th scope="col">الفريق الثاني</th>
-                        <th scope="col">البطولة</th>
-                        <th scope="col">البث المباشر</th>
+                        <th>الوقت</th>
+                        <th>الحالة</th>
+                        <th>الفعالية</th>
+                        <th>النتائج</th>
+                        <th>الفئة / المسار</th>
+                        <th>البطولة</th>
+                        <th>البث</th>
                       </tr>
                     </thead>
                     <tbody>
-                      <tr>
+                      <!-- Live: Karting Sprint -->
+                      <tr class="live-row">
                         <td>10:00 ص</td>
-                        <td>فريق الأسود</td>
-                        <td>فريق النسور</td>
-                        <td>بطولة السيارات الرياضية</td>
-                        <td><a href="#" class="btn btn-sm btn-primary">شاهد البث</a></td>
+                        <td><span class="pill pill-live"><i class="fa fa-circle"></i> مباشر</span></td>
+                        <td>
+                          <div class="team">
+                            <span class="badge-team badge-green">AR</span>
+                            <span>سبرنت كارتينغ — الجولة 3</span>
+                          </div>
+                        </td>
+                        <td class="score">لفة 12/20 • أفضل زمن 1:04.328</td>
+                        <td>
+                          <div class="team">
+                            <span class="badge-team badge-blue">IN</span>
+                            <span>مسار الكارتينغ الداخلي</span>
+                          </div>
+                        </td>
+                        <td>بطولة الكارتينغ العراقية (فئة الناشئين)</td>
+                        <td><a href="#" class="btn-stream"><i class="fa fa-play"></i> شاهد الآن</a></td>
                       </tr>
-                      <tr>
+
+                      <!-- Upcoming: Drift Showcase -->
+                      <tr class="live-row">
                         <td>12:30 م</td>
-                        <td>فريق الذئاب</td>
-                        <td>فريق الأفاعي</td>
-                        <td>كأس السرعة</td>
-                        <td><a href="#" class="btn btn-sm btn-primary">شاهد البث</a></td>
+                        <td><span class="pill pill-upcoming"><i class="fa fa-clock-o"></i> قريباً</span></td>
+                        <td>
+                          <div class="team">
+                            <span class="badge-team badge-red">DF</span>
+                            <span>عرض الدرفت الحر</span>
+                          </div>
+                        </td>
+                        <td class="score">—</td>
+                        <td>
+                          <div class="team">
+                            <span class="badge-team badge-gold">EX</span>
+                            <span>حلبة الاستعراض الحر</span>
+                          </div>
+                        </td>
+                        <td>فعالية النادي المدعومة من الاتحاد العراقي</td>
+                        <td><a href="#" class="btn-stream"><i class="fa fa-bell-o"></i> تذكير</a></td>
                       </tr>
-                      <tr>
+
+                      <!-- Upcoming: Time Attack -->
+                      <tr class="live-row">
                         <td>3:00 م</td>
-                        <td>فريق الليوث</td>
-                        <td>فريق النمور</td>
-                        <td>بطولة السيارات الكلاسيكية</td>
-                        <td><a href="#" class="btn btn-sm btn-primary">شاهد البث</a></td>
+                        <td><span class="pill pill-upcoming"><i class="fa fa-clock-o"></i> قريباً</span></td>
+                        <td>
+                          <div class="team">
+                            <span class="badge-team badge-blue">TA</span>
+                            <span>تايم أتاك — تصفيات الجولة 2</span>
+                          </div>
+                        </td>
+                        <td class="score">—</td>
+                        <td>
+                          <div class="team">
+                            <span class="badge-team badge-green">TT</span>
+                            <span>مضمار التوقيت المصغر</span>
+                          </div>
+                        </td>
+                        <td>كأس التوقيت العراقي (سيارات سياحية)</td>
+                        <td><a href="#" class="btn-stream"><i class="fa fa-bell-o"></i> تذكير</a></td>
                       </tr>
-                      <tr>
+
+                      <!-- Finished: Endurance Kart Relay -->
+                      <tr class="live-row">
                         <td>5:30 م</td>
-                        <td>فريق الفهود</td>
-                        <td>فريق الدببة</td>
-                        <td>سباق التحمل</td>
-                        <td><a href="#" class="btn btn-sm btn-primary">شاهد البث</a></td>
+                        <td><span class="pill pill-finished"><i class="fa fa-check"></i> انتهت</span></td>
+                        <td>
+                          <div class="team">
+                            <span class="badge-team badge-green">AR</span>
+                            <span>تحمل كارتينغ — سباق الفرق 60 دقيقة</span>
+                          </div>
+                        </td>
+                        <td class="score">AR 122 لفّة • BN 118 لفّة</td>
+                        <td>
+                          <div class="team">
+                            <span class="badge-team badge-blue">KR</span>
+                            <span>مسار الكارتينغ الرئيسي</span>
+                          </div>
+                        </td>
+                        <td>سلسلة التحمل للأندية</td>
+                        <td><a href="#" class="btn-stream"><i class="fa fa-video-camera"></i> الملخص</a></td>
                       </tr>
-                      <tr>
+
+                      <!-- Live: Autocross Qualifiers -->
+                      <tr class="live-row">
                         <td>8:00 م</td>
-                        <td>فريق الصقور</td>
-                        <td>فريق الذئاب</td>
-                        <td>بطولة السيارات الرياضية</td>
-                        <td><a href="#" class="btn btn-sm btn-primary">شاهد البث</a></td>
+                        <td><span class="pill pill-live"><i class="fa fa-circle"></i> مباشر</span></td>
+                        <td>
+                          <div class="team">
+                            <span class="badge-team badge-gold">AX</span>
+                            <span>أوتوكروس — تجارب تأهيلية (الهواة)</span>
+                          </div>
+                        </td>
+                        <td class="score">الصدارة 00:58.771</td>
+                        <td>
+                          <div class="team">
+                            <span class="badge-team badge-red">AR</span>
+                            <span>ساحة الأوتوكروس</span>
+                          </div>
+                        </td>
+                        <td>دوري رياضات المحركات بالنادي</td>
+                        <td><a href="#" class="btn-stream"><i class="fa fa-play"></i> شاهد الآن</a></td>
                       </tr>
                     </tbody>
                   </table>
@@ -1161,85 +1277,90 @@
               <div class="col-md-12 wow fadeInUp">
                 <div class="row g-4">
                   <div class="col-lg-4 col-md-6">
-                    <div class="card bg-dark text-white border-0 h-100 shadow-lg">
-                      <div class="card-body d-flex flex-column">
-                        <div class="d-flex align-items-center mb-3">
-                          <div class="live-indicator me-2">
-                            <span class="badge bg-danger text-white px-2 py-1">
-                              <i class="fa fa-circle text-danger me-1"></i>مباشر الآن
-                            </span>
+                    <div class="live-card h-100">
+                      <div class="live-thumb">
+                        <img src="images/gallery/1.jpg" alt="سباق السيارات الرياضية">
+                        <div class="live-overlay">
+                          <div class="live-badges">
+                            <span class="badge-live"><i class="fa fa-circle"></i> مباشر الآن</span>
+                            <span class="badge-type">بث مباشر</span>
                           </div>
-                          <small class="text-muted">بث مباشر</small>
+                          <a href="#" class="play-btn text-white"><i class="fa fa-play fa-lg"></i></a>
                         </div>
-                        <h5 class="card-title text-gradient mb-3">سباق السيارات الرياضية</h5>
-                        <div class="video-thumbnail position-relative mb-3 rounded overflow-hidden">
-                          <img src="images/gallery/1.jpg" class="img-fluid w-100" alt="سباق السيارات الرياضية" style="height: 200px; object-fit: cover;">
-                          <div class="overlay position-absolute top-0 start-0 w-100 h-100 d-flex align-items-center justify-content-center bg-dark bg-opacity-50">
-                            <button class="btn btn-play btn-lg text-white border-0" style="background: rgba(255,255,255,0.2); border-radius: 50%; width: 70px; height: 70px; backdrop-filter: blur(10px);">
-                              <i class="fa fa-play fa-2x"></i>
-                            </button>
-                          </div>
+                      </div>
+                      <div class="live-body">
+                        <h5 class="live-title text-gradient">سباق السيارات الرياضية</h5>
+                        <div class="live-meta">
+                          <span class="chip"><i class="fa fa-clock-o"></i> 45 دقيقة متبقية</span>
+                          <span class="chip"><i class="fa fa-users"></i> 1.2k مشاهد</span>
                         </div>
-                        <p class="card-text flex-grow-1">شاهد السباق الحي بين فريق الأسود وفريق النسور في بطولة السيارات الرياضية. تعليق مباشر وتحليل فني.</p>
-                        <div class="mt-auto">
-                          <a href="#" class="btn btn-primary w-100">
-                            <i class="fa fa-play-circle me-2"></i>شاهد الآن
-                          </a>
+                        <div class="progress-wrap mb-3">
+                          <div class="progress-bar" style="width: 68%;"></div>
+                        </div>
+                        <p style="opacity:.9;">شاهد السباق الحي بين فريق الأسود وفريق النسور في بطولة السيارات الرياضية. تعليق مباشر وتحليل فني.</p>
+                        <div class="live-actions">
+                          <a href="#" class="btn-soft"><i class="fa fa-play-circle"></i> شاهد الآن</a>
+                          <a href="#" class="btn-soft"><i class="fa fa-bell-o"></i> تذكير</a>
                         </div>
                       </div>
                     </div>
                   </div>
 
                   <div class="col-lg-4 col-md-6">
-                    <div class="card bg-dark text-white border-0 h-100 shadow-lg">
-                      <div class="card-body d-flex flex-column">
-                        <div class="d-flex align-items-center mb-3">
-                          <div class="live-indicator me-2">
-                            <span class="badge bg-danger text-white px-2 py-1">
-                              <i class="fa fa-circle text-danger me-1"></i>مباشر الآن
-                            </span>
+                    <div class="live-card h-100">
+                      <div class="live-thumb">
+                        <img src="images/gallery/2.jpg" alt="ورشة عمل السيارات الكهربائية">
+                        <div class="live-overlay">
+                          <div class="live-badges">
+                            <span class="badge-live"><i class="fa fa-circle"></i> مباشر الآن</span>
+                            <span class="badge-type">تحديثات</span>
                           </div>
-                          <small class="text-muted">تحديثات</small>
+                          <a href="#" class="play-btn text-white"><i class="fa fa-play fa-lg"></i></a>
                         </div>
-                        <h5 class="card-title text-gradient mb-3">ورشة عمل السيارات الكهربائية</h5>
-                        <div class="video-thumbnail position-relative mb-3 rounded overflow-hidden">
-                          <img src="images/gallery/2.jpg" class="img-fluid w-100" alt="ورشة عمل السيارات الكهربائية" style="height: 200px; object-fit: cover;">
-                          <div class="overlay position-absolute top-0 start-0 w-100 h-100 d-flex align-items-center justify-content-center bg-dark bg-opacity-50">
-                            <button class="btn btn-play btn-lg text-white border-0" style="background: rgba(255,255,255,0.2); border-radius: 50%; width: 70px; height: 70px; backdrop-filter: blur(10px);">
-                              <i class="fa fa-play fa-2x"></i>
-                            </button>
-                          </div>
+                      </div>
+                      <div class="live-body">
+                        <h5 class="live-title text-gradient">ورشة عمل السيارات الكهربائية</h5>
+                        <div class="live-meta">
+                          <span class="chip"><i class="fa fa-clock-o"></i> بدأ منذ 10 د</span>
+                          <span class="chip"><i class="fa fa-users"></i> 820 مشارك</span>
                         </div>
-                        <p class="card-text flex-grow-1">انضم إلى ورشة العمل التفاعلية حول أحدث التطورات في السيارات الكهربائية مع الخبراء الميدانيين.</p>
-                        <div class="mt-auto">
-                          <a href="#" class="btn btn-primary w-100">
-                            <i class="fa fa-play-circle me-2"></i>انضم الآن
-                          </a>
+                        <div class="progress-wrap mb-3">
+                          <div class="progress-bar" style="width: 30%;"></div>
+                        </div>
+                        <p style="opacity:.9;">انضم إلى ورشة العمل التفاعلية حول أحدث التطورات في السيارات الكهربائية مع الخبراء الميدانيين.</p>
+                        <div class="live-actions">
+                          <a href="#" class="btn-soft"><i class="fa fa-play-circle"></i> انضم الآن</a>
+                          <a href="#" class="btn-soft"><i class="fa fa-share"></i> مشاركة</a>
                         </div>
                       </div>
                     </div>
                   </div>
 
                   <div class="col-lg-4 col-md-6">
-                    <div class="card bg-dark text-white border-0 h-100">
-                      <div class="card-body d-flex flex-column">
-                        <div class="d-flex align-items-center mb-3">
-                          <div class="live-indicator me-2">
-                            <span class="badge bg-danger text-white px-2 py-1">
-                              <i class="fa fa-circle text-danger me-1"></i>مباشر الآن
-                            </span>
+                    <div class="live-card h-100">
+                      <div class="live-thumb">
+                        <img src="images/gallery/1.jpg" alt="مقابلة مع السائقين">
+                        <div class="live-overlay">
+                          <div class="live-badges">
+                            <span class="badge-live"><i class="fa fa-circle"></i> مباشر الآن</span>
+                            <span class="badge-type">مقابلات</span>
                           </div>
-                          <small class="text-muted">مقابلات</small>
+                          <a href="#" class="play-btn text-white"><i class="fa fa-play fa-lg"></i></a>
                         </div>
-                        <h5 class="card-title text-gradient mb-3">مقابلة مع السائقين</h5>
-                        <div class="video-container mb-3">
-                          <iframe width="100%" height="200" src="https://www.youtube.com/embed/dQw4w9WgXcQ?autoplay=1&mute=1" frameborder="0" allowfullscreen></iframe>
+                      </div>
+                      <div class="live-body">
+                        <h5 class="live-title text-gradient">مقابلة مع السائقين</h5>
+                        <div class="live-meta">
+                          <span class="chip"><i class="fa fa-clock-o"></i> 15 د متبقية</span>
+                          <span class="chip"><i class="fa fa-users"></i> 2.3k مشاهد</span>
                         </div>
-                        <p class="card-text flex-grow-1">استمع إلى قصص السائقين المحترفين وخبراتهم في عالم رياضات السيارات. مقابلات حصرية من خلف الكواليس.</p>
-                        <div class="mt-auto">
-                          <a href="#" class="btn btn-primary w-100">
-                            <i class="fa fa-play-circle me-2"></i>شاهد المقابلة
-                          </a>
+                        <div class="progress-wrap mb-3">
+                          <div class="progress-bar" style="width: 80%;"></div>
+                        </div>
+                        <p style="opacity:.9;">استمع إلى قصص السائقين المحترفين وخبراتهم في عالم رياضات السيارات. مقابلات حصرية من خلف الكواليس.</p>
+                        <div class="live-actions">
+                          <a href="#" class="btn-soft"><i class="fa fa-play-circle"></i> شاهد المقابلة</a>
+                          <a href="#" class="btn-soft"><i class="fa fa-bookmark-o"></i> حفظ</a>
                         </div>
                       </div>
                     </div>
