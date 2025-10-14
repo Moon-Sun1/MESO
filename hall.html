@@ -31,6 +31,142 @@
       rel="stylesheet"
       type="text/css"
     />
+    <style>
+      /* Modern Card Styles */
+      .card-modern {
+        background: rgba(20,20,22,.9);
+        border: 1px solid #242426;
+        border-radius: 20px;
+        overflow: hidden;
+        box-shadow: 0 15px 35px rgba(0,0,0,.3);
+        backdrop-filter: blur(10px);
+        -webkit-backdrop-filter: blur(10px);
+      }
+      .card-header-modern {
+        background: linear-gradient(135deg, rgba(0,184,148,.1), rgba(231,76,60,.1));
+        padding: 30px 40px;
+        border-bottom: 1px solid rgba(255,255,255,.1);
+      }
+      .card-body-modern {
+        padding: 40px;
+      }
+
+      /* Modern Form Styles */
+      .form-floating-modern {
+        position: relative;
+        margin-bottom: 0;
+      }
+      .form-control-modern {
+        background: rgba(255,255,255,.05);
+        border: 1px solid rgba(255,255,255,.1);
+        border-radius: 12px;
+        padding: 16px 20px;
+        color: #fff;
+        font-size: 16px;
+        transition: all .3s ease;
+        width: 100%;
+      }
+      .form-control-modern:focus {
+        background: rgba(255,255,255,.08);
+        border-color: #00b894;
+        box-shadow: 0 0 0 3px rgba(0,184,148,.2);
+        outline: none;
+      }
+      .form-control-modern::placeholder {
+        color: rgba(255,255,255,.5);
+      }
+      .form-floating-modern label {
+        position: absolute;
+        top: 16px;
+        right: 20px;
+        color: rgba(255,255,255,.7);
+        font-size: 14px;
+        font-weight: 500;
+        transition: all .3s ease;
+        pointer-events: none;
+        background: transparent;
+        padding: 0 4px;
+      }
+      .form-floating-modern .form-control-modern:focus + label,
+      .form-floating-modern .form-control-modern:not(:placeholder-shown) + label {
+        top: -8px;
+        right: 16px;
+        font-size: 12px;
+        color: #00b894;
+        background: rgba(20,20,22,.9);
+      }
+
+      /* Modern Button */
+      .btn-modern {
+        background: linear-gradient(135deg, #00b894, #e74c3c);
+        border: none;
+        border-radius: 12px;
+        padding: 16px 40px;
+        color: #fff;
+        font-size: 16px;
+        font-weight: 600;
+        text-transform: uppercase;
+        letter-spacing: 1px;
+        cursor: pointer;
+        transition: all .3s ease;
+        box-shadow: 0 8px 25px rgba(0,184,148,.3);
+        position: relative;
+        overflow: hidden;
+      }
+      .btn-modern:hover {
+        transform: translateY(-2px);
+        box-shadow: 0 12px 35px rgba(0,184,148,.4);
+      }
+      .btn-modern:active {
+        transform: translateY(0);
+      }
+
+      /* Modern Checkbox */
+      .form-check-modern {
+        display: flex;
+        align-items: center;
+        gap: 12px;
+      }
+      .form-check-input-modern {
+        width: 20px;
+        height: 20px;
+        background: rgba(255,255,255,.05);
+        border: 1px solid rgba(255,255,255,.2);
+        border-radius: 4px;
+        cursor: pointer;
+        transition: all .3s ease;
+      }
+      .form-check-input-modern:checked {
+        background: linear-gradient(135deg, #00b894, #e74c3c);
+        border-color: transparent;
+      }
+      .form-check-label-modern {
+        color: rgba(255,255,255,.8);
+        font-size: 14px;
+        cursor: pointer;
+      }
+
+      /* RTL Adjustments */
+      .form-floating-modern label {
+        right: 20px;
+        left: auto;
+      }
+      .form-floating-modern .form-control-modern:focus + label,
+      .form-floating-modern .form-control-modern:not(:placeholder-shown) + label {
+        right: 16px;
+        left: auto;
+      }
+
+      /* Responsive */
+      @media (max-width: 768px) {
+        .card-body-modern {
+          padding: 30px 20px;
+        }
+        .card-header-modern {
+          padding: 20px;
+        }
+      }
+    </style>
   </head>
 
   <body class="dark-scheme">
@@ -41,86 +177,90 @@
       <!-- page preloader close -->
 
       <!-- header begin -->
-<header class="transparent">
-  <div class="container">
-    <div class="row">
-      <div class="col-md-12">
-        <div class="de-flex sm-pt10">
-          <div class="de-flex-col">
-            <div class="de-flex-col">
-<!-- logo begin -->
-<div id="logo" style="display: flex; align-items: center; gap: 10px; direction: rtl;">
-  <a href="index.html" style="display: flex; align-items: center; text-decoration: none;">
-    <img
-      class="logo-main"
-      src="images/Al-Rafidain-logo.png"
-      alt="شعار نادي بلاد الرافدين"
-      style="width: 75px;"
-    />
-    <span
-      style="
-        font-size: 22px;
-        font-weight: 700;
-        background: linear-gradient(90deg, #00b894, #e74c3c);
-        -webkit-background-clip: text;
-        -webkit-text-fill-color: transparent;
-        margin-right: 10px;
-        font-family: 'Cairo', 'Tajawal', sans-serif;
-        white-space: nowrap;
-        letter-spacing: 0.5px;
-        text-shadow: 0 0 6px rgba(0,0,0,0.4);
-      "
-      >نادي بلاد الرافدين</span
-    >
-  </a>
-</div>
-<!-- logo close -->
-
-          </div>
-
-          <div class="de-flex-col header-col-mid">
-            <ul id="mainmenu">
-              <li>
-                <a class="menu-item" href="index.html#section-hero">الرئيسية</a>
-                <ul>
-                  <li>
-                    <a class="menu-item" href="index.html">المعرض الرئيسي الأول</a>
-                  </li>
-                  <li>
-                    <a class="menu-item" href="index-expo-2.html">المعرض الرئيسي الثاني</a>
-                  </li>
-                  <li>
-                    <a class="menu-item" href="index-expo-3.html">المعرض الرئيسي الثالث</a>
-                  </li>
-                  <li>
-                    <a class="menu-item" href="index-expo-4.html">المعرض الرئيسي الرابع</a>
-                  </li>
-                  <li>
-                    <a class="menu-item" href="index-car-1.html">السيارة الرئيسية الأولى</a>
-                  </li>
-                </ul>
-              </li>
-              <li><a class="menu-item" href="about.html">حول</a></li>
-              <li><a class="menu-item" href="index.html#section-experts">الخبراء</a></li>
-              <li><a class="menu-item" href="index.html#section-schedule">الجدول الزمني</a></li>
-              <li><a class="menu-item" href="tickets.html">حجز القاعة</a></li>
-              <li><a class="menu-item" href="index.html#section-gallery">المعرض</a></li>
-              <li><a class="menu-item" href="index.html#section-location">الوصول إلى هناك</a></li>
-              <li><a class="menu-item" href="news.html">الأخبار</a></li>
-            </ul>
-          </div>
-
-          <div class="de-flex-col">
-            <div class="menu_side_area">
-              <a href="tickets.html" class="btn-line">احجز القاعة</a>
-              <span id="menu-btn"></span>
+      <header class="transparent">
+        <div class="container">
+          <div class="row">
+            <div class="col-md-12">
+              <div class="de-flex sm-pt10">
+                <div class="de-flex-col">
+                  <div class="de-flex-col">
+      <!-- logo begin -->
+      <div id="logo" style="display: flex; align-items: center; gap: 10px; direction: rtl;">
+        <a href="index.html" style="display: flex; align-items: center; text-decoration: none;">
+          <img
+            class="logo-main"
+            src="images/Al-Rafidain-logo.png"
+            alt="شعار نادي بلاد الرافدين"
+            style="width: 75px;"
+          />
+          <span
+            style="
+              font-size: 22px;
+              font-weight: 700;
+              background: linear-gradient(90deg, #00b894, #e74c3c);
+              background-clip: text;
+              -webkit-background-clip: text;
+              -webkit-text-fill-color: transparent;
+              margin-right: 10px;
+              font-family: 'Cairo', 'Tajawal', sans-serif;
+              white-space: nowrap;
+              letter-spacing: 0.5px;
+              text-shadow: 0 0 6px rgba(0,0,0,0.4);
+            "
+            >نادي بلاد الرافدين</span
+          >
+        </a>
+      </div>
+      <!-- logo close -->
+      
+                </div>
+      
+                <div class="de-flex-col header-col-mid">
+                  <ul id="mainmenu">
+                    <li>
+                      <a class="menu-item" href="#section-hero">الرئيسية</a>
+                      <ul>
+                        <li>
+                          <a class="menu-item" href="index.html">المعرض الرئيسي الأول</a>
+                        </li>
+                        <li>
+                          <a class="menu-item" href="index-expo-2.html">المعرض الرئيسي الثاني</a>
+                        </li>
+                        <li>
+                          <a class="menu-item" href="index-expo-3.html">المعرض الرئيسي الثالث</a>
+                        </li>
+                        <li>
+                          <a class="menu-item" href="index-expo-4.html">المعرض الرئيسي الرابع</a>
+                        </li>
+                        <li>
+                          <a class="menu-item" href="index-car-1.html">السيارة الرئيسية الأولى</a>
+                        </li>
+                      </ul>
+                    </li>
+                    <li><a class="menu-item" href="about.html">حول</a></li>
+                    <li><a class="menu-item" href="team.html">الفريق</a></li>
+                    <li><a class="menu-item" href="live.html">الاحداث</a></li>
+                    <li><a class="menu-item" href="tickets.html">التذاكر</a></li>
+                    <li><a class="menu-item" href="hall.html">حجز القاعة</a></li>
+                    <li><a class="menu-item" href="#section-gallery">المعرض</a></li>
+                    <li><a class="menu-item" href="shop.html">المتجر</a></li>
+                    <li><a class="menu-item" href="news.html">الأخبار</a></li>
+                    
+                    
+                  </ul>
+                </div>
+      
+                <div class="de-flex-col">
+                  <div class="menu_side_area">
+                    <a href="tickets.html" class="btn-line">اشترِ التذكرة</a>
+                    <span id="menu-btn"></span>
+                  </div>
+                </div>
+              </div>
             </div>
           </div>
         </div>
-      </div>
-    </div>
-  </div>
-</header>
+      </header>
 
       <!-- header close -->
       <!-- content begin -->
@@ -279,7 +419,7 @@
         <section id="booking-form" class="no-top">
           <div class="container">
             <div class="row">
-              <div class="col-lg-8 offset-lg-2 text-center">
+              <div class="col-lg-10 offset-lg-1 text-center">
                 <h2 class="text-uppercase">
                   <span class="wow fadeInUp">احجز</span>
                   <span
@@ -296,219 +436,124 @@
             </div>
 
             <div class="row">
-              <div class="col-lg-8 offset-lg-2">
-                <form id="wedding-booking-form" class="form-border bg-light p-4 rounded" method="post" action="#">
-                  <h3 class="text-center mb-4">حجز للأفراح</h3>
-                  <div class="row">
-                    <div class="col-md-6">
-                      <div class="field-set">
-                        <label>الاسم الكامل:</label>
-                        <input type="text" name="name" id="wedding-name" class="form-control bg-white" placeholder="أدخل اسمك الكامل" required />
-                      </div>
-                    </div>
-                    <div class="col-md-6">
-                      <div class="field-set">
-                        <label>البريد الإلكتروني:</label>
-                        <input type="email" name="email" id="wedding-email" class="form-control bg-white" placeholder="أدخل بريدك الإلكتروني" required />
-                      </div>
-                    </div>
-                    <div class="col-md-6">
-                      <div class="field-set">
-                        <label>رقم الهاتف:</label>
-                        <input type="tel" name="phone" id="wedding-phone" class="form-control bg-white" placeholder="أدخل رقم هاتفك" required />
-                      </div>
-                    </div>
-                    <div class="col-md-6">
-                      <div class="field-set">
-                        <label>تاريخ الحجز:</label>
-                        <input type="date" name="date" id="wedding-date" class="form-control bg-white" required />
-                      </div>
-                    </div>
-                    <div class="col-md-6">
-                      <div class="field-set">
-                        <label>عدد الضيوف:</label>
-                        <input type="number" name="guests" id="wedding-guests" class="form-control bg-white" min="1" max="500" value="100" required />
-                      </div>
-                    </div>
-                    <div class="col-md-6">
-                      <div class="field-set">
-                        <label>نوع الخدمة:</label>
-                        <select name="service_type" id="wedding-service" class="form-control bg-white" required>
-                          <option value="">اختر نوع الخدمة</option>
-                          <option value="full">حفل كامل</option>
-                          <option value="partial">حفل جزئي</option>
-                          <option value="basic">أساسي</option>
-                        </select>
-                      </div>
-                    </div>
-                    <div class="col-md-12">
-                      <div class="field-set">
-                        <label>ملاحظات إضافية:</label>
-                        <textarea name="notes" id="wedding-notes" class="form-control bg-white" rows="4" placeholder="أي ملاحظات إضافية..."></textarea>
-                      </div>
-                    </div>
-                    <div class="col-md-12">
-                      <div class="spacer-single"></div>
-                      <button type="submit" id="wedding-submit" class="btn-main btn-fullwidth">احجز الآن</button>
-                    </div>
+              <div class="col-lg-10 offset-lg-1">
+                <div class="card-modern">
+                  <div class="card-header-modern">
+                    <h3 class="text-center mb-0">
+                      <i class="fa fa-calendar text-gradient me-2"></i>حجز القاعة
+                    </h3>
+                    <p class="text-center mt-2 opacity-75">املأ النموذج أدناه لحجز القاعة. يمكنك إضافة خدمات التصوير إذا أردت.</p>
                   </div>
-                </form>
-              </div>
-            </div>
+                  <div class="card-body-modern">
+                    <form id="hall-booking-form" method="post" action="#" class="modern-form">
+                      <div class="row g-4">
+                        <div class="col-lg-6">
+                          <div class="form-floating-modern">
+                            <input type="text" name="name" id="hall-name" class="form-control-modern" required>
+                            <label for="hall-name">
+                              <i class="fa fa-user me-2"></i>الاسم الكامل *
+                            </label>
+                          </div>
+                        </div>
+                        <div class="col-lg-6">
+                          <div class="form-floating-modern">
+                            <input type="email" name="email" id="hall-email" class="form-control-modern" required>
+                            <label for="hall-email">
+                              <i class="fa fa-envelope me-2"></i>البريد الإلكتروني *
+                            </label>
+                          </div>
+                        </div>
+                      </div>
+                      <div class="row g-4 mt-2">
+                        <div class="col-lg-6">
+                          <div class="form-floating-modern">
+                            <input type="tel" name="phone" id="hall-phone" class="form-control-modern" required>
+                            <label for="hall-phone">
+                              <i class="fa fa-phone me-2"></i>رقم الهاتف *
+                            </label>
+                          </div>
+                        </div>
+                        <div class="col-lg-6">
+                          <div class="form-floating-modern">
+                            <input type="date" name="date" id="hall-date" class="form-control-modern" required>
+                            <label for="hall-date">
+                              <i class="fa fa-calendar me-2"></i>تاريخ الحجز *
+                            </label>
+                          </div>
+                        </div>
+                      </div>
+                      <div class="row g-4 mt-2">
+                        <div class="col-lg-6">
+                          <div class="form-floating-modern">
+                            <input type="number" name="guests" id="hall-guests" class="form-control-modern" min="1" max="500" value="100" required>
+                            <label for="hall-guests">
+                              <i class="fa fa-users me-2"></i>عدد الضيوف *
+                            </label>
+                          </div>
+                        </div>
+                        <div class="col-lg-6">
+                          <div class="form-floating-modern">
+                            <select name="service_type" id="hall-service" class="form-control-modern" required>
+                              <option value="">اختر نوع الخدمة</option>
+                              <option value="full">حفل كامل</option>
+                              <option value="partial">حفل جزئي</option>
+                              <option value="basic">أساسي</option>
+                            </select>
+                            <label for="hall-service">
+                              <i class="fa fa-star me-2"></i>نوع الخدمة *
+                            </label>
+                          </div>
+                        </div>
+                      </div>
 
-            <div class="spacer-double"></div>
+                      <div class="mt-4">
+                        <div class="form-check-modern">
+                          <input type="checkbox" class="form-check-input-modern" id="add-photography" name="add_photography">
+                          <label class="form-check-label-modern" for="add-photography">
+                            <i class="fa fa-camera me-2"></i>أريد إضافة خدمات التصوير أيضاً
+                          </label>
+                        </div>
+                      </div>
 
-            <div class="row">
-              <div class="col-lg-8 offset-lg-2">
-                <form id="photography-booking-form" class="form-border bg-light p-4 rounded" method="post" action="#">
-                  <h3 class="text-center mb-4">حجز للتصوير</h3>
-                  <div class="row">
-                    <div class="col-md-6">
-                      <div class="field-set">
-                        <label>الاسم الكامل:</label>
-                        <input type="text" name="name" id="photo-name" class="form-control bg-white" placeholder="أدخل اسمك الكامل" required />
+                      <div id="photography-fields" class="row g-4 mt-3" style="display: none;">
+                        <div class="col-lg-6">
+                          <div class="form-floating-modern">
+                            <select name="photography_type" id="hall-photo-type" class="form-control-modern">
+                              <option value="">اختر نوع التصوير</option>
+                              <option value="wedding">تصوير زفاف</option>
+                              <option value="portrait">تصوير شخصي</option>
+                              <option value="event">تصوير حدث</option>
+                            </select>
+                            <label for="hall-photo-type">
+                              <i class="fa fa-camera me-2"></i>نوع التصوير *
+                            </label>
+                          </div>
+                        </div>
+                        <div class="col-lg-6">
+                          <div class="form-floating-modern">
+                            <input type="number" name="duration" id="hall-duration" class="form-control-modern" min="1" max="8" value="2">
+                            <label for="hall-duration">
+                              <i class="fa fa-clock me-2"></i>مدة التصوير (ساعات) *
+                            </label>
+                          </div>
+                        </div>
                       </div>
-                    </div>
-                    <div class="col-md-6">
-                      <div class="field-set">
-                        <label>البريد الإلكتروني:</label>
-                        <input type="email" name="email" id="photo-email" class="form-control bg-white" placeholder="أدخل بريدك الإلكتروني" required />
-                      </div>
-                    </div>
-                    <div class="col-md-6">
-                      <div class="field-set">
-                        <label>رقم الهاتف:</label>
-                        <input type="tel" name="phone" id="photo-phone" class="form-control bg-white" placeholder="أدخل رقم هاتفك" required />
-                      </div>
-                    </div>
-                    <div class="col-md-6">
-                      <div class="field-set">
-                        <label>تاريخ الحجز:</label>
-                        <input type="date" name="date" id="photo-date" class="form-control bg-white" required />
-                      </div>
-                    </div>
-                    <div class="col-md-6">
-                      <div class="field-set">
-                        <label>نوع التصوير:</label>
-                        <select name="photography_type" id="photo-type" class="form-control bg-white" required>
-                          <option value="">اختر نوع التصوير</option>
-                          <option value="wedding">تصوير زفاف</option>
-                          <option value="portrait">تصوير شخصي</option>
-                          <option value="event">تصوير حدث</option>
-                        </select>
-                      </div>
-                    </div>
-                    <div class="col-md-6">
-                      <div class="field-set">
-                        <label>مدة التصوير (ساعات):</label>
-                        <input type="number" name="duration" id="photo-duration" class="form-control bg-white" min="1" max="8" value="2" required />
-                      </div>
-                    </div>
-                    <div class="col-md-12">
-                      <div class="field-set">
-                        <label>ملاحظات إضافية:</label>
-                        <textarea name="notes" id="photo-notes" class="form-control bg-white" rows="4" placeholder="أي ملاحظات إضافية..."></textarea>
-                      </div>
-                    </div>
-                    <div class="col-md-12">
-                      <div class="spacer-single"></div>
-                      <button type="submit" id="photo-submit" class="btn-main btn-fullwidth">احجز الآن</button>
-                    </div>
-                  </div>
-                </form>
-              </div>
-            </div>
-          </div>
-        </section>
 
-        <section id="events-section" class="pt60 no-bottom">
-          <div class="container">
-            <div class="row">
-              <div class="col-md-12 text-center">
-                <h2 class="text-uppercase wow fadeInUp">
-                  <span class="text-line">قائمة</span>
-                  <span class="text-gradient">الفعاليات والتذاكر المرتبطة بها</span>
-                </h2>
-                <div class="spacer-single"></div>
-              </div>
-            </div>
-            <div class="row">
-              <div class="col-lg-4 col-md-6 mb-sm-30">
-                <div class="feature-box f-boxed style-3">
-                  <i class="fa fa-calendar id-color"></i>
-                  <div class="text">
-                    <h4>زفاف أحمد وفاطمة</h4>
-                    <p>زفاف كبير في 15 يناير 2025. تذاكر متاحة الآن.</p>
-                    <a href="#wedding-booking-form" class="btn-main btn-small">احجز تذكرة</a>
-                  </div>
-                </div>
-              </div>
-              <div class="col-lg-4 col-md-6 mb-sm-30">
-                <div class="feature-box f-boxed style-3">
-                  <i class="fa fa-camera id-color"></i>
-                  <div class="text">
-                    <h4>جلسة تصوير عائلية</h4>
-                    <p>جلسة تصوير عائلية في 20 يناير 2025. حجز مسبق مطلوب.</p>
-                    <a href="#photography-booking-form" class="btn-main btn-small">احجز الآن</a>
-                  </div>
-                </div>
-              </div>
-              <div class="col-lg-4 col-md-6 mb-sm-30">
-                <div class="feature-box f-boxed style-3">
-                  <i class="fa fa-music id-color"></i>
-                  <div class="text">
-                    <h4>حفل موسيقي</h4>
-                    <p>حفل موسيقي في 25 يناير 2025. تذاكر محدودة.</p>
-                    <a href="#wedding-booking-form" class="btn-main btn-small">احجز تذكرة</a>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-        </section>
+                      <div class="mt-4">
+                        <div class="form-floating-modern">
+                          <textarea name="notes" id="hall-notes" class="form-control-modern" rows="4"></textarea>
+                          <label for="hall-notes">
+                            <i class="fa fa-comment me-2"></i>ملاحظات إضافية (اختياري)
+                          </label>
+                        </div>
+                      </div>
 
-        <section class="pt60 no-bottom">
-          <div class="container">
-            <div class="row">
-              <div class="col-md-12 text-center">
-                <h2 class="text-uppercase wow fadeInUp">
-                  <span class="text-line">معلومات</span>
-                  <span class="text-gradient">إضافية</span>
-                </h2>
-              </div>
-              <div class="spacer-single"></div>
-            </div>
-            <div class="row g-custom-x">
-              <div class="col-lg-4 col-md-6 mb-sm-30">
-                <div class="feature-box f-boxed style-3 text-center">
-                  <i class="fa fa-calendar id-color"></i>
-                  <div class="text">
-                    <h4>تواريخ الحدث</h4>
-                    <p>
-                      الحدث يقام من 3 إلى 7 ديسمبر 2025 في بغداد، العراق.
-                    </p>
-                  </div>
-                </div>
-              </div>
-              <div class="col-lg-4 col-md-6 mb-sm-30">
-                <div class="feature-box f-boxed style-3 text-center">
-                  <i class="fa fa-map-marker id-color"></i>
-                  <div class="text">
-                    <h4>الموقع</h4>
-                    <p>
-                      مركز المعارض الدولي، بغداد، العراق.
-                    </p>
-                  </div>
-                </div>
-              </div>
-              <div class="col-lg-4 col-md-6 mb-sm-30">
-                <div class="feature-box f-boxed style-3 text-center">
-                  <i class="fa fa-clock-o id-color"></i>
-                  <div class="text">
-                    <h4>أوقات الحدث</h4>
-                    <p>
-                      من 9 صباحاً إلى 9 مساءً يومياً.
-                    </p>
+                      <div class="text-center mt-5">
+                        <button type="submit" id="hall-submit" class="btn-modern">
+                          <i class="fa fa-calendar-check me-2"></i>احجز الآن
+                        </button>
+                      </div>
+                    </form>
                   </div>
                 </div>
               </div>
@@ -548,5 +593,38 @@
     <script src="js/custom-marquee.js"></script>
     <script src="js/jquery.countdown.js"></script>
     <script src="js/countdown-custom.js"></script>
+    <script>
+      document.addEventListener('DOMContentLoaded', function() {
+        const addPhotographyCheckbox = document.getElementById('add-photography');
+        const photographyFields = document.getElementById('photography-fields');
+        const photoTypeSelect = document.getElementById('hall-photo-type');
+        const durationInput = document.getElementById('hall-duration');
+
+        addPhotographyCheckbox.addEventListener('change', function() {
+          if (this.checked) {
+            photographyFields.style.display = 'block';
+            photoTypeSelect.required = true;
+            durationInput.required = true;
+          } else {
+            photographyFields.style.display = 'none';
+            photoTypeSelect.required = false;
+            durationInput.required = false;
+            photoTypeSelect.value = '';
+            durationInput.value = '2';
+          }
+        });
+
+        // Form submission handling (optional enhancement)
+        const form = document.getElementById('hall-booking-form');
+        form.addEventListener('submit', function(e) {
+          if (addPhotographyCheckbox.checked && (!photoTypeSelect.value || !durationInput.value)) {
+            e.preventDefault();
+            alert('يرجى ملء جميع حقول خدمات التصوير إذا تم اختيارها.');
+            return false;
+          }
+          // Submit logic here (e.g., AJAX or form action)
+        });
+      });
+    </script>
   </body>
 </html>
