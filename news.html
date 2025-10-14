@@ -21,7 +21,69 @@
     <!-- color scheme -->
     <link id="colors" href="css/colors/blue-teal.css" rel="stylesheet" type="text/css" >
     <style>
-      /* Scoped styles for news hub */
+/* Dropdown menu styles */
+      .dropdown {
+        position: relative;
+      }
+      .dropdown-menu {
+        display: none;
+        position: absolute;
+        top: 80%;
+        left: 0;
+        background: #141416;
+        border-radius: 0;
+        min-width: 150px;
+        z-index: 1000;
+      }
+      .dropdown:hover .dropdown-menu {
+        display: block;
+      }
+      .dropdown-menu li {
+        list-style: none;
+      }
+      .dropdown-menu li a {
+        display: block;
+        padding: 10px 15px;
+        color: #fff;
+        text-decoration: none;
+        transition: background .2s ease;
+        font-weight: 400;
+        font-size: 14px;
+      }
+      .dropdown-menu li a:hover {
+        background: #242426;
+      }/* Dropdown menu styles */
+      .dropdown {
+        position: relative;
+      }
+      .dropdown-menu {
+        display: none;
+        position: absolute;
+        top: 80%;
+        left: 0;
+        background: #141416;
+        border-radius: 0;
+        min-width: 150px;
+        z-index: 1000;
+      }
+      .dropdown:hover .dropdown-menu {
+        display: block;
+      }
+      .dropdown-menu li {
+        list-style: none;
+      }
+      .dropdown-menu li a {
+        display: block;
+        padding: 10px 15px;
+        color: #fff;
+        text-decoration: none;
+        transition: background .2s ease;
+        font-weight: 400;
+        font-size: 14px;
+      }
+      .dropdown-menu li a:hover {
+        background: #242426;
+      }      /* Scoped styles for news hub */
       .news-hero h1 { letter-spacing:.3px; }
       .news-tabs { display:flex; gap:10px; flex-wrap:wrap; margin-bottom:18px; }
       .news-tab { background:#151515; border:1px solid #232323; color:#eaeaea; padding:10px 14px; border-radius:12px; cursor:pointer; font-weight:700; }
@@ -97,7 +159,7 @@
   <li><a class="menu-item" href="tickets.html">التذاكر</a></li>
   <li><a class="menu-item" href="live.html">الاحداث</a></li>
   <li class="dropdown">
-    <a class="menu-item" href="team.html">الفريق</a>
+    <a class="menu-item" href="drivers.html">الفريق</a>
     <ul class="dropdown-menu">
       <li><a href="youth.html">شباب</a></li>
       <li><a href="juniors.html">ناشئين</a></li>

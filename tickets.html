@@ -32,7 +32,38 @@
       type="text/css"
     />
     <style>
-      /* Custom styles for tickets page */
+/* Dropdown menu styles */
+      .dropdown {
+        position: relative;
+      }
+      .dropdown-menu {
+        display: none;
+        position: absolute;
+        top: 80%;
+        left: 0;
+        background: #141416;
+        border-radius: 0;
+        min-width: 150px;
+        z-index: 1000;
+      }
+      .dropdown:hover .dropdown-menu {
+        display: block;
+      }
+      .dropdown-menu li {
+        list-style: none;
+      }
+      .dropdown-menu li a {
+        display: block;
+        padding: 10px 15px;
+        color: #fff;
+        text-decoration: none;
+        transition: background .2s ease;
+        font-weight: 400;
+        font-size: 14px;
+      }
+      .dropdown-menu li a:hover {
+        background: #242426;
+      }      /* Custom styles for tickets page */
       .hero-offer { background: linear-gradient(135deg, #00b894, #e74c3c); padding: 60px 0; text-align: center; color: #fff; margin-bottom: 40px; }
       .hero-offer h1 { font-size: 3rem; font-weight: 900; margin-bottom: 10px; }
       .hero-offer p { font-size: 1.2rem; opacity: 0.9; }
@@ -138,7 +169,7 @@
                     </li>
                     <li><a class="menu-item" href="about.html">حول</a></li>
                     <li class="dropdown">
-    <a class="menu-item" href="team.html">الفريق</a>
+    <a class="menu-item" href="drivers.html">الفريق</a>
     <ul class="dropdown-menu">
       <li><a href="youth.html">شباب</a></li>
       <li><a href="juniors.html">ناشئين</a></li>
