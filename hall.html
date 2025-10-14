@@ -1,0 +1,634 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+  <head>
+    <title>حجز القاعة - نادي بلاد الرافدين</title>
+    <link rel="icon" href="images/icon.png" type="image/gif" sizes="16x16" />
+    <meta content="text/html;charset=utf-8" http-equiv="Content-Type" />
+    <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+    <meta
+      content="حجز قاعة نادي بلاد الرافدين - احجز للأفراح والتصوير، قائمة الفعاليات والتذاكر"
+      name="description"
+    />
+    <meta content="" name="keywords" />
+    <meta content="" name="author" />
+
+    <!-- CSS Files
+    ================================================== -->
+    <link
+      href="css/bootstrap.min.css"
+      rel="stylesheet"
+      type="text/css"
+      id="bootstrap"
+    />
+    <link href="css/mdb.min.css" rel="stylesheet" type="text/css" id="mdb" />
+    <link href="css/plugins.css" rel="stylesheet" type="text/css" />
+    <link href="css/style.css" rel="stylesheet" type="text/css" />
+    <link href="css/coloring.css" rel="stylesheet" type="text/css" />
+    <!-- color scheme -->
+    <link
+      id="colors"
+      href="css/colors/blue-teal.css"
+      rel="stylesheet"
+      type="text/css"
+    />
+    <style>
+      /* Modern Card Styles */
+      .card-modern {
+        background: rgba(20,20,22,.9);
+        border: 1px solid #242426;
+        border-radius: 20px;
+        overflow: hidden;
+        box-shadow: 0 15px 35px rgba(0,0,0,.3);
+        backdrop-filter: blur(10px);
+        -webkit-backdrop-filter: blur(10px);
+      }
+      .card-header-modern {
+        background: linear-gradient(135deg, rgba(0,184,148,.1), rgba(231,76,60,.1));
+        padding: 30px 40px;
+        border-bottom: 1px solid rgba(255,255,255,.1);
+      }
+      .card-body-modern {
+        padding: 40px;
+      }
+
+      /* Modern Form Styles */
+      .form-floating-modern {
+        position: relative;
+        margin-bottom: 0;
+      }
+      .form-control-modern {
+        background: rgba(255,255,255,.05);
+        border: 1px solid rgba(255,255,255,.1);
+        border-radius: 12px;
+        padding: 16px 20px;
+        color: #fff;
+        font-size: 16px;
+        transition: all .3s ease;
+        width: 100%;
+      }
+      .form-control-modern:focus {
+        background: rgba(255,255,255,.08);
+        border-color: #00b894;
+        box-shadow: 0 0 0 3px rgba(0,184,148,.2);
+        outline: none;
+      }
+      .form-control-modern::placeholder {
+        color: rgba(255,255,255,.5);
+      }
+      .form-floating-modern label {
+        position: absolute;
+        top: 16px;
+        right: 20px;
+        color: rgba(255,255,255,.7);
+        font-size: 14px;
+        font-weight: 500;
+        transition: all .3s ease;
+        pointer-events: none;
+        background: transparent;
+        padding: 0 4px;
+      }
+      .form-floating-modern .form-control-modern:focus + label,
+      .form-floating-modern .form-control-modern:not(:placeholder-shown) + label {
+        top: -8px;
+        right: 16px;
+        font-size: 12px;
+        color: #00b894;
+        background: rgba(20,20,22,.9);
+      }
+
+      /* Modern Button */
+      .btn-modern {
+        background: linear-gradient(135deg, #00b894, #e74c3c);
+        border: none;
+        border-radius: 12px;
+        padding: 16px 40px;
+        color: #fff;
+        font-size: 16px;
+        font-weight: 600;
+        text-transform: uppercase;
+        letter-spacing: 1px;
+        cursor: pointer;
+        transition: all .3s ease;
+        box-shadow: 0 8px 25px rgba(0,184,148,.3);
+        position: relative;
+        overflow: hidden;
+      }
+      .btn-modern:hover {
+        transform: translateY(-2px);
+        box-shadow: 0 12px 35px rgba(0,184,148,.4);
+      }
+      .btn-modern:active {
+        transform: translateY(0);
+      }
+
+      /* Modern Checkbox */
+      .form-check-modern {
+        display: flex;
+        align-items: center;
+        gap: 12px;
+      }
+      .form-check-input-modern {
+        width: 20px;
+        height: 20px;
+        background: rgba(255,255,255,.05);
+        border: 1px solid rgba(255,255,255,.2);
+        border-radius: 4px;
+        cursor: pointer;
+        transition: all .3s ease;
+      }
+      .form-check-input-modern:checked {
+        background: linear-gradient(135deg, #00b894, #e74c3c);
+        border-color: transparent;
+      }
+      .form-check-label-modern {
+        color: rgba(255,255,255,.8);
+        font-size: 14px;
+        cursor: pointer;
+      }
+
+      /* RTL Adjustments */
+      .form-floating-modern label {
+        right: 20px;
+        left: auto;
+      }
+      .form-floating-modern .form-control-modern:focus + label,
+      .form-floating-modern .form-control-modern:not(:placeholder-shown) + label {
+        right: 16px;
+        left: auto;
+      }
+
+      /* Responsive */
+      @media (max-width: 768px) {
+        .card-body-modern {
+          padding: 30px 20px;
+        }
+        .card-header-modern {
+          padding: 20px;
+        }
+      }
+    </style>
+  </head>
+
+  <body class="dark-scheme">
+    <div id="wrapper">
+      <div class="scrollbar"></div>
+      <!-- page preloader begin -->
+      <div id="de-loader"></div>
+      <!-- page preloader close -->
+
+      <!-- header begin -->
+      <header class="transparent">
+        <div class="container">
+          <div class="row">
+            <div class="col-md-12">
+              <div class="de-flex sm-pt10">
+                <div class="de-flex-col">
+                  <div class="de-flex-col">
+      <!-- logo begin -->
+      <div id="logo" style="display: flex; align-items: center; gap: 10px; direction: rtl;">
+        <a href="index.html" style="display: flex; align-items: center; text-decoration: none;">
+          <img
+            class="logo-main"
+            src="images/Al-Rafidain-logo.png"
+            alt="شعار نادي بلاد الرافدين"
+            style="width: 75px;"
+          />
+          <span
+            style="
+              font-size: 22px;
+              font-weight: 700;
+              background: linear-gradient(90deg, #00b894, #e74c3c);
+              background-clip: text;
+              -webkit-background-clip: text;
+              -webkit-text-fill-color: transparent;
+              margin-right: 10px;
+              font-family: 'Cairo', 'Tajawal', sans-serif;
+              white-space: nowrap;
+              letter-spacing: 0.5px;
+              text-shadow: 0 0 6px rgba(0,0,0,0.4);
+            "
+            >نادي بلاد الرافدين</span
+          >
+        </a>
+      </div>
+      <!-- logo close -->
+      
+                </div>
+      
+                <div class="de-flex-col header-col-mid">
+<ul id="mainmenu">
+  <li><a class="menu-item" href="news.html">الأخبار</a></li>
+  <li><a class="menu-item" href="shop.html">المتجر</a></li>
+  <li><a class="menu-item" href="#section-gallery">المعرض</a></li>
+  <li><a class="menu-item" href="tickets.html">التذاكر</a></li>
+  <li><a class="menu-item" href="live.html">الاحداث</a></li>
+  <li class="dropdown">
+    <a class="menu-item" href="team.html">الفريق</a>
+    <ul class="dropdown-menu">
+      <li><a href="youth.html">شباب</a></li>
+      <li><a href="juniors.html">ناشئين</a></li>
+      <li><a href="drivers.html">سائقين</a></li>
+    </ul>
+  </li>
+  <li><a class="menu-item" href="about.html">حول</a></li>
+  <li>
+    <a class="menu-item" href="#section-hero">الرئيسية</a>
+    <ul>
+      <li>
+        <a class="menu-item" href="index.html">المعرض الرئيسي الأول</a>
+      </li>
+      <li>
+        <a class="menu-item" href="index-expo-2.html">المعرض الرئيسي الثاني</a>
+      </li>
+      <li>
+        <a class="menu-item" href="index-expo-3.html">المعرض الرئيسي الثالث</a>
+      </li>
+      <li>
+        <a class="menu-item" href="index-expo-4.html">المعرض الرئيسي الرابع</a>
+      </li>
+      <li>
+        <a class="menu-item" href="index-car-1.html">السيارة الرئيسي الأولى</a>
+      </li>
+    </ul>
+  </li>
+</ul>
+                </div>
+      
+                <div class="de-flex-col">
+                  <div class="menu_side_area">
+                    <a href="tickets.html" class="btn-line">اشترِ التذكرة</a>
+                    <span id="menu-btn"></span>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </header>
+
+      <!-- header close -->
+      <!-- content begin -->
+      <div class="no-bottom no-top" id="content">
+        <!-- float text begin -->
+        <div class="float-text">
+          <div class="de_social-icons">
+            <a href="#"><i class="fa fa-facebook fa-lg"></i></a>
+            <a href="#"><i class="fa fa-twitter fa-lg"></i></a>
+            <a href="#"><i class="fa fa-instagram fa-lg"></i></a>
+          </div>
+          <span><a href="tickets.html">احجز القاعة</a></span>
+        </div>
+        <!-- float text close -->
+
+        <div id="top"></div>
+        <section id="section-hero" class="jarallax">
+          <img src="images/background/3.jpg" class="jarallax-img" alt="" />
+          <div class="container position-relative z1000 wow fadeInDown">
+            <div class="row align-items-center position-relative">
+              <div class="spacer-double d-lg-none d-sm-block"></div>
+              <div class="col-lg-12 z1000">
+                <div class="spacer-double"></div>
+                <h5 class="mb-4 s2">
+                  <span class="wow fadeInRight" data-wow-delay=".2s"
+                    ><i class="id-color fa fa-calendar"></i>احجز قاعتك الآن</span
+                  >
+                </h5>
+                <h1 class="ultra-big text-uppercase mb-4 wow fadeInRight">
+                  <span class="wow fadeInLeft" data-wow-delay=".4s">حجز</span>
+                  <span class="text-line">القاعة</span>
+                  <span class="text-gradient">للأفراح والتصوير</span>
+                </h1>
+              </div>
+              <div class="col-lg-4 sm-hide">
+                <img
+                  src="images/misc/car-big.png"
+                  class="sm-img-fluid position-absolute top-0 end-0 anim-up-down wow fadeInDown"
+                  alt=""
+                />
+              </div>
+              <div class="clearfix"></div>
+              <div class="col-lg-1 col-2">
+                <img
+                  src="images/misc/arrow-up-left.png"
+                  class="img-fluid wow fadeInLeft"
+                  alt=""
+                />
+              </div>
+              <div class="col-lg-5 col-10">
+                <div class="position-relative">
+                  <p class="lead no-bottom wow fadeInLeft">
+                    احجز قاعة نادي بلاد الرافدين للأفراح والتصوير. قاعة فاخرة مع سعة تصل إلى 500 شخص، مزودة بأحدث المرافق والخدمات.
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="de-gradient-edge-bottom"></div>
+        </section>
+
+        <section id="section-hall" style="direction: ltr;">
+          <div class="container">
+            <div class="row">
+              <div class="col-lg-12 text-center">
+                <h2 class="text-uppercase wow fadeInUp">
+                  وصف <span class="text-gradient">القاعة</span>
+                </h2>
+                <div class="spacer-20"></div>
+              </div>
+
+              <div class="col-lg-4" data-jarallax-element="20">
+                <div class="de-pricing-s1">
+                  <div class="d-content" style="direction: rtl;">
+                    <h3>السعة<span>القاعة</span></h3>
+                    <div class="d-price">500</div>
+                    <ul class="d-list">
+                      <li>سعة تصل إلى 500 شخص</li>
+                      <li>مناسبة للأفراح والحفلات</li>
+                      <li>إضاءة متقدمة</li>
+                      <li>نظام صوتي عالي الجودة</li>
+                      <li>تكييف مركزي</li>
+                    </ul>
+                    <div class="spacer-20"></div>
+                    <div class="text-center">
+                      <a class="btn-main" href="#booking-form">احجز الآن</a>
+                    </div>
+                  </div>
+                  <div class="d-deco-top"></div>
+                  <div class="d-deco-bottom"></div>
+                  <img
+                    src="images/misc/arrow-up-right.png"
+                    class="d-image-deco"
+                    alt=""
+                  />
+                </div>
+              </div>
+
+              <div class="col-lg-4" data-jarallax-element="-40">
+                <div class="de-pricing-s1">
+                  <div class="d-content" style="direction: rtl;">
+                    <h3>المرافق<span>الإضافية</span></h3>
+                    <div class="d-price">ممتازة</div>
+                    <ul class="d-list">
+                      <li>مطبخ مجهز</li>
+                      <li>مواقف سيارات واسعة</li>
+                      <li>مناطق انتظار فاخرة</li>
+                      <li>خدمات تنظيف</li>
+                      <li>أمان على مدار 24 ساعة</li>
+                    </ul>
+                    <div class="spacer-20"></div>
+                    <div class="text-center">
+                      <a class="btn-main" href="#booking-form">احجز الآن</a>
+                    </div>
+                  </div>
+                  <div class="d-deco-top"></div>
+                  <div class="d-deco-bottom"></div>
+                  <img
+                    src="images/misc/arrow-up-right.png"
+                    class="d-image-deco"
+                    alt=""
+                  />
+                </div>
+              </div>
+
+              <div class="col-lg-4" data-jarallax-element="-20">
+                <div class="de-pricing-s1">
+                  <div class="d-content" style="direction: rtl;">
+                    <h3>الخدمات<span>المتاحة</span></h3>
+                    <div class="d-price">شاملة</div>
+                    <ul class="d-list">
+                      <li>تنظيم الأفراح</li>
+                      <li>خدمات التصوير</li>
+                      <li>تأجير المعدات</li>
+                      <li>خدمات الطعام</li>
+                      <li>ديكورات مخصصة</li>
+                    </ul>
+                    <div class="spacer-20"></div>
+                    <div class="text-center">
+                      <a class="btn-main" href="#booking-form">احجز الآن</a>
+                    </div>
+                  </div>
+                  <div class="d-deco-top"></div>
+                  <div class="d-deco-bottom"></div>
+                  <img
+                    src="images/misc/arrow-up-right.png"
+                    class="d-image-deco"
+                    alt=""
+                  />
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <section id="booking-form" class="no-top">
+          <div class="container">
+            <div class="row">
+              <div class="col-lg-10 offset-lg-1 text-center">
+                <h2 class="text-uppercase">
+                  <span class="wow fadeInUp">احجز</span>
+                  <span
+                    class="text-gradient wow fadeInUp"
+                    data-wow-delay=".3s"
+                    >القاعة</span
+                  >
+                </h2>
+                <div class="spacer-single"></div>
+                <p class="lead wow fadeInUp">
+                  املأ النموذج أدناه لحجز القاعة. سيتم تأكيد الحجز عبر البريد الإلكتروني.
+                </p>
+              </div>
+            </div>
+
+            <div class="row">
+              <div class="col-lg-10 offset-lg-1">
+                <div class="card-modern">
+                  <div class="card-header-modern">
+                    <h3 class="text-center mb-0">
+                      <i class="fa fa-calendar text-gradient me-2"></i>حجز القاعة
+                    </h3>
+                    <p class="text-center mt-2 opacity-75">املأ النموذج أدناه لحجز القاعة. يمكنك إضافة خدمات التصوير إذا أردت.</p>
+                  </div>
+                  <div class="card-body-modern">
+                    <form id="hall-booking-form" method="post" action="#" class="modern-form">
+                      <div class="row g-4">
+                        <div class="col-lg-6">
+                          <div class="form-floating-modern">
+                            <input type="text" name="name" id="hall-name" class="form-control-modern" required>
+                            <label for="hall-name">
+                              <i class="fa fa-user me-2"></i>الاسم الكامل *
+                            </label>
+                          </div>
+                        </div>
+                        <div class="col-lg-6">
+                          <div class="form-floating-modern">
+                            <input type="email" name="email" id="hall-email" class="form-control-modern" required>
+                            <label for="hall-email">
+                              <i class="fa fa-envelope me-2"></i>البريد الإلكتروني *
+                            </label>
+                          </div>
+                        </div>
+                      </div>
+                      <div class="row g-4 mt-2">
+                        <div class="col-lg-6">
+                          <div class="form-floating-modern">
+                            <input type="tel" name="phone" id="hall-phone" class="form-control-modern" required>
+                            <label for="hall-phone">
+                              <i class="fa fa-phone me-2"></i>رقم الهاتف *
+                            </label>
+                          </div>
+                        </div>
+                        <div class="col-lg-6">
+                          <div class="form-floating-modern">
+                            <input type="date" name="date" id="hall-date" class="form-control-modern" required>
+                            <label for="hall-date">
+                              <i class="fa fa-calendar me-2"></i>تاريخ الحجز *
+                            </label>
+                          </div>
+                        </div>
+                      </div>
+                      <div class="row g-4 mt-2">
+                        <div class="col-lg-6">
+                          <div class="form-floating-modern">
+                            <input type="number" name="guests" id="hall-guests" class="form-control-modern" min="1" max="500" value="100" required>
+                            <label for="hall-guests">
+                              <i class="fa fa-users me-2"></i>عدد الضيوف *
+                            </label>
+                          </div>
+                        </div>
+                        <div class="col-lg-6">
+                          <div class="form-floating-modern">
+                            <select name="service_type" id="hall-service" class="form-control-modern" required>
+                              <option value="">اختر نوع الخدمة</option>
+                              <option value="full">حفل كامل</option>
+                              <option value="partial">حفل جزئي</option>
+                              <option value="basic">أساسي</option>
+                            </select>
+                            <label for="hall-service">
+                              <i class="fa fa-star me-2"></i>نوع الخدمة *
+                            </label>
+                          </div>
+                        </div>
+                      </div>
+
+                      <div class="mt-4">
+                        <div class="form-check-modern">
+                          <input type="checkbox" class="form-check-input-modern" id="add-photography" name="add_photography">
+                          <label class="form-check-label-modern" for="add-photography">
+                            <i class="fa fa-camera me-2"></i>أريد إضافة خدمات التصوير أيضاً
+                          </label>
+                        </div>
+                      </div>
+
+                      <div id="photography-fields" class="row g-4 mt-3" style="display: none;">
+                        <div class="col-lg-6">
+                          <div class="form-floating-modern">
+                            <select name="photography_type" id="hall-photo-type" class="form-control-modern">
+                              <option value="">اختر نوع التصوير</option>
+                              <option value="wedding">تصوير زفاف</option>
+                              <option value="portrait">تصوير شخصي</option>
+                              <option value="event">تصوير حدث</option>
+                            </select>
+                            <label for="hall-photo-type">
+                              <i class="fa fa-camera me-2"></i>نوع التصوير *
+                            </label>
+                          </div>
+                        </div>
+                        <div class="col-lg-6">
+                          <div class="form-floating-modern">
+                            <input type="number" name="duration" id="hall-duration" class="form-control-modern" min="1" max="8" value="2">
+                            <label for="hall-duration">
+                              <i class="fa fa-clock me-2"></i>مدة التصوير (ساعات) *
+                            </label>
+                          </div>
+                        </div>
+                      </div>
+
+                      <div class="mt-4">
+                        <div class="form-floating-modern">
+                          <textarea name="notes" id="hall-notes" class="form-control-modern" rows="4"></textarea>
+                          <label for="hall-notes">
+                            <i class="fa fa-comment me-2"></i>ملاحظات إضافية (اختياري)
+                          </label>
+                        </div>
+                      </div>
+
+                      <div class="text-center mt-5">
+                        <button type="submit" id="hall-submit" class="btn-modern">
+                          <i class="fa fa-calendar-check me-2"></i>احجز الآن
+                        </button>
+                      </div>
+                    </form>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+      </div>
+      <!-- content close -->
+      <a href="#" id="back-to-top"></a>
+      <!-- footer begin -->
+      <footer>
+        <div class="container">
+          <div class="row g-4">
+            <div class="col-lg-4 text-lg-start text-sm-center">
+              <div class="social-icons">
+                <a href="#"><i class="fa fa-facebook fa-lg"></i></a>
+                <a href="#"><i class="fa fa-twitter fa-lg"></i></a>
+                <a href="#"><i class="fa fa-instagram fa-lg"></i></a>
+              </div>
+            </div>
+            <div class="col-lg-4 text-lg-center text-sm-center">
+              <img src="images/logo.png" class="" alt="" />
+            </div>
+            <div class="col-lg-4 text-lg-end text-sm-center">
+              حقوق النشر 2025 - نادي بلاد الرافدين
+            </div>
+          </div>
+        </div>
+      </footer>
+      <!-- footer close -->
+    </div>
+
+    <!-- Javascript Files
+    ================================================== -->
+    <script src="js/plugins.js"></script>
+    <script src="js/designesia.js"></script>
+    <script src="js/custom-marquee.js"></script>
+    <script src="js/jquery.countdown.js"></script>
+    <script src="js/countdown-custom.js"></script>
+    <script>
+      document.addEventListener('DOMContentLoaded', function() {
+        const addPhotographyCheckbox = document.getElementById('add-photography');
+        const photographyFields = document.getElementById('photography-fields');
+        const photoTypeSelect = document.getElementById('hall-photo-type');
+        const durationInput = document.getElementById('hall-duration');
+
+        addPhotographyCheckbox.addEventListener('change', function() {
+          if (this.checked) {
+            photographyFields.style.display = 'block';
+            photoTypeSelect.required = true;
+            durationInput.required = true;
+          } else {
+            photographyFields.style.display = 'none';
+            photoTypeSelect.required = false;
+            durationInput.required = false;
+            photoTypeSelect.value = '';
+            durationInput.value = '2';
+          }
+        });
+
+        // Form submission handling (optional enhancement)
+        const form = document.getElementById('hall-booking-form');
+        form.addEventListener('submit', function(e) {
+          if (addPhotographyCheckbox.checked && (!photoTypeSelect.value || !durationInput.value)) {
+            e.preventDefault();
+            alert('يرجى ملء جميع حقول خدمات التصوير إذا تم اختيارها.');
+            return false;
+          }
+          // Submit logic here (e.g., AJAX or form action)
+        });
+      });
+    </script>
+  </body>
+</html>

@@ -1,16 +1,16 @@
 <!DOCTYPE html>
 <html lang="ar" dir="rtl">
   <head>
-    <title>حجز القاعة - نادي بلاد الرافدين</title>
-    <link rel="icon" href="images/icon.png" type="image/gif" sizes="16x16" />
+    <title>التذاكر - نادي بلاد الرافدين</title>
+    <link rel="icon" href="images/Al-Rafidain-logo.png" type="image/png" sizes="32x32" />
     <meta content="text/html;charset=utf-8" http-equiv="Content-Type" />
     <meta content="width=device-width, initial-scale=1.0" name="viewport" />
     <meta
-      content="حجز قاعة نادي بلاد الرافدين - احجز للأفراح والتصوير، قائمة الفعاليات والتذاكر"
+      content="صفحة التذاكر لنادي بلاد الرافدين - اختر تذاكرك للأحداث الرياضية المختلفة."
       name="description"
     />
-    <meta content="" name="keywords" />
-    <meta content="" name="author" />
+    <meta content="نادي بلاد الرافدين, تذاكر, أحداث رياضية, كرة قدم, سباحة, العراق" name="keywords" />
+    <meta content="نادي بلاد الرافدين" name="author" />
 
     <!-- CSS Files
     ================================================== -->
@@ -31,6 +31,41 @@
       rel="stylesheet"
       type="text/css"
     />
+    <style>
+      /* Custom styles for tickets page */
+      .hero-offer { background: linear-gradient(135deg, #00b894, #e74c3c); padding: 60px 0; text-align: center; color: #fff; margin-bottom: 40px; }
+      .hero-offer h1 { font-size: 3rem; font-weight: 900; margin-bottom: 10px; }
+      .hero-offer p { font-size: 1.2rem; opacity: 0.9; }
+      .filters-search { background: rgba(20,20,22,.9); padding: 30px; border-radius: 18px; margin-bottom: 40px; }
+      .search-bar { display: flex; gap: 15px; margin-bottom: 20px; }
+      .search-bar input { flex: 1; padding: 12px; border: 1px solid #242426; border-radius: 10px; background: #16181b; color: #fff; }
+      .search-bar button { padding: 12px 20px; background: linear-gradient(45deg, #00b894, #00cec9); border: none; border-radius: 10px; color: #fff; font-weight: 800; }
+      .filters { display: flex; gap: 15px; flex-wrap: wrap; }
+      .filters select { padding: 10px; border: 1px solid #242426; border-radius: 10px; background: #16181b; color: #fff; }
+      .seasonal-card { background: linear-gradient(135deg, #1a1a1d, #2d2d30); border: 2px solid #00b894; border-radius: 24px; padding: 40px; text-align: center; margin-bottom: 40px; box-shadow: 0 20px 50px rgba(0,184,148,.3); position: relative; overflow: hidden; }
+      .seasonal-card::before { content: ''; position: absolute; top: 0; left: 0; right: 0; bottom: 0; background: url('images/misc/circle-gradient.png') no-repeat center; opacity: 0.1; }
+      .seasonal-card h2 { font-size: 2.5rem; font-weight: 900; color: #00b894; margin-bottom: 10px; }
+      .seasonal-card .price { font-size: 3rem; font-weight: 900; color: #fff; margin: 20px 0; }
+      .seasonal-card .features { list-style: none; padding: 0; margin: 20px 0; }
+      .seasonal-card .features li { margin-bottom: 10px; font-size: 1.1rem; }
+      .seasonal-card .btn-subscribe { background: linear-gradient(45deg, #00b894, #e74c3c); color: #fff; border: none; padding: 15px 30px; border-radius: 15px; font-weight: 900; font-size: 1.2rem; text-decoration: none; display: inline-block; transition: transform .2s ease; }
+      .seasonal-card .btn-subscribe:hover { transform: scale(1.05); }
+      .event-card { background: rgba(20,20,22,.8); border: 1px solid #242426; border-radius: 12px; overflow: hidden; box-shadow: 0 8px 20px rgba(0,0,0,.25); transition: transform .25s ease, box-shadow .25s ease, border-color .25s ease; margin-bottom: 20px; display: flex; flex-direction: column; height: auto; }
+      .event-card:hover { transform: translateY(-4px); box-shadow: 0 12px 30px rgba(0,0,0,.35); border-color: #2d2f33; }
+      .event-image { width: 100%; height: 120px; background: #16181b; display: flex; align-items: center; justify-content: center; }
+      .event-image img { width: 100%; height: 100%; object-fit: cover; }
+      .event-content { flex: 1; padding: 15px; }
+      .event-title { font-weight: 800; font-size: 1.1rem; margin: 0 0 8px 0; }
+      .event-meta { display: flex; gap: 10px; margin-bottom: 10px; flex-wrap: wrap; }
+      .event-meta span { background: #16181b; border: 1px solid #242426; padding: 4px 8px; border-radius: 6px; font-size: 0.8rem; }
+      .event-description { margin-bottom: 15px; opacity: 0.9; font-size: 0.9rem; }
+      .ticket-options { display: flex; gap: 10px; flex-wrap: wrap; }
+      .ticket-option { background: #16181b; border: 1px solid #292b2f; border-radius: 8px; padding: 10px; flex: 1; min-width: 150px; transition: transform .2s ease, background .2s ease, border-color .2s ease; }
+      .ticket-option:hover { transform: translateY(-2px); background: #1b1e22; border-color: #2f3237; }
+      .ticket-price { font-size: 18px; font-weight: 900; color: #00b894; margin: 8px 0; }
+      .btn-buy { background: linear-gradient(45deg, #00b894, #00cec9); color: #fff; border: none; padding: 8px 16px; border-radius: 8px; font-weight: 800; text-decoration: none; display: inline-block; transition: filter .2s ease; width: 100%; text-align: center; font-size: 0.9rem; }
+      .btn-buy:hover { filter: brightness(1.05); }
+    </style>
   </head>
 
   <body class="dark-scheme">
@@ -41,483 +76,342 @@
       <!-- page preloader close -->
 
       <!-- header begin -->
-<header class="transparent">
-  <div class="container">
-    <div class="row">
-      <div class="col-md-12">
-        <div class="de-flex sm-pt10">
-          <div class="de-flex-col">
-            <div class="de-flex-col">
-<!-- logo begin -->
-<div id="logo" style="display: flex; align-items: center; gap: 10px; direction: rtl;">
-  <a href="index.html" style="display: flex; align-items: center; text-decoration: none;">
-    <img
-      class="logo-main"
-      src="images/Al-Rafidain-logo.png"
-      alt="شعار نادي بلاد الرافدين"
-      style="width: 75px;"
-    />
-    <span
-      style="
-        font-size: 22px;
-        font-weight: 700;
-        background: linear-gradient(90deg, #00b894, #e74c3c);
-        -webkit-background-clip: text;
-        -webkit-text-fill-color: transparent;
-        margin-right: 10px;
-        font-family: 'Cairo', 'Tajawal', sans-serif;
-        white-space: nowrap;
-        letter-spacing: 0.5px;
-        text-shadow: 0 0 6px rgba(0,0,0,0.4);
-      "
-      >نادي بلاد الرافدين</span
-    >
-  </a>
-</div>
-<!-- logo close -->
-
-          </div>
-
-          <div class="de-flex-col header-col-mid">
-            <ul id="mainmenu">
-              <li>
-                <a class="menu-item" href="index.html#section-hero">الرئيسية</a>
-                <ul>
-                  <li>
-                    <a class="menu-item" href="index.html">المعرض الرئيسي الأول</a>
-                  </li>
-                  <li>
-                    <a class="menu-item" href="index-expo-2.html">المعرض الرئيسي الثاني</a>
-                  </li>
-                  <li>
-                    <a class="menu-item" href="index-expo-3.html">المعرض الرئيسي الثالث</a>
-                  </li>
-                  <li>
-                    <a class="menu-item" href="index-expo-4.html">المعرض الرئيسي الرابع</a>
-                  </li>
-                  <li>
-                    <a class="menu-item" href="index-car-1.html">السيارة الرئيسية الأولى</a>
-                  </li>
-                </ul>
-              </li>
-              <li><a class="menu-item" href="about.html">حول</a></li>
-              <li><a class="menu-item" href="index.html#section-experts">الخبراء</a></li>
-              <li><a class="menu-item" href="index.html#section-schedule">الجدول الزمني</a></li>
-              <li><a class="menu-item" href="tickets.html">حجز القاعة</a></li>
-              <li><a class="menu-item" href="index.html#section-gallery">المعرض</a></li>
-              <li><a class="menu-item" href="index.html#section-location">الوصول إلى هناك</a></li>
-              <li><a class="menu-item" href="news.html">الأخبار</a></li>
-            </ul>
-          </div>
-
-          <div class="de-flex-col">
-            <div class="menu_side_area">
-              <a href="tickets.html" class="btn-line">احجز القاعة</a>
-              <span id="menu-btn"></span>
+      <header class="transparent">
+        <div class="container">
+          <div class="row">
+            <div class="col-md-12">
+              <div class="de-flex sm-pt10">
+                <div class="de-flex-col">
+                  <div class="de-flex-col">
+      <!-- logo begin -->
+      <div id="logo" style="display: flex; align-items: center; gap: 10px; direction: rtl;">
+        <a href="index.html" style="display: flex; align-items: center; text-decoration: none;">
+          <img
+            class="logo-main"
+            src="images/Al-Rafidain-logo.png"
+            alt="شعار نادي بلاد الرافدين"
+            style="width: 75px;"
+          />
+          <span
+            style="
+              font-size: 22px;
+              font-weight: 700;
+              background: linear-gradient(90deg, #00b894, #e74c3c);
+              background-clip: text;
+              -webkit-background-clip: text;
+              -webkit-text-fill-color: transparent;
+              margin-right: 10px;
+              font-family: 'Cairo', 'Tajawal', sans-serif;
+              white-space: nowrap;
+              letter-spacing: 0.5px;
+              text-shadow: 0 0 6px rgba(0,0,0,0.4);
+            "
+            >نادي بلاد الرافدين</span
+          >
+        </a>
+      </div>
+      <!-- logo close -->
+      
+                </div>
+      
+                <div class="de-flex-col header-col-mid">
+                  <ul id="mainmenu">
+                    <li>
+                      <a class="menu-item" href="#section-hero">الرئيسية</a>
+                      <ul>
+                        <li>
+                          <a class="menu-item" href="index.html">المعرض الرئيسي الأول</a>
+                        </li>
+                        <li>
+                          <a class="menu-item" href="index-expo-2.html">المعرض الرئيسي الثاني</a>
+                        </li>
+                        <li>
+                          <a class="menu-item" href="index-expo-3.html">المعرض الرئيسي الثالث</a>
+                        </li>
+                        <li>
+                          <a class="menu-item" href="index-expo-4.html">المعرض الرئيسي الرابع</a>
+                        </li>
+                        <li>
+                          <a class="menu-item" href="index-car-1.html">السيارة الرئيسية الأولى</a>
+                        </li>
+                      </ul>
+                    </li>
+                    <li><a class="menu-item" href="about.html">حول</a></li>
+                    <li class="dropdown">
+    <a class="menu-item" href="team.html">الفريق</a>
+    <ul class="dropdown-menu">
+      <li><a href="youth.html">شباب</a></li>
+      <li><a href="juniors.html">ناشئين</a></li>
+      <li><a href="drivers.html">سائقين</a></li>
+    </ul>
+  </li>
+                    <li><a class="menu-item" href="live.html">الاحداث</a></li>
+                    <li><a class="menu-item" href="tickets.html">التذاكر</a></li>
+                    <li><a class="menu-item" href="hall.html">حجز القاعة</a></li>
+                    <li><a class="menu-item" href="#section-gallery">المعرض</a></li>
+                    <li><a class="menu-item" href="shop.html">المتجر</a></li>
+                    <li><a class="menu-item" href="news.html">الأخبار</a></li>
+                    
+                    
+                  </ul>
+                </div>
+      
+                <div class="de-flex-col">
+                  <div class="menu_side_area">
+                    <a href="tickets.html" class="btn-line">اشترِ التذكرة</a>
+                    <span id="menu-btn"></span>
+                  </div>
+                </div>
+              </div>
             </div>
           </div>
         </div>
-      </div>
-    </div>
-  </div>
-</header>
-
+      </header>
       <!-- header close -->
+
       <!-- content begin -->
       <div class="no-bottom no-top" id="content">
-        <!-- float text begin -->
-        <div class="float-text">
-          <div class="de_social-icons">
-            <a href="#"><i class="fa fa-facebook fa-lg"></i></a>
-            <a href="#"><i class="fa fa-twitter fa-lg"></i></a>
-            <a href="#"><i class="fa fa-instagram fa-lg"></i></a>
-          </div>
-          <span><a href="tickets.html">احجز القاعة</a></span>
-        </div>
-        <!-- float text close -->
-
         <div id="top"></div>
-        <section id="section-hero" class="jarallax">
-          <img src="images/background/3.jpg" class="jarallax-img" alt="" />
-          <div class="container position-relative z1000 wow fadeInDown">
-            <div class="row align-items-center position-relative">
-              <div class="spacer-double d-lg-none d-sm-block"></div>
-              <div class="col-lg-12 z1000">
-                <div class="spacer-double"></div>
-                <h5 class="mb-4 s2">
-                  <span class="wow fadeInRight" data-wow-delay=".2s"
-                    ><i class="id-color fa fa-calendar"></i>احجز قاعتك الآن</span
-                  >
-                </h5>
-                <h1 class="ultra-big text-uppercase mb-4 wow fadeInRight">
-                  <span class="wow fadeInLeft" data-wow-delay=".4s">حجز</span>
-                  <span class="text-line">القاعة</span>
-                  <span class="text-gradient">للأفراح والتصوير</span>
-                </h1>
+
+        <!-- Hero Offer Section -->
+        <section class="hero-offer wow fadeInUp">
+          <div class="container">
+            <h1>عروض خاصة على التذاكر!</h1>
+            <p>احجز الآن واحصل على خصم 20% على التذاكر الموسمية. لا تفوت الفرصة للاستمتاع بجميع الأحداث الرياضية في نادي بلاد الرافدين.</p>
+            <a href="#seasonal" class="btn-main big">اكتشف العرض</a>
+          </div>
+        </section>
+
+        <section id="section-tickets-page" class="pt60 pb60">
+          <div class="container">
+            <!-- Filters and Search -->
+            <div class="filters-search wow fadeInUp">
+              <div class="search-bar">
+                <input type="text" placeholder="ابحث عن حدث...">
+                <button><i class="fa fa-search"></i> بحث</button>
               </div>
-              <div class="col-lg-4 sm-hide">
-                <img
-                  src="images/misc/car-big.png"
-                  class="sm-img-fluid position-absolute top-0 end-0 anim-up-down wow fadeInDown"
-                  alt=""
-                />
+              <div class="filters">
+                <select>
+                  <option>جميع التواريخ</option>
+                  <option>ديسمبر 3</option>
+                  <option>ديسمبر 4</option>
+                  <option>ديسمبر 5</option>
+                  <option>ديسمبر 6</option>
+                  <option>ديسمبر 7</option>
+                </select>
+                <select>
+                  <option>جميع الأنواع</option>
+                  <option>كارتينغ</option>
+                  <option>درفت</option>
+                  <option>تايم أتاك</option>
+                  <option>تحمل</option>
+                  <option>أوتوكروس</option>
+                </select>
+                <select>
+                  <option>جميع الأسعار</option>
+                  <option>أقل من 50 دولار</option>
+                  <option>50-100 دولار</option>
+                  <option>أكثر من 100 دولار</option>
+                </select>
               </div>
-              <div class="clearfix"></div>
-              <div class="col-lg-1 col-2">
-                <img
-                  src="images/misc/arrow-up-left.png"
-                  class="img-fluid wow fadeInLeft"
-                  alt=""
-                />
+            </div>
+
+            <!-- Events Row 1: First Three Events -->
+            <div class="row">
+              <!-- Event 1: Karting Sprint -->
+              <div class="col-lg-4 col-md-6">
+                <div class="event-card wow fadeInUp">
+                  <div class="event-image">
+                    <img src="images/gallery/1.jpg" alt="سبرنت كارتينغ">
+                  </div>
+                  <div class="event-content">
+                    <h3 class="event-title">سبرنت كارتينغ — الجولة 3</h3>
+                    <div class="event-meta">
+                      <span><i class="fa fa-calendar"></i> ديسمبر 3, 2025</span>
+                      <span><i class="fa fa-map-marker"></i> مسار الكارتينغ الداخلي</span>
+                      <span><i class="fa fa-users"></i> 100+ مشارك</span>
+                    </div>
+                    <p class="event-description">انضم إلى الإثارة في بطولة الكارتينغ العراقية لفئة الناشئين. شاهد السباقات السريعة والمنافسة الشديدة في أحدث المسارات.</p>
+                    <div class="ticket-options">
+                      <div class="ticket-option">
+                        <h4>تذكرة عادية</h4>
+                        <p>دخول عام مع فرصة للفوز بجوائز</p>
+                        <div class="ticket-price">49 دولار</div>
+                        <a href="checkout.html" class="btn-buy">اشترِ الآن</a>
+                      </div>
+                      <div class="ticket-option">
+                        <h4>تذكرة VIP</h4>
+                        <p>دخول VIP مع بضائع مجانية ومقاعد أفضل</p>
+                        <div class="ticket-price">89 دولار</div>
+                        <a href="checkout.html" class="btn-buy">اشترِ الآن</a>
+                      </div>
+                    </div>
+                  </div>
+                </div>
               </div>
-              <div class="col-lg-5 col-10">
-                <div class="position-relative">
-                  <p class="lead no-bottom wow fadeInLeft">
-                    احجز قاعة نادي بلاد الرافدين للأفراح والتصوير. قاعة فاخرة مع سعة تصل إلى 500 شخص، مزودة بأحدث المرافق والخدمات.
-                  </p>
+
+              <!-- Event 2: Drift Showcase -->
+              <div class="col-lg-4 col-md-6">
+                <div class="event-card wow fadeInUp" data-wow-delay=".1s">
+                  <div class="event-image">
+                    <img src="images/gallery/2.jpg" alt="عرض الدرفت">
+                  </div>
+                  <div class="event-content">
+                    <h3 class="event-title">عرض الدرفت الحر</h3>
+                    <div class="event-meta">
+                      <span><i class="fa fa-calendar"></i> ديسمبر 4, 2025</span>
+                      <span><i class="fa fa-map-marker"></i> حلبة الاستعراض الحر</span>
+                      <span><i class="fa fa-fire"></i> عرض استعراضي</span>
+                    </div>
+                    <p class="event-description">استمتع بعروض الدرفت الاحترافية المدعومة من الاتحاد العراقي. شاهد السيارات تتقن المنعطفات بأسلوب مذهل.</p>
+                    <div class="ticket-options">
+                      <div class="ticket-option">
+                        <h4>تذكرة عادية</h4>
+                        <p>دخول عام مع فرصة للفوز بجوائز</p>
+                        <div class="ticket-price">49 دولار</div>
+                        <a href="checkout.html" class="btn-buy">اشترِ الآن</a>
+                      </div>
+                      <div class="ticket-option">
+                        <h4>تذكرة VIP</h4>
+                        <p>دخول VIP مع بضائع مجانية ومقاعد أفضل</p>
+                        <div class="ticket-price">89 دولار</div>
+                        <a href="checkout.html" class="btn-buy">اشترِ الآن</a>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Event 3: Time Attack -->
+              <div class="col-lg-4 col-md-6">
+                <div class="event-card wow fadeInUp" data-wow-delay=".2s">
+                  <div class="event-image">
+                    <img src="images/gallery/3.jpg" alt="تايم أتاك">
+                  </div>
+                  <div class="event-content">
+                    <h3 class="event-title">تايم أتاك — تصفيات الجولة 2</h3>
+                    <div class="event-meta">
+                      <span><i class="fa fa-calendar"></i> ديسمبر 5, 2025</span>
+                      <span><i class="fa fa-map-marker"></i> مضمار التوقيت المصغر</span>
+                      <span><i class="fa fa-trophy"></i> تصفيات</span>
+                    </div>
+                    <p class="event-description">اختبر حدود السرعة في كأس التوقيت العراقي للسيارات السياحية. شاهد أسرع السيارات في المنافسة.</p>
+                    <div class="ticket-options">
+                      <div class="ticket-option">
+                        <h4>تذكرة عادية</h4>
+                        <p>دخول عام مع فرصة للفوز بجوائز</p>
+                        <div class="ticket-price">49 دولار</div>
+                        <a href="checkout.html" class="btn-buy">اشترِ الآن</a>
+                      </div>
+                      <div class="ticket-option">
+                        <h4>تذكرة VIP</h4>
+                        <p>دخول VIP مع بضائع مجانية ومقاعد أفضل</p>
+                        <div class="ticket-price">89 دولار</div>
+                        <a href="checkout.html" class="btn-buy">اشترِ الآن</a>
+                      </div>
+                    </div>
+                  </div>
                 </div>
               </div>
             </div>
-          </div>
-          <div class="de-gradient-edge-bottom"></div>
-        </section>
 
-        <section id="section-hall" style="direction: ltr;">
-          <div class="container">
+            <!-- Events Row 2: Last Two Events -->
+            <div class="row">
+              <!-- Event 4: Endurance Kart Relay -->
+              <div class="col-lg-4 col-md-6">
+                <div class="event-card wow fadeInUp" data-wow-delay=".3s">
+                  <div class="event-image">
+                    <img src="images/gallery/4.jpg" alt="تحمل كارتينغ">
+                  </div>
+                  <div class="event-content">
+                    <h3 class="event-title">تحمل كارتينغ — سباق الفرق 60 دقيقة</h3>
+                    <div class="event-meta">
+                      <span><i class="fa fa-calendar"></i> ديسمبر 6, 2025</span>
+                      <span><i class="fa fa-map-marker"></i> مسار الكارتينغ الرئيسي</span>
+                      <span><i class="fa fa-clock-o"></i> 60 دقيقة</span>
+                    </div>
+                    <p class="event-description">شارك في سلسلة التحمل للأندية حيث تتنافس الفرق في سباق طويل الأمد مليء بالإثارة والاستراتيجية.</p>
+                    <div class="ticket-options">
+                      <div class="ticket-option">
+                        <h4>تذكرة عادية</h4>
+                        <p>دخول عام مع فرصة للفوز بجوائز</p>
+                        <div class="ticket-price">49 دولار</div>
+                        <a href="checkout.html" class="btn-buy">اشترِ الآن</a>
+                      </div>
+                      <div class="ticket-option">
+                        <h4>تذكرة VIP</h4>
+                        <p>دخول VIP مع بضائع مجانية ومقاعد أفضل</p>
+                        <div class="ticket-price">89 دولار</div>
+                        <a href="checkout.html" class="btn-buy">اشترِ الآن</a>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Event 5: Autocross Qualifiers -->
+              <div class="col-lg-4 col-md-6">
+                <div class="event-card wow fadeInUp" data-wow-delay=".4s">
+                  <div class="event-image">
+                    <img src="images/gallery/5.jpg" alt="أوتوكروس">
+                  </div>
+                  <div class="event-content">
+                    <h3 class="event-title">أوتوكروس — تجارب تأهيلية (الهواة)</h3>
+                    <div class="event-meta">
+                      <span><i class="fa fa-calendar"></i> ديسمبر 7, 2025</span>
+                      <span><i class="fa fa-map-marker"></i> ساحة الأوتوكروس</span>
+                      <span><i class="fa fa-star"></i> للهواة</span>
+                    </div>
+                    <p class="event-description">ابدأ رحلتك في دوري رياضات المحركات بالنادي مع تجارب تأهيلية مخصصة للهواة والمبتدئين.</p>
+                    <div class="ticket-options">
+                      <div class="ticket-option">
+                        <h4>تذكرة عادية</h4>
+                        <p>دخول عام مع فرصة للفوز بجوائز</p>
+                        <div class="ticket-price">49 دولار</div>
+                        <a href="checkout.html" class="btn-buy">اشترِ الآن</a>
+                      </div>
+                      <div class="ticket-option">
+                        <h4>تذكرة VIP</h4>
+                        <p>دخول VIP مع بضائع مجانية ومقاعد أفضل</p>
+                        <div class="ticket-price">89 دولار</div>
+                        <a href="checkout.html" class="btn-buy">اشترِ الآن</a>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- Special Seasonal Subscription -->
+            <div class="row" id="seasonal">
+              <div class="col-lg-12">
+                <div class="seasonal-card wow fadeInUp">
+                  <h2>اشتراك موسمي سنوي</h2>
+                  <p class="price">299 دولار</p>
+                  <ul class="features">
+                    <li><i class="fa fa-check"></i> وصول غير محدود إلى جميع الأحداث لمدة عام كامل</li>
+                    <li><i class="fa fa-check"></i> خصومات 20% على البضائع والطعام</li>
+                    <li><i class="fa fa-check"></i> لقاءات حصرية مع النجوم الضيوف والسائقين</li>
+                    <li><i class="fa fa-check"></i> قسائم مجانية للأنشطة الإضافية</li>
+                    <li><i class="fa fa-check"></i> دعم VIP مع مواقف خاصة ودخول سريع</li>
+                  </ul>
+                  <a href="#" class="btn-subscribe">اشترك الآن واحصل على العرض الخاص</a>
+                </div>
+              </div>
+            </div>
+
             <div class="row">
               <div class="col-lg-12 text-center">
-                <h2 class="text-uppercase wow fadeInUp">
-                  وصف <span class="text-gradient">القاعة</span>
-                </h2>
-                <div class="spacer-20"></div>
-              </div>
-
-              <div class="col-lg-4" data-jarallax-element="20">
-                <div class="de-pricing-s1">
-                  <div class="d-content" style="direction: rtl;">
-                    <h3>السعة<span>القاعة</span></h3>
-                    <div class="d-price">500</div>
-                    <ul class="d-list">
-                      <li>سعة تصل إلى 500 شخص</li>
-                      <li>مناسبة للأفراح والحفلات</li>
-                      <li>إضاءة متقدمة</li>
-                      <li>نظام صوتي عالي الجودة</li>
-                      <li>تكييف مركزي</li>
-                    </ul>
-                    <div class="spacer-20"></div>
-                    <div class="text-center">
-                      <a class="btn-main" href="#booking-form">احجز الآن</a>
-                    </div>
-                  </div>
-                  <div class="d-deco-top"></div>
-                  <div class="d-deco-bottom"></div>
-                  <img
-                    src="images/misc/arrow-up-right.png"
-                    class="d-image-deco"
-                    alt=""
-                  />
-                </div>
-              </div>
-
-              <div class="col-lg-4" data-jarallax-element="-40">
-                <div class="de-pricing-s1">
-                  <div class="d-content" style="direction: rtl;">
-                    <h3>المرافق<span>الإضافية</span></h3>
-                    <div class="d-price">ممتازة</div>
-                    <ul class="d-list">
-                      <li>مطبخ مجهز</li>
-                      <li>مواقف سيارات واسعة</li>
-                      <li>مناطق انتظار فاخرة</li>
-                      <li>خدمات تنظيف</li>
-                      <li>أمان على مدار 24 ساعة</li>
-                    </ul>
-                    <div class="spacer-20"></div>
-                    <div class="text-center">
-                      <a class="btn-main" href="#booking-form">احجز الآن</a>
-                    </div>
-                  </div>
-                  <div class="d-deco-top"></div>
-                  <div class="d-deco-bottom"></div>
-                  <img
-                    src="images/misc/arrow-up-right.png"
-                    class="d-image-deco"
-                    alt=""
-                  />
-                </div>
-              </div>
-
-              <div class="col-lg-4" data-jarallax-element="-20">
-                <div class="de-pricing-s1">
-                  <div class="d-content" style="direction: rtl;">
-                    <h3>الخدمات<span>المتاحة</span></h3>
-                    <div class="d-price">شاملة</div>
-                    <ul class="d-list">
-                      <li>تنظيم الأفراح</li>
-                      <li>خدمات التصوير</li>
-                      <li>تأجير المعدات</li>
-                      <li>خدمات الطعام</li>
-                      <li>ديكورات مخصصة</li>
-                    </ul>
-                    <div class="spacer-20"></div>
-                    <div class="text-center">
-                      <a class="btn-main" href="#booking-form">احجز الآن</a>
-                    </div>
-                  </div>
-                  <div class="d-deco-top"></div>
-                  <div class="d-deco-bottom"></div>
-                  <img
-                    src="images/misc/arrow-up-right.png"
-                    class="d-image-deco"
-                    alt=""
-                  />
-                </div>
-              </div>
-            </div>
-          </div>
-        </section>
-
-        <section id="booking-form" class="no-top">
-          <div class="container">
-            <div class="row">
-              <div class="col-lg-8 offset-lg-2 text-center">
-                <h2 class="text-uppercase">
-                  <span class="wow fadeInUp">احجز</span>
-                  <span
-                    class="text-gradient wow fadeInUp"
-                    data-wow-delay=".3s"
-                    >القاعة</span
-                  >
-                </h2>
-                <div class="spacer-single"></div>
-                <p class="lead wow fadeInUp">
-                  املأ النموذج أدناه لحجز القاعة. سيتم تأكيد الحجز عبر البريد الإلكتروني.
-                </p>
-              </div>
-            </div>
-
-            <div class="row">
-              <div class="col-lg-8 offset-lg-2">
-                <form id="wedding-booking-form" class="form-border bg-light p-4 rounded" method="post" action="#">
-                  <h3 class="text-center mb-4">حجز للأفراح</h3>
-                  <div class="row">
-                    <div class="col-md-6">
-                      <div class="field-set">
-                        <label>الاسم الكامل:</label>
-                        <input type="text" name="name" id="wedding-name" class="form-control bg-white" placeholder="أدخل اسمك الكامل" required />
-                      </div>
-                    </div>
-                    <div class="col-md-6">
-                      <div class="field-set">
-                        <label>البريد الإلكتروني:</label>
-                        <input type="email" name="email" id="wedding-email" class="form-control bg-white" placeholder="أدخل بريدك الإلكتروني" required />
-                      </div>
-                    </div>
-                    <div class="col-md-6">
-                      <div class="field-set">
-                        <label>رقم الهاتف:</label>
-                        <input type="tel" name="phone" id="wedding-phone" class="form-control bg-white" placeholder="أدخل رقم هاتفك" required />
-                      </div>
-                    </div>
-                    <div class="col-md-6">
-                      <div class="field-set">
-                        <label>تاريخ الحجز:</label>
-                        <input type="date" name="date" id="wedding-date" class="form-control bg-white" required />
-                      </div>
-                    </div>
-                    <div class="col-md-6">
-                      <div class="field-set">
-                        <label>عدد الضيوف:</label>
-                        <input type="number" name="guests" id="wedding-guests" class="form-control bg-white" min="1" max="500" value="100" required />
-                      </div>
-                    </div>
-                    <div class="col-md-6">
-                      <div class="field-set">
-                        <label>نوع الخدمة:</label>
-                        <select name="service_type" id="wedding-service" class="form-control bg-white" required>
-                          <option value="">اختر نوع الخدمة</option>
-                          <option value="full">حفل كامل</option>
-                          <option value="partial">حفل جزئي</option>
-                          <option value="basic">أساسي</option>
-                        </select>
-                      </div>
-                    </div>
-                    <div class="col-md-12">
-                      <div class="field-set">
-                        <label>ملاحظات إضافية:</label>
-                        <textarea name="notes" id="wedding-notes" class="form-control bg-white" rows="4" placeholder="أي ملاحظات إضافية..."></textarea>
-                      </div>
-                    </div>
-                    <div class="col-md-12">
-                      <div class="spacer-single"></div>
-                      <button type="submit" id="wedding-submit" class="btn-main btn-fullwidth">احجز الآن</button>
-                    </div>
-                  </div>
-                </form>
-              </div>
-            </div>
-
-            <div class="spacer-double"></div>
-
-            <div class="row">
-              <div class="col-lg-8 offset-lg-2">
-                <form id="photography-booking-form" class="form-border bg-light p-4 rounded" method="post" action="#">
-                  <h3 class="text-center mb-4">حجز للتصوير</h3>
-                  <div class="row">
-                    <div class="col-md-6">
-                      <div class="field-set">
-                        <label>الاسم الكامل:</label>
-                        <input type="text" name="name" id="photo-name" class="form-control bg-white" placeholder="أدخل اسمك الكامل" required />
-                      </div>
-                    </div>
-                    <div class="col-md-6">
-                      <div class="field-set">
-                        <label>البريد الإلكتروني:</label>
-                        <input type="email" name="email" id="photo-email" class="form-control bg-white" placeholder="أدخل بريدك الإلكتروني" required />
-                      </div>
-                    </div>
-                    <div class="col-md-6">
-                      <div class="field-set">
-                        <label>رقم الهاتف:</label>
-                        <input type="tel" name="phone" id="photo-phone" class="form-control bg-white" placeholder="أدخل رقم هاتفك" required />
-                      </div>
-                    </div>
-                    <div class="col-md-6">
-                      <div class="field-set">
-                        <label>تاريخ الحجز:</label>
-                        <input type="date" name="date" id="photo-date" class="form-control bg-white" required />
-                      </div>
-                    </div>
-                    <div class="col-md-6">
-                      <div class="field-set">
-                        <label>نوع التصوير:</label>
-                        <select name="photography_type" id="photo-type" class="form-control bg-white" required>
-                          <option value="">اختر نوع التصوير</option>
-                          <option value="wedding">تصوير زفاف</option>
-                          <option value="portrait">تصوير شخصي</option>
-                          <option value="event">تصوير حدث</option>
-                        </select>
-                      </div>
-                    </div>
-                    <div class="col-md-6">
-                      <div class="field-set">
-                        <label>مدة التصوير (ساعات):</label>
-                        <input type="number" name="duration" id="photo-duration" class="form-control bg-white" min="1" max="8" value="2" required />
-                      </div>
-                    </div>
-                    <div class="col-md-12">
-                      <div class="field-set">
-                        <label>ملاحظات إضافية:</label>
-                        <textarea name="notes" id="photo-notes" class="form-control bg-white" rows="4" placeholder="أي ملاحظات إضافية..."></textarea>
-                      </div>
-                    </div>
-                    <div class="col-md-12">
-                      <div class="spacer-single"></div>
-                      <button type="submit" id="photo-submit" class="btn-main btn-fullwidth">احجز الآن</button>
-                    </div>
-                  </div>
-                </form>
-              </div>
-            </div>
-          </div>
-        </section>
-
-        <section id="events-section" class="pt60 no-bottom">
-          <div class="container">
-            <div class="row">
-              <div class="col-md-12 text-center">
-                <h2 class="text-uppercase wow fadeInUp">
-                  <span class="text-line">قائمة</span>
-                  <span class="text-gradient">الفعاليات والتذاكر المرتبطة بها</span>
-                </h2>
-                <div class="spacer-single"></div>
-              </div>
-            </div>
-            <div class="row">
-              <div class="col-lg-4 col-md-6 mb-sm-30">
-                <div class="feature-box f-boxed style-3">
-                  <i class="fa fa-calendar id-color"></i>
-                  <div class="text">
-                    <h4>زفاف أحمد وفاطمة</h4>
-                    <p>زفاف كبير في 15 يناير 2025. تذاكر متاحة الآن.</p>
-                    <a href="#wedding-booking-form" class="btn-main btn-small">احجز تذكرة</a>
-                  </div>
-                </div>
-              </div>
-              <div class="col-lg-4 col-md-6 mb-sm-30">
-                <div class="feature-box f-boxed style-3">
-                  <i class="fa fa-camera id-color"></i>
-                  <div class="text">
-                    <h4>جلسة تصوير عائلية</h4>
-                    <p>جلسة تصوير عائلية في 20 يناير 2025. حجز مسبق مطلوب.</p>
-                    <a href="#photography-booking-form" class="btn-main btn-small">احجز الآن</a>
-                  </div>
-                </div>
-              </div>
-              <div class="col-lg-4 col-md-6 mb-sm-30">
-                <div class="feature-box f-boxed style-3">
-                  <i class="fa fa-music id-color"></i>
-                  <div class="text">
-                    <h4>حفل موسيقي</h4>
-                    <p>حفل موسيقي في 25 يناير 2025. تذاكر محدودة.</p>
-                    <a href="#wedding-booking-form" class="btn-main btn-small">احجز تذكرة</a>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-        </section>
-
-        <section class="pt60 no-bottom">
-          <div class="container">
-            <div class="row">
-              <div class="col-md-12 text-center">
-                <h2 class="text-uppercase wow fadeInUp">
-                  <span class="text-line">معلومات</span>
-                  <span class="text-gradient">إضافية</span>
-                </h2>
-              </div>
-              <div class="spacer-single"></div>
-            </div>
-            <div class="row g-custom-x">
-              <div class="col-lg-4 col-md-6 mb-sm-30">
-                <div class="feature-box f-boxed style-3 text-center">
-                  <i class="fa fa-calendar id-color"></i>
-                  <div class="text">
-                    <h4>تواريخ الحدث</h4>
-                    <p>
-                      الحدث يقام من 3 إلى 7 ديسمبر 2025 في بغداد، العراق.
-                    </p>
-                  </div>
-                </div>
-              </div>
-              <div class="col-lg-4 col-md-6 mb-sm-30">
-                <div class="feature-box f-boxed style-3 text-center">
-                  <i class="fa fa-map-marker id-color"></i>
-                  <div class="text">
-                    <h4>الموقع</h4>
-                    <p>
-                      مركز المعارض الدولي، بغداد، العراق.
-                    </p>
-                  </div>
-                </div>
-              </div>
-              <div class="col-lg-4 col-md-6 mb-sm-30">
-                <div class="feature-box f-boxed style-3 text-center">
-                  <i class="fa fa-clock-o id-color"></i>
-                  <div class="text">
-                    <h4>أوقات الحدث</h4>
-                    <p>
-                      من 9 صباحاً إلى 9 مساءً يومياً.
-                    </p>
-                  </div>
-                </div>
+                <a href="index.html" class="btn-main big wow fadeInUp">العودة إلى الصفحة الرئيسية</a>
               </div>
             </div>
           </div>
         </section>
       </div>
       <!-- content close -->
+
       <a href="#" id="back-to-top"></a>
+
       <!-- footer begin -->
       <footer>
         <div class="container">
@@ -526,11 +420,38 @@
               <div class="social-icons">
                 <a href="#"><i class="fa fa-facebook fa-lg"></i></a>
                 <a href="#"><i class="fa fa-twitter fa-lg"></i></a>
-                <a href="#"><i class="fa fa-instagram fa-lg"></i></a>
+                <a href="#"><i class="fa fa-linkedin fa-lg"></i></a>
+                <a href="#"><i class="fa fa-pinterest fa-lg"></i></a>
+                <a href="https://www.instagram.com/mesopotamia_engines_club?utm_source=ig_web_button_share_sheet&igsh=ZDNlZDc0MzIxNw=="><i class="fa fa-instagram fa-lg"></i></a>
               </div>
             </div>
             <div class="col-lg-4 text-lg-center text-sm-center">
-              <img src="images/logo.png" class="" alt="" />
+              <div id="footer-logo" style="display: inline-flex; align-items: center; gap: 10px; direction: rtl;">
+                <a href="index.html" style="display: inline-flex; align-items: center; text-decoration: none;">
+                  <img
+                    class="logo-main"
+                    src="images/Al-Rafidain-logo.png"
+                    alt="شعار نادي بلاد الرافدين"
+                    style="width: 75px;"
+                  />
+                  <span
+                    style="
+                      font-size: 22px;
+                      font-weight: 700;
+                      background: linear-gradient(90deg, #00b894, #e74c3c);
+                      background-clip: text;
+                      -webkit-background-clip: text;
+                      -webkit-text-fill-color: transparent;
+                      margin-right: 10px;
+                      font-family: 'Cairo', 'Tajawal', sans-serif;
+                      white-space: nowrap;
+                      letter-spacing: 0.5px;
+                      text-shadow: 0 0 6px rgba(0,0,0,0.4);
+                    "
+                    >نادي بلاد الرافدين</span
+                  >
+                </a>
+              </div>
             </div>
             <div class="col-lg-4 text-lg-end text-sm-center">
               حقوق النشر 2025 - نادي بلاد الرافدين
@@ -545,8 +466,5 @@
     ================================================== -->
     <script src="js/plugins.js"></script>
     <script src="js/designesia.js"></script>
-    <script src="js/custom-marquee.js"></script>
-    <script src="js/jquery.countdown.js"></script>
-    <script src="js/countdown-custom.js"></script>
   </body>
 </html>

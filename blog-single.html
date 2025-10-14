@@ -1,14 +1,14 @@
 <!DOCTYPE html>
-<html lang="zxx">
+<html lang="ar" dir="rtl">
 
 
 <!-- Mirrored from madebydesignesia.com/themes/autovent/blog-single.html by HTTrack Website Copier/3.x [XR&CO'2014], Mon, 13 Oct 2025 08:53:12 GMT -->
 <head>
-    <title>Autovent - Car Vehicle Automotive Event Website Template</title>
+    <title>مقال - نادي بلاد الرافدين</title>
     <link rel="icon" href="images/icon.png" type="image/gif" sizes="16x16">
     <meta content="text/html;charset=utf-8" http-equiv="Content-Type">
     <meta content="width=device-width, initial-scale=1.0" name="viewport" >
-    <meta content="Autovent - Car Vehicle Automotive Event Website Template" name="description" >
+    <meta content="عرض المقالات المختارة من أخبار نادي بلاد الرافدين" name="description" >
     <meta content="" name="keywords" >
     <meta content="" name="author" >
     <!-- CSS Files
@@ -20,6 +20,25 @@
     <link href="css/coloring.css" rel="stylesheet" type="text/css" >
     <!-- color scheme -->
     <link id="colors" href="css/colors/blue-teal.css" rel="stylesheet" type="text/css" >
+    <style>
+      /* Scoped blog styles */
+      .post-hero { position: relative; }
+      .post-hero .jarallax-img { filter: brightness(.5); }
+      .post-hero .hero-content { position: relative; z-index: 2; padding: 40px 0; }
+      .chips { display:flex; gap:8px; flex-wrap:wrap; }
+      .chip { background:#151515; border:1px solid #232323; color:#eaeaea; padding:6px 10px; border-radius:999px; font-size:12px; }
+      .chip.grad { background: linear-gradient(45deg,#00b894,#00cec9); color:#07110f; font-weight:800; border:none; }
+      .meta { opacity:.9; display:flex; gap:12px; flex-wrap:wrap; }
+      .progressbar { position: fixed; top: 0; right: 0; height: 4px; width: 0; background: linear-gradient(90deg,#00b894,#00cec9); z-index: 2000; box-shadow: 0 2px 8px rgba(0,0,0,.2); }
+      .breadcrumbs { background:#111; border-bottom:1px solid #222; }
+      .breadcrumbs .container { padding: 10px 0; }
+      .share-actions a { background:#151515; border:1px solid #232323; color:#eaeaea; padding:8px 12px; border-radius:10px; text-decoration:none; display:inline-flex; align-items:center; gap:6px; }
+      .tags a { background:#16181b; border:1px solid #292b2f; color:#cfd3d6; padding:6px 10px; border-radius:10px; margin-inline-start:6px; text-decoration:none; font-size:12px; }
+      .prevnext a { background:#151515; border:1px solid #232323; color:#eaeaea; padding:10px 14px; border-radius:12px; text-decoration:none; display:inline-flex; gap:8px; align-items:center; }
+      .widget h4 { font-weight:800; }
+      .related .card { background:#161616; border:1px solid #2b2b2b; border-radius:14px; overflow:hidden; }
+      .related .card img { height:140px; object-fit:cover; width:100%; }
+    </style>
 </head>
 
 <body class="dark-scheme">
@@ -31,239 +50,161 @@
 
         <!-- header begin -->
         <header class="transparent">
-            <div class="container">
-                <div class="row">
-                    <div class="col-md-12">
-                        <div class="de-flex sm-pt10">
-                            <div class="de-flex-col">
-                                <div class="de-flex-col">
-                                    <!-- logo begin -->
-                                    <div id="logo">
-                                        <a href="index.html">
-                                            <img class="logo-main" src="images/logo.png" alt="" >
-                                            <img class="logo-mobile" src="images/logo-mobile.png" alt="" >
-                                        </a>
-                                    </div>
-                                    <!-- logo close -->
-                                </div>
-                            </div>
-                            <div class="de-flex-col header-col-mid">
-                                <ul id="mainmenu">
-                                    <li><a class="menu-item" href="#section-hero">Home</a>
-                                        <ul>
-                                            <li><a class="menu-item" href="index.html">Home Expo One</a></li>
-                                            <li><a class="menu-item" href="index-expo-2.html">Home Expo Two</a></li>
-                                            <li><a class="menu-item" href="index-expo-3.html">Home Expo Three</a></li>
-                                            <li><a class="menu-item" href="index-expo-4.html">Home Expo Four</a></li>
-                                            <li><a class="menu-item" href="index-car-1.html">Home Car One</a></li>
-                                        </ul>
-                                    </li>
-                                    <li><a class="menu-item" href="index.html#section-about">About</a></li>
-                                    <li><a class="menu-item" href="index.html#section-experts">Experts</a></li>
-                                    <li><a class="menu-item" href="index.html#section-schedule">Schedule</a></li>
-                                    <li><a class="menu-item" href="index.html#section-tickets">Tickets</a></li>
-                                    <li><a class="menu-item" href="index.html#section-gallery">Gallery</a></li> 
-                                    <li><a class="menu-item" href="index.html#section-location">Getting There</a></li> 
-                                    <li><a class="menu-item" href="news.html">News</a></li>                                  
-                                </ul>
-                            </div>
-                            <div class="de-flex-col">
-                                <div class="menu_side_area">
-                                    <a href="tickets.html" class="btn-line">Buy Ticket</a>
-                                    <span id="menu-btn"></span>
-                                </div>
-                            </div>
-                        </div>
+          <div class="container">
+            <div class="row">
+              <div class="col-md-12">
+                <div class="de-flex sm-pt10">
+                  <div class="de-flex-col">
+                    <div class="de-flex-col">
+        <!-- logo begin -->
+        <div id="logo" style="display: flex; align-items: center; gap: 10px; direction: rtl;">
+          <a href="index.html" style="display: flex; align-items: center; text-decoration: none;">
+            <img
+              class="logo-main"
+              src="images/Al-Rafidain-logo.png"
+              alt="شعار نادي بلاد الرافدين"
+              style="width: 75px;"
+            />
+            <span
+              style="
+                font-size: 22px;
+                font-weight: 700;
+                background: linear-gradient(90deg, #00b894, #e74c3c);
+                background-clip: text;
+                -webkit-background-clip: text;
+                -webkit-text-fill-color: transparent;
+                margin-right: 10px;
+                font-family: 'Cairo', 'Tajawal', sans-serif;
+                white-space: nowrap;
+                letter-spacing: 0.5px;
+                text-shadow: 0 0 6px rgba(0,0,0,0.4);
+              "
+              >نادي بلاد الرافدين</span
+            >
+          </a>
+        </div>
+        <!-- logo close -->
+        
+                  </div>
+        
+                  <div class="de-flex-col header-col-mid">
+<ul id="mainmenu">
+  <li><a class="menu-item" href="news.html">الأخبار</a></li>
+  <li><a class="menu-item" href="shop.html">المتجر</a></li>
+  <li><a class="menu-item" href="#section-gallery">المعرض</a></li>
+  <li><a class="menu-item" href="tickets.html">التذاكر</a></li>
+  <li><a class="menu-item" href="live.html">الاحداث</a></li>
+  <li class="dropdown">
+    <a class="menu-item" href="team.html">الفريق</a>
+    <ul class="dropdown-menu">
+      <li><a href="youth.html">شباب</a></li>
+      <li><a href="juniors.html">ناشئين</a></li>
+      <li><a href="drivers.html">سائقين</a></li>
+    </ul>
+  </li>
+  <li><a class="menu-item" href="about.html">حول</a></li>
+  <li>
+    <a class="menu-item" href="#section-hero">الرئيسية</a>
+    <ul>
+      <li>
+        <a class="menu-item" href="index.html">المعرض الرئيسي الأول</a>
+      </li>
+      <li>
+        <a class="menu-item" href="index-expo-2.html">المعرض الرئيسي الثاني</a>
+      </li>
+      <li>
+        <a class="menu-item" href="index-expo-3.html">المعرض الرئيسي الثالث</a>
+      </li>
+      <li>
+        <a class="menu-item" href="index-expo-4.html">المعرض الرئيسي الرابع</a>
+      </li>
+      <li>
+        <a class="menu-item" href="index-car-1.html">السيارة الرئيسي الأولى</a>
+      </li>
+    </ul>
+  </li>
+</ul>
+                  </div>
+        
+                  <div class="de-flex-col">
+                    <div class="menu_side_area">
+                      <a href="tickets.html" class="btn-line">اشترِ التذكرة</a>
+                      <span id="menu-btn"></span>
                     </div>
+                  </div>
                 </div>
+              </div>
             </div>
+          </div>
         </header>
         <!-- header close -->
         <!-- content begin -->
         <div class="no-bottom no-top" id="content">
+            <div class="progressbar" id="readProgress"></div>
             <div id="top"></div>
 
-            <section aria-label="section" class="jarallax">
-                <img src="images/background/4.jpg" class="jarallax-img" alt="">
-                <div class="container">
+            <section class="jarallax post-hero">
+                <img id="heroImg" src="images/background/4.jpg" class="jarallax-img" alt="">
+                <div class="container hero-content">
                     <div class="row">
+                        <div class="col-md-10 offset-md-1 text-center">
+                            <div class="chips mb-2"><span class="chip grad" id="postCategory">—</span><span class="chip" id="postDate">—</span><span class="chip" id="postRead">—</span></div>
+                            <h1 id="postTitle">—</h1>
+                        </div>
+                    </div>
+                </div>
+                <div class="de-gradient-edge-bottom"></div>
+            </section>
+
+            <div class="breadcrumbs">
+              <div class="container">
+                <a href="index.html">الرئيسية</a> <span style="opacity:.6; margin:0 6px;">›</span>
+                <a href="news.html">الأخبار</a> <span style="opacity:.6; margin:0 6px;">›</span>
+                <span id="bcTitle">—</span>
+              </div>
+            </div>
+
+            <section aria-label="section">
+                <div class="container">
+                    <div class="row g-4">
                         <div class="col-md-8">
                             <div class="blog-read">
-                                <h2 class="blog-title text-uppercase">Autonomous Vehicles and the Future of Transportation</h2>
-
-                                <img src="images/blog/1.jpg" class="img-fluid" alt="">
-
-                                <div class="post-text">
-                                    <p>Quis sunt quis do laboris eiusmod in sint dolore sit pariatur consequat commodo aliqua nulla ad dolor aliquip incididunt voluptate est aliquip adipisicing ea cupidatat nostrud incididunt aliquip dolore. Sed minim nisi duis laborum est labore nisi amet elit adipisicing proident do consectetur dolor labore sit nisi ad proident esse ad velit nisi irure reprehenderit ut et dolor labore veniam quis.</p>
-
-                                    <p>Sunt duis laboris ex et quis laborum laborum cillum mollit voluptate culpa consequat ex cupidatat dolor eiusmod proident proident cillum pariatur sint adipisicing in nostrud do dolore consectetur quis incididunt minim consectetur. Exercitation elit proident dolor est id eiusmod dolor dolor incididunt ad voluptate laboris cupidatat est est sint veniam sint officia sint incididunt est sit ut tempor commodo pariatur ut proident et do.</p>
-
-                                    <p>Sed eu in ut sint dolor irure fugiat minim veniam sed ea proident ullamco occaecat irure ut velit eu ullamco fugiat cupidatat dolore fugiat. Lorem ipsum id non deserunt id consequat duis voluptate amet aliqua pariatur laboris officia pariatur veniam velit reprehenderit sint nostrud cupidatat magna eiusmod mollit exercitation pariatur nulla minim laboris dolore aliqua consectetur cillum duis aute consectetur.</p>
-
+                                <img id="postImage" src="" class="img-fluid mb-3" alt="">
+                                <div class="meta mb-3">
+                                  <span><i class="fa fa-user"></i> <span id="postAuthor">—</span></span>
+                                  <span><i class="fa fa-clock-o"></i> <span id="postReadInline">—</span></span>
                                 </div>
-
+                                <div class="post-text" id="postBody"></div>
+                                <div class="tags mt-3" id="postTags"></div>
+                                <div class="share-actions mt-3" id="shareActions"></div>
+                                <div class="prevnext mt-4 d-flex justify-content-between" id="prevNext"></div>
                             </div>
 
                             <div class="spacer-single"></div>
 
                             <div id="blog-comment">
-                                <h4>Comments (5)</h4>
-
-                                <div class="spacer-half"></div>
-
-                                <ol>
-                                    <li>
-                                        <div class="avatar">
-                                            <img src="images/people/1.jpg" alt="" ></div>
-                                        <div class="comment-info">
-                                            <span class="c_name">Merrill Rayos</span>
-                                            <span class="c_date id-color">15 January 2020</span>
-                                            <span class="c_reply"><a href="#">Reply</a></span>
-                                            <div class="clearfix"></div>
-                                        </div>
-
-                                        <div class="comment">Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo.</div>
-                                        <ol>
-                                            <li>
-                                                <div class="avatar">
-                                                    <img src="images/people/2.jpg" alt="" ></div>
-                                                <div class="comment-info">
-                                                    <span class="c_name">Jackqueline Sprang</span>
-                                                    <span class="c_date id-color">15 January 2020</span>
-                                                    <span class="c_reply"><a href="#">Reply</a></span>
-                                                    <div class="clearfix"></div>
-                                                </div>
-                                                <div class="comment">Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt
-                                                    explicabo.</div>
-                                            </li>
-                                        </ol>
-                                    </li>
-
-                                    <li>
-                                        <div class="avatar">
-                                            <img src="images/people/3.jpg" alt="" ></div>
-                                        <div class="comment-info">
-                                            <span class="c_name">Sanford Crowley</span>
-                                            <span class="c_date id-color">15 January 2020</span>
-                                            <span class="c_reply"><a href="#">Reply</a></span>
-                                            <div class="clearfix"></div>
-                                        </div>
-                                        <div class="comment">Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo.</div>
-                                        <ol>
-                                            <li>
-                                                <div class="avatar">
-                                                    <img src="images/people/4.jpg" alt="" ></div>
-                                                <div class="comment-info">
-                                                    <span class="c_name">Lyndon Pocekay</span>
-                                                    <span class="c_date id-color">15 January 2020</span>
-                                                    <span class="c_reply"><a href="#">Reply</a></span>
-                                                    <div class="clearfix"></div>
-                                                </div>
-                                                <div class="comment">Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt
-                                                    explicabo.</div>
-                                            </li>
-                                        </ol>
-                                    </li>
-
-                                    <li>
-                                        <div class="avatar">
-                                            <img src="images/people/5.jpg" alt="" ></div>
-                                        <div class="comment-info">
-                                            <span class="c_name">Aleen Crigger</span>
-                                            <span class="c_date id-color">15 January 2020</span>
-                                            <span class="c_reply"><a href="#">Reply</a></span>
-
-                                            <div class="clearfix"></div>
-                                        </div>
-                                        <div class="comment">Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo.</div>
-                                    </li>
-                                </ol>
-
-                                <div class="spacer-single"></div>
-
-                                <div id="comment-form-wrapper">
-                                    <h4>Leave a Comment</h4>
-                                    <div class="comment_form_holder">
-                                        <form id="contact_form" name="form1" class="form-border" method="post" action="#">
-
-                                            <label>Name</label>
-                                            <input type="text" name="name" id="name" class="form-control" >
-
-                                            <label>Email <span class="req">*</span></label>
-                                            <input type="text" name="email" id="email" class="form-control" >
-                                            <div id="error_email" class="error">Please check your email</div>
-
-                                            <label>Message <span class="req">*</span></label>
-                                            <textarea cols="10" rows="10" name="message" id="message" class="form-control"></textarea>
-                                            <div id="error_message" class="error">Please check your message</div>
-                                            <div id="mail_success" class="success">Thank you. Your message has been sent.</div>
-                                            <div id="mail_failed" class="error">Error, email not sent</div>
-
-                                            <p id="btnsubmit">
-                                                <input type="submit" id="send" value="Send" class="btn-main" ></p>
-
-
-
-                                        </form>
-                                    </div>
-                                </div>
+                                <h4>التعليقات</h4>
+                                <p style="opacity:.8;">التعليقات قيد التفعيل قريباً.</p>
                             </div>
-
                         </div>
 
                         <div id="sidebar" class="col-md-4">
                             <div class="widget">
-                                    <h4>Share With Friends</h4>
-                                    <div class="small-border"></div>
-                                    <div class="de-color-icons">
-                                        <span><i class="fa fa-twitter fa-lg"></i></span>
-                                        <span><i class="fa fa-facebook fa-lg"></i></span>
-                                        <span><i class="fa fa-reddit fa-lg"></i></span>
-                                        <span><i class="fa fa-linkedin fa-lg"></i></span>
-                                        <span><i class="fa fa-pinterest fa-lg"></i></span>
-                                        <span><i class="fa fa-stumbleupon fa-lg"></i></span>
-                                        <span><i class="fa fa-delicious fa-lg"></i></span>
-                                    </div>
-                                </div>
-
-                            <div class="widget widget-post">
-                                <h4>Recent Posts</h4>
+                                <h4>أحدث المنشورات</h4>
                                 <div class="small-border"></div>
-                                <ul>                                    
-                                    <li><span class="date">10 Jun</span><a href="#">6 Make Mobile Website Faster</a></li>
-                                    <li><span class="date">22 Jun</span><a href="#">Experts Web Design Tips</a></li>
-                                    <li><span class="date">20 Jun</span><a href="#">Importance Of Web Design</a></li>
-                                    <li><span class="date">12 Jun</span><a href="#">Avoid These Erros In UI Design</a></li>
-
-                                </ul>
+                                <ul id="latestList"></ul>
+                            </div>
+                            <div class="widget">
+                                <h4>التصنيفات</h4>
+                                <div class="small-border"></div>
+                                <div class="chips" id="catChips"></div>
                             </div>
 
-                            <div class="widget widget-text">
-                                <h4>About Us</h4>
+                            <div class="widget related">
+                                <h4>مواضيع ذات صلة</h4>
                                 <div class="small-border"></div>
-                                <p class="small no-bottom">
-                                    Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo. Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur magni
-                                </p>
+                                <div class="row g-2" id="relatedGrid"></div>
                             </div>
-                            <div class="widget widget_tags">
-                                <h4>Tags</h4>
-                                <div class="small-border"></div>
-                                <ul>
-                                    <li><a href="#link">Art</a></li>
-                                    <li><a href="#link">Application</a></li>
-                                    <li><a href="#link">Design</a></li>
-                                    <li><a href="#link">Entertainment</a></li>
-                                    <li><a href="#link">Internet</a></li>
-                                    <li><a href="#link">Marketing</a></li>
-                                    <li><a href="#link">Multipurpose</a></li>
-                                    <li><a href="#link">Music</a></li>
-                                    <li><a href="#link">Print</a></li>
-                                    <li><a href="#link">Programming</a></li>
-                                    <li><a href="#link">Responsive</a></li>
-                                    <li><a href="#link">Website</a></li>
-                                </ul>
-                            </div>
-
                         </div>
                     </div>
                 </div>
@@ -286,10 +227,15 @@
                         </div>
                     </div>
                     <div class="col-lg-4 text-lg-center text-sm-center">
-                        <img src="images/logo.png" class="" alt="">
+                        <div id="footer-logo" style="display: inline-flex; align-items: center; gap: 10px; direction: rtl;">
+                          <a href="index.html" style="display: inline-flex; align-items: center; text-decoration: none;">
+                            <img class="logo-main" src="images/Al-Rafidain-logo.png" alt="شعار نادي بلاد الرافدين" style="width: 75px;" >
+                            <span style="font-size: 22px; font-weight: 700; background: linear-gradient(90deg, #00b894, #e74c3c); background-clip: text; -webkit-background-clip: text; -webkit-text-fill-color: transparent; margin-right: 10px; font-family: 'Cairo', 'Tajawal', sans-serif; white-space: nowrap; letter-spacing: 0.5px; text-shadow: 0 0 6px rgba(0,0,0,0.4);">نادي بلاد الرافدين</span>
+                          </a>
+                        </div>
                     </div>
                     <div class="col-lg-4 text-lg-end text-sm-center">
-                        Copyright 2025 - Autovent by Designesia
+                        حقوق النشر 2025 - نادي بلاد الرافدين
                     </div>
                 </div>
             </div>
@@ -302,6 +248,152 @@
     <script src="js/plugins.js"></script>
     <script src="js/designesia.js"></script>
     <script src="js/custom-marquee.js"></script>
+    <script>
+      // Simple in-page article catalog matching ids used in news.html
+      const articles = {
+        1: {
+          title: 'الاتحاد العراقي يعتمد جولة "تايم أتاك" ضمن أجندة النادي',
+          image: 'images/blog/1.jpg',
+          hero: 'images/background/4.jpg',
+          category: 'رسمي',
+          date: 'اليوم',
+          read: '3 دقائق قراءة',
+          author: 'إدارة النادي',
+          tags: ['رسمي','تايم أتاك','اتحاد'],
+          body: [
+            'أعلن نادي بلاد الرافدين اعتماد الاتحاد العراقي لرياضة السيارات لجولة "تايم أتاك" ضمن منافسات الموسم الحالي. يأتي ذلك ضمن خطة تطوير البطولات المحلية ورفع مستوى التنافسية.',
+            'سيتم استخدام نظام توقيت إلكتروني محدث مع عرض لحظي للأزمنة والقطاعات، وإتاحة المتابعة المباشرة للجماهير عبر المنصة الرقمية للنادي.'
+          ]
+        },
+        2: {
+          title: 'إطلاق نظام الاشتراك الذكي للفعاليات',
+          image: 'images/blog/2.jpg',
+          hero: 'images/background/5.jpg',
+          category: 'رسمي',
+          date: 'محدث يومياً',
+          read: '2 دقائق قراءة',
+          author: 'الفريق التقني',
+          tags: ['منصة','اشتراك','نتائج'],
+          body: [
+            'أطلق النادي منصة اشتراك ذكي تتيح التسجيل الفوري للمتسابقين وإدارة الفعاليات بكفاءة عالية.',
+            'يشمل النظام إشعارات لحظية، متابعة النتائج، وتنبيهات المواعيد، مع تكامل مع بوابة الدفع ونظام النقاط.'
+          ]
+        },
+        3: {
+          title: 'تحليل سرعات القطاعات في مسار الكارتينغ',
+          image: 'images/blog/3.jpg',
+          hero: 'images/background/6.jpg',
+          category: 'تحليل',
+          date: 'الأسبوع الحالي',
+          read: '6 دقائق قراءة',
+          author: 'قسم التحليلات',
+          tags: ['تحليل','كارتينغ','إطارات'],
+          body: [
+            'يحلل التقرير أزمنة القطاعات لخمسة متسابقين مع مقارنة تأثير ضغط الإطارات على السرعة المتوسطة والخروج من المنعطف.',
+            'النتيجة: ضبط الضغط ضمن النطاق 14-16 psi قدم أفضل توازن بين التماسك ومقاومة التدحرج.'
+          ]
+        },
+        4: {
+          title: 'تقرير السلامة: جاهزية حلبة الاستعراض الحر',
+          image: 'images/blog/4.jpg',
+          hero: 'images/background/3.jpg',
+          category: 'تقرير',
+          date: 'هذا الأسبوع',
+          read: '4 دقائق قراءة',
+          author: 'لجنة السلامة',
+          tags: ['سلامة','استعراض','درفت'],
+          body: [
+            'شملت المراجعة الأسبوعية مسارات الهروب، نقاط الإطفاء، وتوزيع marshals لضمان أقصى درجات الأمان.',
+            'تم اعتماد خطة محكمة لتقسيم المناطق وإدارة الحشود بالتنسيق مع الجهات المختصة.'
+          ]
+        },
+        5: {
+          title: 'كيف تبني مسارك في رياضات المحركات من الهواة إلى المحترفين',
+          image: 'images/features/1.jpg',
+          hero: 'images/background/2.jpg',
+          category: 'مقال',
+          date: 'مقال مختار',
+          read: '7 دقائق قراءة',
+          author: 'تحرير النادي',
+          tags: ['إرشادات','مسار مهني','هواة'],
+          body: [
+            'ابدأ من فعاليات الأوتوكروس لاكتساب أساسيات التحكم بالسيارة، ثم انتقل إلى منافسات التوقيت الرسمية.',
+            'احرص على خطة تدريب تتضمن محاكاة، تحليل بيانات، وتدرج في مستويات المنافسة.'
+          ]
+        },
+        6: {
+          title: 'اختيار الإطارات الأنسب لفعاليات النادي',
+          image: 'images/features/2.jpg',
+          hero: 'images/background/1.jpg',
+          category: 'مقال',
+          date: 'هذا الشهر',
+          read: '5 دقائق قراءة',
+          author: 'الدعم الفني',
+          tags: ['تقنيات','إطارات','إعدادات'],
+          body: [
+            'يعتمد الاختيار على طبيعة المسار ودرجة الحرارة وطبيعة السطح. المركبات الناعمة تمنح تماسكاً أعلى لكنها تتآكل أسرع.',
+            'للمسارات القصيرة، يوصى بمركب متوسط يحقق ثباتاً جيداً مع عمر افتراضي مقبول.'
+          ]
+        }
+      };
+
+      function getId(){
+        const p = new URLSearchParams(location.search);
+        return parseInt(p.get('id')||'0',10);
+      }
+
+      function render(){
+        const id = getId();
+        const a = articles[id];
+        if(!a){ location.href = 'news.html'; return; }
+        document.getElementById('postTitle').textContent = a.title;
+        document.getElementById('bcTitle').textContent = a.title;
+        document.getElementById('postCategory').textContent = a.category || '—';
+        document.getElementById('postDate').textContent = a.date || '—';
+        document.getElementById('postRead').textContent = a.read || '—';
+        document.getElementById('postReadInline').textContent = a.read || '—';
+        document.getElementById('postAuthor').textContent = a.author || '—';
+        const hero = document.getElementById('heroImg'); hero.src = a.hero || 'images/background/4.jpg'; hero.alt = a.title;
+        const img = document.getElementById('postImage'); img.src = a.image; img.alt = a.title;
+        const body = document.getElementById('postBody');
+        body.innerHTML = a.body.map(p=>`<p>${p}</p>`).join('');
+        const tags = document.getElementById('postTags');
+        (a.tags||[]).forEach(t=>{ const link=document.createElement('a'); link.href='#'; link.textContent=t; tags.appendChild(link); });
+        const share = document.getElementById('shareActions');
+        share.innerHTML = `<a href="#"><i class="fa fa-twitter"></i> مشاركة</a> <a href="#"><i class="fa fa-facebook"></i> مشاركة</a>`;
+        const ids = Object.keys(articles).map(n=>parseInt(n,10)).sort((x,y)=>x-y);
+        const i = ids.indexOf(id);
+        const prevId = ids[i-1]; const nextId = ids[i+1];
+        const pn = document.getElementById('prevNext');
+        pn.innerHTML = `${prevId?`<a href="blog-single.html?id=${prevId}"><i class=\"fa fa-angle-right\"></i> السابق</a>`:''}<span></span>${nextId?`<a href="blog-single.html?id=${nextId}">التالي <i class=\"fa fa-angle-left\"></i></a>`:''}`;
+        const latest = document.getElementById('latestList'); latest.innerHTML='';
+        ids.slice(-5).reverse().forEach(k=>{ const li=document.createElement('li'); li.innerHTML=`<a href="blog-single.html?id=${k}">${articles[k].title}</a>`; latest.appendChild(li); });
+        const cats = document.getElementById('catChips'); cats.innerHTML='';
+        ;['رسمي','تحليل','تقرير','مقال'].forEach(c=>{ const s=document.createElement('span'); s.className='chip'; s.textContent=c; cats.appendChild(s); });
+        const related = document.getElementById('relatedGrid'); related.innerHTML='';
+        ids.filter(k=>k!==id).slice(0,4).forEach(k=>{
+          const col=document.createElement('div'); col.className='col-6';
+          col.innerHTML = `<a href="blog-single.html?id=${k}" class="card text-decoration-none"><img src="${articles[k].image}" alt=""><div class="p-2" style="color:#fff; font-weight:700; font-size:12px;">${articles[k].title}</div></a>`;
+          related.appendChild(col);
+        });
+      }
+
+      document.addEventListener('DOMContentLoaded', function(){
+        render();
+        const bar=document.getElementById('readProgress');
+        const onScroll=()=>{
+          const el = document.getElementById('postBody');
+          const rect = el.getBoundingClientRect();
+          const view = window.innerHeight || document.documentElement.clientHeight;
+          const total = el.scrollHeight - view;
+          const scrolled = Math.min(Math.max((view - rect.top), 0), total);
+          const pct = total>0 ? Math.round((scrolled/total)*100) : 0;
+          bar.style.width = pct+'%';
+        };
+        document.addEventListener('scroll', onScroll, { passive: true });
+        onScroll();
+      });
+    </script>
 
 </body>
 

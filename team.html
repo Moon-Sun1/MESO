@@ -31,6 +31,61 @@
       rel="stylesheet"
       type="text/css"
     />
+    <style>
+      /* Dropdown menu styles */
+      .dropdown {
+        position: relative;
+      }
+      .dropdown-menu {
+        display: none;
+        position: absolute;
+        top: 80%;
+        left: 0;
+        background: #141416;
+        border-radius: 0;
+        min-width: 150px;
+        z-index: 1000;
+      }
+      .dropdown:hover .dropdown-menu {
+        display: block;
+      }
+      .dropdown-menu li {
+        list-style: none;
+      }
+      .dropdown-menu li a {
+        display: block;
+        padding: 10px 15px;
+        color: #fff;
+        text-decoration: none;
+        transition: background .2s ease;
+        font-weight: 400;
+        font-size: 14px;
+      }
+      .dropdown-menu li a:hover {
+        background: #242426;
+      }
+
+      /* Modern card styles */
+      .modern-card {
+        background: rgba(20,20,22,.8);
+        border: 1px solid #242426;
+        border-radius: 15px;
+        overflow: hidden;
+        box-shadow: 0 4px 15px rgba(0,0,0,.2);
+        transition: transform .3s ease, box-shadow .3s ease;
+      }
+      .modern-card:hover {
+        transform: translateY(-5px);
+        box-shadow: 0 8px 25px rgba(0,0,0,.3);
+      }
+      .modern-card .de-team-pic img {
+        border-radius: 10px;
+        transition: transform .3s ease;
+      }
+      .modern-card:hover .de-team-pic img {
+        transform: scale(1.05);
+      }
+    </style>
   </head>
 
   <body class="dark-scheme">
@@ -41,88 +96,77 @@
       <!-- page preloader close -->
 
       <!-- header begin -->
-<header class="transparent">
-  <div class="container">
-    <div class="row">
-      <div class="col-md-12">
-        <div class="de-flex sm-pt10">
-          <div class="de-flex-col">
-            <div class="de-flex-col">
-<!-- logo begin -->
-<div id="logo" style="display: flex; align-items: center; gap: 10px; direction: rtl;">
-  <a href="index.html" style="display: flex; align-items: center; text-decoration: none;">
-    <img
-      class="logo-main"
-      src="images/Al-Rafidain-logo.png"
-      alt="شعار نادي بلاد الرافدين"
-      style="width: 75px;"
-    />
-    <span
-      style="
-        font-size: 22px;
-        font-weight: 700;
-        background: linear-gradient(90deg, #00b894, #e74c3c);
-        -webkit-background-clip: text;
-        -webkit-text-fill-color: transparent;
-        margin-right: 10px;
-        font-family: 'Cairo', 'Tajawal', sans-serif;
-        white-space: nowrap;
-        letter-spacing: 0.5px;
-        text-shadow: 0 0 6px rgba(0,0,0,0.4);
-      "
-      >نادي بلاد الرافدين</span
-    >
-  </a>
-</div>
-<!-- logo close -->
-
-          </div>
-
-          <div class="de-flex-col header-col-mid">
-            <ul id="mainmenu">
-              <li>
-                <a class="menu-item" href="index.html#section-hero">الرئيسية</a>
-                <ul>
-                  <li>
-                    <a class="menu-item" href="index.html">المعرض الرئيسي الأول</a>
-                  </li>
-                  <li>
-                    <a class="menu-item" href="index-expo-2.html">المعرض الرئيسي الثاني</a>
-                  </li>
-                  <li>
-                    <a class="menu-item" href="index-expo-3.html">المعرض الرئيسي الثالث</a>
-                  </li>
-                  <li>
-                    <a class="menu-item" href="index-expo-4.html">المعرض الرئيسي الرابع</a>
-                  </li>
-                  <li>
-                    <a class="menu-item" href="index-car-1.html">السيارة الرئيسية الأولى</a>
-                  </li>
-                </ul>
-              </li>
-              <li><a class="menu-item" href="about.html">حول</a></li>
-              <li><a class="menu-item" href="team.html">الفريق</a></li>
-              <li><a class="menu-item" href="index.html#section-experts">الخبراء</a></li>
-              <li><a class="menu-item" href="index.html#section-schedule">الجدول الزمني</a></li>
-              <li><a class="menu-item" href="tickets.html">التذاكر</a></li>
-              <li><a class="menu-item" href="index.html#section-gallery">المعرض</a></li>
-              <li><a class="menu-item" href="index.html#section-location">الوصول إلى هناك</a></li>
-              <li><a class="menu-item" href="shop.html">المتجر</a></li>
-              <li><a class="menu-item" href="news.html">الأخبار</a></li>
-            </ul>
-          </div>
-
-          <div class="de-flex-col">
-            <div class="menu_side_area">
-              <a href="tickets.html" class="btn-line">اشترِ التذكرة</a>
-              <span id="menu-btn"></span>
+      <header class="transparent">
+        <div class="container">
+          <div class="row">
+            <div class="col-md-12">
+              <div class="de-flex sm-pt10">
+                <div class="de-flex-col">
+                  <div class="de-flex-col">
+      <!-- logo begin -->
+      <div id="logo" style="display: flex; align-items: center; gap: 10px; direction: rtl;">
+        <a href="index.html" style="display: flex; align-items: center; text-decoration: none;">
+          <img
+            class="logo-main"
+            src="images/Al-Rafidain-logo.png"
+            alt="شعار نادي بلاد الرافدين"
+            style="width: 75px;"
+          />
+          <span
+            style="
+              font-size: 22px;
+              font-weight: 700;
+              background: linear-gradient(90deg, #00b894, #e74c3c);
+              background-clip: text;
+              -webkit-background-clip: text;
+              -webkit-text-fill-color: transparent;
+              margin-right: 10px;
+              font-family: 'Cairo', 'Tajawal', sans-serif;
+              white-space: nowrap;
+              letter-spacing: 0.5px;
+              text-shadow: 0 0 6px rgba(0,0,0,0.4);
+            "
+            >نادي بلاد الرافدين</span
+          >
+        </a>
+      </div>
+      <!-- logo close -->
+      
+                </div>
+      
+                <div class="de-flex-col header-col-mid">
+<ul id="mainmenu">
+  <li><a class="menu-item" href="news.html">الأخبار</a></li>
+  <li><a class="menu-item" href="shop.html">المتجر</a></li>
+  <li><a class="menu-item" href="#section-gallery">المعرض</a></li>
+  <li><a class="menu-item" href="tickets.html">التذاكر</a></li>
+  <li><a class="menu-item" href="live.html">الاحداث</a></li>
+  <li class="dropdown">
+    <a class="menu-item" href="team.html">الفريق</a>
+    <ul class="dropdown-menu">
+      <li><a href="youth.html">شباب</a></li>
+      <li><a href="juniors.html">ناشئين</a></li>
+      <li><a href="drivers.html">سائقين</a></li>
+    </ul>
+  </li>
+  <li><a class="menu-item" href="about.html">حول</a></li>
+  <li>
+    <a class="menu-item" href="index.html">الرئيسية</a>
+  </li>
+</ul>
+                </div>
+      
+                <div class="de-flex-col">
+                  <div class="menu_side_area">
+                    <a href="tickets.html" class="btn-line">اشترِ التذكرة</a>
+                    <span id="menu-btn"></span>
+                  </div>
+                </div>
+              </div>
             </div>
           </div>
         </div>
-      </div>
-    </div>
-  </div>
-</header>
+      </header>
 
       <!-- header close -->
       <!-- content begin -->
@@ -203,30 +247,30 @@
           </div>
         </section>
 
-        <section id="section-team-members" aria-label="section" class="no-bottom">
+        <section id="section-youth" aria-label="section" class="no-bottom">
           <div class="container">
             <div class="row">
               <div class="col-lg-12 text-center">
                 <h2 class="text-uppercase wow fadeInUp">
-                  <span class="text-line">أعضاء</span>
+                  <span class="text-line">شباب</span>
                   <span class="text-gradient">الفريق</span>
                 </h2>
                 <div class="spacer-single"></div>
               </div>
             </div>
             <div class="row g-4">
-              <div class="col-lg-4 col-md-6 mb-sm-30">
-                <div class="de-team-list">
+              <div class="col-lg-4 col-md-4 mb-sm-30">
+                <div class="de-team-list modern-card">
                   <div class="de-team-item">
                     <div class="de-team-pic">
-                      <img src="images/person/1.jpg" class="img-fluid" alt="" />
+                      <img src="images/person/1.jpg" class="img-fluid" alt="" style="max-width: 150px; border-radius: 10px;" />
                     </div>
                     <div class="de-team-desc">
                       <h4>أحمد محمد</h4>
-                      <p class="lead">لاعب كرة قدم</p>
+                      <p class="lead">سائق سباقات</p>
                       <p>
-                        لاعب موهوب في كرة القدم مع مهارات استثنائية في الهجوم،
-                        يمثل الفريق الشاب في البطولات المحلية والإقليمية.
+                        سائق موهوب في سباقات السيارات مع مهارات استثنائية في القيادة،
+                        يمثل الفريق في البطولات المحلية والإقليمية.
                       </p>
                       <div class="de-team-social">
                         <a href="#"><i class="fa fa-facebook"></i></a>
@@ -237,18 +281,18 @@
                   </div>
                 </div>
               </div>
-              <div class="col-lg-4 col-md-6 mb-sm-30">
-                <div class="de-team-list">
+              <div class="col-lg-4 col-md-4 mb-sm-30">
+                <div class="de-team-list modern-card">
                   <div class="de-team-item">
                     <div class="de-team-pic">
-                      <img src="images/person/2.jpg" class="img-fluid" alt="" />
+                      <img src="images/person/2.jpg" class="img-fluid" alt="" style="max-width: 150px; border-radius: 10px;" />
                     </div>
                     <div class="de-team-desc">
-                      <h4>فاطمة علي</h4>
-                      <p class="lead">لاعبة كرة سلة</p>
+                      <h4>محمد علي</h4>
+                      <p class="lead">سائق رالي</p>
                       <p>
-                        لاعبة موهوبة في كرة السلة مع مهارات دفاعية قوية،
-                        تمثل الفريق الشاب في البطولات الوطنية والدولية.
+                        سائق متخصص في رالي السيارات مع خبرة واسعة،
+                        يشارك في التحديات الوطنية والدولية.
                       </p>
                       <div class="de-team-social">
                         <a href="#"><i class="fa fa-facebook"></i></a>
@@ -259,18 +303,18 @@
                   </div>
                 </div>
               </div>
-              <div class="col-lg-4 col-md-6 mb-sm-30">
-                <div class="de-team-list">
+              <div class="col-lg-4 col-md-4 mb-sm-30">
+                <div class="de-team-list modern-card">
                   <div class="de-team-item">
                     <div class="de-team-pic">
-                      <img src="images/person/3.jpg" class="img-fluid" alt="" />
+                      <img src="images/person/3.jpg" class="img-fluid" alt="" style="max-width: 150px; border-radius: 10px;" />
                     </div>
                     <div class="de-team-desc">
-                      <h4>محمد حسن</h4>
-                      <p class="lead">سباح</p>
+                      <h4>علي حسن</h4>
+                      <p class="lead">سائق فورمولا</p>
                       <p>
-                        سباح موهوب في السباحة الحرة مع أرقام قياسية محلية،
-                        يمثل الفريق الشاب في المسابقات الإقليمية والدولية.
+                        سائق فورمولا موهوب مع أرقام قياسية محلية،
+                        يمثل الفريق في المسابقات الإقليمية والدولية.
                       </p>
                       <div class="de-team-social">
                         <a href="#"><i class="fa fa-facebook"></i></a>
@@ -281,18 +325,34 @@
                   </div>
                 </div>
               </div>
-              <div class="col-lg-4 col-md-6 mb-sm-30">
-                <div class="de-team-list">
+            </div>
+          </div>
+        </section>
+
+        <section id="section-juniors" aria-label="section" class="no-bottom">
+          <div class="container">
+            <div class="row">
+              <div class="col-lg-12 text-center">
+                <h2 class="text-uppercase wow fadeInUp">
+                  <span class="text-line">ناشئين</span>
+                  <span class="text-gradient">الفريق</span>
+                </h2>
+                <div class="spacer-single"></div>
+              </div>
+            </div>
+            <div class="row g-4">
+              <div class="col-lg-4 col-md-4 mb-sm-30">
+                <div class="de-team-list modern-card">
                   <div class="de-team-item">
                     <div class="de-team-pic">
-                      <img src="images/person/4.jpg" class="img-fluid" alt="" />
+                      <img src="images/person/4.jpg" class="img-fluid" alt="" style="max-width: 150px; border-radius: 10px;" />
                     </div>
                     <div class="de-team-desc">
-                      <h4>سارة أحمد</h4>
-                      <p class="lead">لاعبة كرة طائرة</p>
+                      <h4>حسن أحمد</h4>
+                      <p class="lead">سائق كارتينغ</p>
                       <p>
-                        لاعبة موهوبة في كرة الطائرة مع مهارات هجومية قوية،
-                        تمثل الفريق الشاب في البطولات الوطنية والإقليمية.
+                        سائق كارتينغ موهوب مع مهارات هجومية قوية،
+                        يمثل الفريق في البطولات الوطنية والإقليمية.
                       </p>
                       <div class="de-team-social">
                         <a href="#"><i class="fa fa-facebook"></i></a>
@@ -303,18 +363,18 @@
                   </div>
                 </div>
               </div>
-              <div class="col-lg-4 col-md-6 mb-sm-30">
-                <div class="de-team-list">
+              <div class="col-lg-4 col-md-4 mb-sm-30">
+                <div class="de-team-list modern-card">
                   <div class="de-team-item">
                     <div class="de-team-pic">
-                      <img src="images/person/5.jpg" class="img-fluid" alt="" />
+                      <img src="images/person/5.jpg" class="img-fluid" alt="" style="max-width: 150px; border-radius: 10px;" />
                     </div>
                     <div class="de-team-desc">
-                      <h4>علي محمود</h4>
-                      <p class="lead">عداء</p>
+                      <h4>عمر محمود</h4>
+                      <p class="lead">سائق درفت</p>
                       <p>
-                        عداء موهوب في سباقات المسافات الطويلة مع أداء متميز،
-                        يمثل الفريق الشاب في المسابقات الإقليمية والدولية.
+                        سائق درفت متخصص مع أداء متميز،
+                        يشارك في التحديات الإقليمية والدولية.
                       </p>
                       <div class="de-team-social">
                         <a href="#"><i class="fa fa-facebook"></i></a>
@@ -325,23 +385,105 @@
                   </div>
                 </div>
               </div>
-              <div class="col-lg-4 col-md-6 mb-sm-30">
-                <div class="de-team-list">
+              <div class="col-lg-4 col-md-4 mb-sm-30">
+                <div class="de-team-list modern-card">
                   <div class="de-team-item">
                     <div class="de-team-pic">
-                      <img src="images/person/6.jpg" class="img-fluid" alt="" />
+                      <img src="images/person/6.jpg" class="img-fluid" alt="" style="max-width: 150px; border-radius: 10px;" />
                     </div>
                     <div class="de-team-desc">
-                      <h4>نور حسن</h4>
-                      <p class="lead">لاعبة تنس</p>
+                      <h4>كريم حسن</h4>
+                      <p class="lead">سائق تايم أتاك</p>
                       <p>
-                        لاعبة موهوبة في التنس مع مهارات فنية متقنة،
-                        تمثل الفريق الشاب في البطولات الدولية والإقليمية.
+                        سائق تايم أتاك موهوب مع مهارات فنية متقنة،
+                        يمثل الفريق في المسابقات الدولية والإقليمية.
                       </p>
                       <div class="de-team-social">
                         <a href="#"><i class="fa fa-facebook"></i></a>
                         <a href="#"><i class="fa fa-twitter"></i></a>
                         <a href="#"><i class="fa fa-instagram"></i></a>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <section id="section-drivers" aria-label="section" class="no-bottom">
+          <div class="container">
+            <div class="row">
+              <div class="col-lg-12 text-center">
+                <h2 class="text-uppercase wow fadeInUp">
+                  <span class="text-line">سائقين</span>
+                  <span class="text-gradient">الفريق</span>
+                </h2>
+                <div class="spacer-single"></div>
+              </div>
+            </div>
+            <div class="row g-4">
+              <div class="col-lg-4 col-md-4 mb-sm-30">
+                <div class="de-team-list modern-card">
+                  <div class="de-team-item">
+                    <div class="de-team-pic">
+                      <img src="images/person/7.jpg" class="img-fluid" alt="" style="max-width: 150px; border-radius: 10px;" />
+                    </div>
+                    <div class="de-team-desc">
+                      <h4>يوسف محمود</h4>
+                      <p class="lead">سائق أوتوكروس</p>
+                      <p>
+                        سائق أوتوكروس موهوب مع أداء متميز،
+                        يشارك في التحديات الإقليمية والدولية.
+                      </p>
+                      <div class="de-team-social">
+                        <a href="#"><i class="fa fa-facebook"></i></a>
+                        <a href="#"><i class="fa fa-twitter"></i></a>
+                        <a href="#"><i class="fa fa-linkedin"></i></a>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="col-lg-4 col-md-4 mb-sm-30">
+                <div class="de-team-list modern-card">
+                  <div class="de-team-item">
+                    <div class="de-team-pic">
+                      <img src="images/person/8.jpg" class="img-fluid" alt="" style="max-width: 150px; border-radius: 10px;" />
+                    </div>
+                    <div class="de-team-desc">
+                      <h4>أحمد حسن</h4>
+                      <p class="lead">سائق تحمل</p>
+                      <p>
+                        سائق تحمل متخصص مع مهارات فنية متقنة،
+                        يمثل الفريق في المسابقات الدولية والإقليمية.
+                      </p>
+                      <div class="de-team-social">
+                        <a href="#"><i class="fa fa-facebook"></i></a>
+                        <a href="#"><i class="fa fa-twitter"></i></a>
+                        <a href="#"><i class="fa fa-instagram"></i></a>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="col-lg-4 col-md-4 mb-sm-30">
+                <div class="de-team-list modern-card">
+                  <div class="de-team-item">
+                    <div class="de-team-pic">
+                      <img src="images/person/1.jpg" class="img-fluid" alt="" style="max-width: 150px; border-radius: 10px;" />
+                    </div>
+                    <div class="de-team-desc">
+                      <h4>محمد علي</h4>
+                      <p class="lead">سائق فورمولا 1</p>
+                      <p>
+                        سائق فورمولا 1 موهوب مع أرقام قياسية عالمية،
+                        يمثل الفريق في البطولات العالمية.
+                      </p>
+                      <div class="de-team-social">
+                        <a href="#"><i class="fa fa-facebook"></i></a>
+                        <a href="#"><i class="fa fa-twitter"></i></a>
+                        <a href="#"><i class="fa fa-linkedin"></i></a>
                       </div>
                     </div>
                   </div>
