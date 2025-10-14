@@ -50,20 +50,20 @@
       .seasonal-card .features li { margin-bottom: 10px; font-size: 1.1rem; }
       .seasonal-card .btn-subscribe { background: linear-gradient(45deg, #00b894, #e74c3c); color: #fff; border: none; padding: 15px 30px; border-radius: 15px; font-weight: 900; font-size: 1.2rem; text-decoration: none; display: inline-block; transition: transform .2s ease; }
       .seasonal-card .btn-subscribe:hover { transform: scale(1.05); }
-      .event-card { background: rgba(20,20,22,.8); border: 1px solid #242426; border-radius: 18px; overflow: hidden; box-shadow: 0 10px 30px rgba(0,0,0,.25); transition: transform .25s ease, box-shadow .25s ease, border-color .25s ease; margin-bottom: 30px; display: flex; }
-      .event-card:hover { transform: translateY(-6px); box-shadow: 0 16px 40px rgba(0,0,0,.35); border-color: #2d2f33; }
-      .event-image { width: 200px; background: #16181b; display: flex; align-items: center; justify-content: center; }
+      .event-card { background: rgba(20,20,22,.8); border: 1px solid #242426; border-radius: 12px; overflow: hidden; box-shadow: 0 8px 20px rgba(0,0,0,.25); transition: transform .25s ease, box-shadow .25s ease, border-color .25s ease; margin-bottom: 20px; display: flex; flex-direction: column; height: auto; }
+      .event-card:hover { transform: translateY(-4px); box-shadow: 0 12px 30px rgba(0,0,0,.35); border-color: #2d2f33; }
+      .event-image { width: 100%; height: 120px; background: #16181b; display: flex; align-items: center; justify-content: center; }
       .event-image img { width: 100%; height: 100%; object-fit: cover; }
-      .event-content { flex: 1; padding: 20px; }
-      .event-title { font-weight: 800; margin: 0 0 10px 0; }
-      .event-meta { display: flex; gap: 15px; margin-bottom: 15px; flex-wrap: wrap; }
-      .event-meta span { background: #16181b; border: 1px solid #242426; padding: 5px 10px; border-radius: 8px; font-size: 0.9rem; }
-      .event-description { margin-bottom: 20px; opacity: 0.9; }
-      .ticket-options { display: flex; gap: 15px; flex-wrap: wrap; }
-      .ticket-option { background: #16181b; border: 1px solid #292b2f; border-radius: 12px; padding: 15px; flex: 1; min-width: 200px; transition: transform .2s ease, background .2s ease, border-color .2s ease; }
+      .event-content { flex: 1; padding: 15px; }
+      .event-title { font-weight: 800; font-size: 1.1rem; margin: 0 0 8px 0; }
+      .event-meta { display: flex; gap: 10px; margin-bottom: 10px; flex-wrap: wrap; }
+      .event-meta span { background: #16181b; border: 1px solid #242426; padding: 4px 8px; border-radius: 6px; font-size: 0.8rem; }
+      .event-description { margin-bottom: 15px; opacity: 0.9; font-size: 0.9rem; }
+      .ticket-options { display: flex; gap: 10px; flex-wrap: wrap; }
+      .ticket-option { background: #16181b; border: 1px solid #292b2f; border-radius: 8px; padding: 10px; flex: 1; min-width: 150px; transition: transform .2s ease, background .2s ease, border-color .2s ease; }
       .ticket-option:hover { transform: translateY(-2px); background: #1b1e22; border-color: #2f3237; }
-      .ticket-price { font-size: 24px; font-weight: 900; color: #00b894; margin: 10px 0; }
-      .btn-buy { background: linear-gradient(45deg, #00b894, #00cec9); color: #fff; border: none; padding: 10px 20px; border-radius: 10px; font-weight: 800; text-decoration: none; display: inline-block; transition: filter .2s ease; width: 100%; text-align: center; }
+      .ticket-price { font-size: 18px; font-weight: 900; color: #00b894; margin: 8px 0; }
+      .btn-buy { background: linear-gradient(45deg, #00b894, #00cec9); color: #fff; border: none; padding: 8px 16px; border-radius: 8px; font-weight: 800; text-decoration: none; display: inline-block; transition: filter .2s ease; width: 100%; text-align: center; font-size: 0.9rem; }
       .btn-buy:hover { filter: brightness(1.05); }
     </style>
   </head>
@@ -209,9 +209,10 @@
               </div>
             </div>
 
-            <!-- Event 1: Karting Sprint -->
+            <!-- Events Row 1: First Three Events -->
             <div class="row">
-              <div class="col-lg-12">
+              <!-- Event 1: Karting Sprint -->
+              <div class="col-lg-4 col-md-6">
                 <div class="event-card wow fadeInUp">
                   <div class="event-image">
                     <img src="images/gallery/1.jpg" alt="سبرنت كارتينغ">
@@ -229,23 +230,21 @@
                         <h4>تذكرة عادية</h4>
                         <p>دخول عام مع فرصة للفوز بجوائز</p>
                         <div class="ticket-price">49 دولار</div>
-                        <a href="#" class="btn-buy">اشترِ الآن</a>
+                        <a href="checkout.html" class="btn-buy">اشترِ الآن</a>
                       </div>
                       <div class="ticket-option">
                         <h4>تذكرة VIP</h4>
                         <p>دخول VIP مع بضائع مجانية ومقاعد أفضل</p>
                         <div class="ticket-price">89 دولار</div>
-                        <a href="#" class="btn-buy">اشترِ الآن</a>
+                        <a href="checkout.html" class="btn-buy">اشترِ الآن</a>
                       </div>
                     </div>
                   </div>
                 </div>
               </div>
-            </div>
 
-            <!-- Event 2: Drift Showcase -->
-            <div class="row">
-              <div class="col-lg-12">
+              <!-- Event 2: Drift Showcase -->
+              <div class="col-lg-4 col-md-6">
                 <div class="event-card wow fadeInUp" data-wow-delay=".1s">
                   <div class="event-image">
                     <img src="images/gallery/2.jpg" alt="عرض الدرفت">
@@ -263,23 +262,21 @@
                         <h4>تذكرة عادية</h4>
                         <p>دخول عام مع فرصة للفوز بجوائز</p>
                         <div class="ticket-price">49 دولار</div>
-                        <a href="#" class="btn-buy">اشترِ الآن</a>
+                        <a href="checkout.html" class="btn-buy">اشترِ الآن</a>
                       </div>
                       <div class="ticket-option">
                         <h4>تذكرة VIP</h4>
                         <p>دخول VIP مع بضائع مجانية ومقاعد أفضل</p>
                         <div class="ticket-price">89 دولار</div>
-                        <a href="#" class="btn-buy">اشترِ الآن</a>
+                        <a href="checkout.html" class="btn-buy">اشترِ الآن</a>
                       </div>
                     </div>
                   </div>
                 </div>
               </div>
-            </div>
 
-            <!-- Event 3: Time Attack -->
-            <div class="row">
-              <div class="col-lg-12">
+              <!-- Event 3: Time Attack -->
+              <div class="col-lg-4 col-md-6">
                 <div class="event-card wow fadeInUp" data-wow-delay=".2s">
                   <div class="event-image">
                     <img src="images/gallery/3.jpg" alt="تايم أتاك">
@@ -297,13 +294,13 @@
                         <h4>تذكرة عادية</h4>
                         <p>دخول عام مع فرصة للفوز بجوائز</p>
                         <div class="ticket-price">49 دولار</div>
-                        <a href="#" class="btn-buy">اشترِ الآن</a>
+                        <a href="checkout.html" class="btn-buy">اشترِ الآن</a>
                       </div>
                       <div class="ticket-option">
                         <h4>تذكرة VIP</h4>
                         <p>دخول VIP مع بضائع مجانية ومقاعد أفضل</p>
                         <div class="ticket-price">89 دولار</div>
-                        <a href="#" class="btn-buy">اشترِ الآن</a>
+                        <a href="checkout.html" class="btn-buy">اشترِ الآن</a>
                       </div>
                     </div>
                   </div>
@@ -311,9 +308,10 @@
               </div>
             </div>
 
-            <!-- Event 4: Endurance Kart Relay -->
+            <!-- Events Row 2: Last Two Events -->
             <div class="row">
-              <div class="col-lg-12">
+              <!-- Event 4: Endurance Kart Relay -->
+              <div class="col-lg-4 col-md-6">
                 <div class="event-card wow fadeInUp" data-wow-delay=".3s">
                   <div class="event-image">
                     <img src="images/gallery/4.jpg" alt="تحمل كارتينغ">
@@ -331,23 +329,21 @@
                         <h4>تذكرة عادية</h4>
                         <p>دخول عام مع فرصة للفوز بجوائز</p>
                         <div class="ticket-price">49 دولار</div>
-                        <a href="#" class="btn-buy">اشترِ الآن</a>
+                        <a href="checkout.html" class="btn-buy">اشترِ الآن</a>
                       </div>
                       <div class="ticket-option">
                         <h4>تذكرة VIP</h4>
                         <p>دخول VIP مع بضائع مجانية ومقاعد أفضل</p>
                         <div class="ticket-price">89 دولار</div>
-                        <a href="#" class="btn-buy">اشترِ الآن</a>
+                        <a href="checkout.html" class="btn-buy">اشترِ الآن</a>
                       </div>
                     </div>
                   </div>
                 </div>
               </div>
-            </div>
 
-            <!-- Event 5: Autocross Qualifiers -->
-            <div class="row">
-              <div class="col-lg-12">
+              <!-- Event 5: Autocross Qualifiers -->
+              <div class="col-lg-4 col-md-6">
                 <div class="event-card wow fadeInUp" data-wow-delay=".4s">
                   <div class="event-image">
                     <img src="images/gallery/5.jpg" alt="أوتوكروس">
@@ -365,13 +361,13 @@
                         <h4>تذكرة عادية</h4>
                         <p>دخول عام مع فرصة للفوز بجوائز</p>
                         <div class="ticket-price">49 دولار</div>
-                        <a href="#" class="btn-buy">اشترِ الآن</a>
+                        <a href="checkout.html" class="btn-buy">اشترِ الآن</a>
                       </div>
                       <div class="ticket-option">
                         <h4>تذكرة VIP</h4>
                         <p>دخول VIP مع بضائع مجانية ومقاعد أفضل</p>
                         <div class="ticket-price">89 دولار</div>
-                        <a href="#" class="btn-buy">اشترِ الآن</a>
+                        <a href="checkout.html" class="btn-buy">اشترِ الآن</a>
                       </div>
                     </div>
                   </div>
