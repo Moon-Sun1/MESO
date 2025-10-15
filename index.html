@@ -100,6 +100,7 @@
       .live-table { width: 100%; border-collapse: separate; border-spacing: 0; }
       .live-table thead th { background: linear-gradient(180deg, #141416, #121214); color:#cfd3d6; font-weight:800; letter-spacing:.2px; padding:14px; border-bottom:1px solid #242426; }
       .live-table tbody td { padding:14px; border-bottom:1px solid #202124; vertical-align: middle; }
+      .live-table tbody td:last-child { text-align:center; white-space:nowrap; }
       .live-row { transition: background .2s ease; }
       .live-row:hover { background: rgba(255,255,255,.03); }
       .pill { display:inline-flex; align-items:center; gap:6px; padding:6px 10px; border-radius:999px; font-size:12px; font-weight:700; }
@@ -112,7 +113,8 @@
       .badge-red { background: linear-gradient(135deg,#ef4444,#f97316); }
       .badge-green { background: linear-gradient(135deg,#10b981,#22d3ee); }
       .badge-gold { background: linear-gradient(135deg,#d97706,#f59e0b); }
-      .btn-stream { background: linear-gradient(45deg, #00b894, #00cec9); color:#fff; width: 100%; font-size: 10px; padding:5px; border-radius:10px; font-weight:800; text-decoration:none; display:inline-flex; align-items:center; gap:5px; }
+      .btn-stream { background: linear-gradient(45deg, #00b894, #00cec9); color:#fff; padding:10px 14px; border-radius:12px; font-weight:800; text-decoration:none; display:inline-flex; align-items:center; gap:8px; line-height:1; direction: rtl; min-width: 130px; justify-content:center; }
+      .btn-stream i { margin-left:6px; }
       .btn-stream:hover { filter: brightness(1.05); }
       .score { font-weight:900; color:#eaeaea; }
     </style>
@@ -168,7 +170,7 @@
 <ul id="mainmenu">
   <li><a class="menu-item" href="news.html">الأخبار</a></li>
   <li><a class="menu-item" href="shop.html">المتجر</a></li>
- 
+  <li><a class="menu-item" href="#section-gallery">المعرض</a></li>
   <li><a class="menu-item" href="tickets.html">التذاكر</a></li>
   <li><a class="menu-item" href="live.html">الاحداث</a></li>
   <li class="dropdown">
@@ -1191,7 +1193,7 @@
                           </div>
                         </td>
                         <td>بطولة الكارتينغ العراقية (فئة الناشئين)</td>
-                        <td><a href="live-watch.html" class="btn-stream"><i class="fa fa-play"></i> شاهد الآن</a></td>
+                        <td><a href="#" class="btn-stream"><i class="fa fa-play"></i> شاهد الآن</a></td>
                       </tr>
 
                       <!-- Upcoming: Drift Showcase -->
@@ -1275,7 +1277,7 @@
                           </div>
                         </td>
                         <td>دوري رياضات المحركات بالنادي</td>
-                        <td><a href="live-watch.html" class="btn-stream"><i class="fa fa-play"></i> شاهد الآن</a></td>
+                        <td><a href="#" class="btn-stream"><i class="fa fa-play"></i> شاهد الآن</a></td>
                       </tr>
                     </tbody>
                   </table>
