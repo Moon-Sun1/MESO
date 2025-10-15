@@ -10,38 +10,86 @@
   <!-- Favicon -->
   <link rel="shortcut icon" href="images/favicon.ico" />
 
-  <!-- CSS Files -->
-  <link rel="stylesheet" href="css/bootstrap.min.css" />
-  <link rel="stylesheet" href="css/plugins.css" />
-  <link rel="stylesheet" href="css/style.css" />
-  <link rel="stylesheet" href="css/coloring.css" />
-  <!-- color scheme -->
-  <link
-    id="colors"
-    href="css/colors/blue-teal.css"
-    rel="stylesheet"
-    type="text/css"
-  />
+
+    <!-- CSS Files
+    ================================================== -->
+    <link
+      href="css/bootstrap.min.css"
+      rel="stylesheet"
+      type="text/css"
+      id="bootstrap"
+    />
+    <link href="css/mdb.min.css" rel="stylesheet" type="text/css" id="mdb" />
+    <link href="css/plugins.css" rel="stylesheet" type="text/css" />
+    <link href="css/style.css" rel="stylesheet" type="text/css" />
+    <link href="css/coloring.css" rel="stylesheet" type="text/css" />
+    <!-- color scheme -->
+    <link
+      id="colors"
+      href="css/colors/blue-teal.css"
+      rel="stylesheet"
+      type="text/css"
+    />
   <style>
-    /* Modern card styles */
-    .modern-card {
-      background: rgba(20,20,22,.8);
-      border: 1px solid #242426;
-      border-radius: 15px;
-      overflow: hidden;
-      box-shadow: 0 4px 15px rgba(0,0,0,.2);
+    /* Dropdown menu styles */
+    .dropdown { position: relative; }
+    .dropdown-menu {
+      display: none; position: absolute; top: 80%; left: 0; background: #141416;
+      border-radius: 0; min-width: 150px; z-index: 1000;
+    }
+    .dropdown:hover .dropdown-menu { display: block; }
+    .dropdown-menu li { list-style: none; }
+    .dropdown-menu li a {
+      display: block; padding: 10px 15px; color: #fff; text-decoration: none;
+      transition: background .2s ease; font-weight: 400; font-size: 14px;
+    }
+    .dropdown-menu li a:hover { background: #242426; }
+    .dropdown:after { font-family: FontAwesome; content: "\f078"; padding-left: 5px; font-size: 8px; position: relative; top: -2px; color: blue; }
+
+    /* Member card styles (inlined) */
+    .member-card {
+      position: relative;
+      background: rgba(22, 24, 28, 0.65);
+      border: 1px solid rgba(255, 255, 255, 0.06);
+      border-radius: 16px;
+      backdrop-filter: blur(6px);
+      -webkit-backdrop-filter: blur(6px);
+      box-shadow: 0 6px 20px rgba(0, 0, 0, 0.25);
+      transition: transform .25s ease, box-shadow .25s ease, border-color .25s ease;
+      height: 100%;
+    }
+    .member-card:hover {
+      transform: translateY(-6px);
+      box-shadow: 0 12px 32px rgba(0, 0, 0, 0.35);
+      border-color: rgba(0, 184, 148, 0.35);
+    }
+    .member-card .de-team-item { display: flex; align-items: center; gap: 18px; padding: 22px; }
+    @media (max-width: 767.98px) { .member-card .de-team-item { flex-direction: column; text-align: center; } }
+    .member-card .de-team-pic { flex: 0 0 auto; }
+    .member-card .de-team-pic img {
+      width: 96px; height: 96px; object-fit: cover; border-radius: 50%;
+      box-shadow: 0 0 0 3px rgba(255,255,255,0.08), 0 10px 18px rgba(0,0,0,.35);
       transition: transform .3s ease, box-shadow .3s ease;
     }
-    .modern-card:hover {
-      transform: translateY(-5px);
-      box-shadow: 0 8px 25px rgba(0,0,0,.3);
+    .member-card:hover .de-team-pic img {
+      transform: scale(1.04);
+      box-shadow: 0 0 0 3px rgba(0, 184, 148, 0.3), 0 14px 24px rgba(0,0,0,.4);
     }
-    .modern-card .de-team-pic img {
-      border-radius: 10px;
-      transition: transform .3s ease;
+    .member-card .de-team-desc h4 { margin: 0 0 6px 0; font-weight: 700; letter-spacing: .3px; }
+    .member-card .de-team-desc .lead {
+      display: inline-block; margin: 0 0 10px 0; padding: 4px 10px; font-size: 12px; font-weight: 600; line-height: 1.4;
+      color: #b8fff0; background: rgba(0, 184, 148, 0.12); border: 1px solid rgba(0, 184, 148, 0.3); border-radius: 999px;
+      text-transform: none;
     }
-    .modern-card:hover .de-team-pic img {
-      transform: scale(1.05);
+    .member-card .de-team-desc p { color: #bfc4ce; margin-bottom: 12px; }
+    .member-card .de-team-social a {
+      width: 36px; height: 36px; display: inline-flex; align-items: center; justify-content: center; margin-inline-start: 6px;
+      color: #e5e9f0; border: 1px solid rgba(255,255,255,0.08); border-radius: 50%; background: rgba(255,255,255,0.03);
+      transition: background .2s ease, color .2s ease, border-color .2s ease, transform .2s ease;
+    }
+    .member-card .de-team-social a:hover {
+      background: linear-gradient(90deg, rgba(0,184,148,.25), rgba(231,76,60,.25));
+      border-color: rgba(0,184,148,.45); color: #ffffff; transform: translateY(-2px);
     }
   </style>
 </head>
@@ -49,52 +97,80 @@
 <body class="dark-scheme">
   <div id="wrapper">
 
-    <!-- header begin -->
-    <header class="transparent">
-      <div class="container">
-        <div class="row">
-          <div class="col-md-12">
-            <div class="de-flex sm-pt10">
-              <div class="de-flex-col">
+      <!-- header begin -->
+      <header class="transparent">
+        <div class="container">
+          <div class="row">
+            <div class="col-md-12">
+              <div class="de-flex sm-pt10">
                 <div class="de-flex-col">
-                  <!-- logo begin -->
-                  <div id="logo">
-                    <a href="index.html">
-                      <img alt="" class="logo" src="images/logo.png" />
-                      <img alt="" class="logo-2" src="images/logo-2.png" />
-                    </a>
-                  </div>
-                  <!-- logo close -->
+                  <div class="de-flex-col">
+      <!-- logo begin -->
+      <div id="logo" style="display: flex; align-items: center; gap: 10px; direction: rtl;">
+        <a href="index.html" style="display: flex; align-items: center; text-decoration: none;">
+          <img
+            class="logo-main"
+            src="images/Al-Rafidain-logo.png"
+            alt="شعار نادي بلاد الرافدين"
+            style="width: 75px;"
+          />
+          <span
+            style="
+              font-size: 22px;
+              font-weight: 700;
+              background: linear-gradient(90deg, #00b894, #e74c3c);
+              background-clip: text;
+              -webkit-background-clip: text;
+              -webkit-text-fill-color: transparent;
+              margin-right: 10px;
+              font-family: 'Cairo', 'Tajawal', sans-serif;
+              white-space: nowrap;
+              letter-spacing: 0.5px;
+              text-shadow: 0 0 6px rgba(0,0,0,0.4);
+            "
+            >نادي بلاد الرافدين</span
+          >
+        </a>
+      </div>
+      <!-- logo close -->
+      
                 </div>
+      
+                <div class="de-flex-col header-col-mid">
+      <ul id="mainmenu">
+        <li><a class="menu-item" href="news.html">الأخبار</a></li>
+        <li><a class="menu-item" href="shop.html">المتجر</a></li>
+        <li><a class="menu-item" href="#section-gallery">المعرض</a></li>
+        <li><a class="menu-item" href="tickets.html">التذاكر</a></li>
+        <li><a class="menu-item" href="live.html">الاحداث</a></li>
+        <li class="dropdown">
+          <a class="menu-item" href="drivers.html">الفريق</a>
+          <ul class="dropdown-menu">
+            <li><a href="youth.html">شباب</a></li>
+            <li><a href="juniors.html">ناشئين</a></li>
+            <li><a href="drivers.html">سائقين</a></li>
+          </ul>
+        </li>
+        <li><a class="menu-item" href="about.html">حول</a></li>
+        <li>
+          <a class="menu-item" href="index.html">الرئيسية</a>
+        </li>
+      </ul>
+                </div>
+      
                 <div class="de-flex-col">
-                  <!-- mainmenu begin -->
-                  <ul id="mainmenu">
-                    <li><a class="menu-item" href="news.html">الأخبار</a></li>
-                    <li><a class="menu-item" href="shop.html">المتجر</a></li>
-                    <li><a class="menu-item" href="#section-gallery">المعرض</a></li>
-                    <li><a class="menu-item" href="tickets.html">التذاكر</a></li>
-                    <li><a class="menu-item" href="live.html">الاحداث</a></li>
-                    <li class="dropdown">
-    <a class="menu-item" href="team.html">الفريق</a>
-    <ul class="dropdown-menu">
-      <li><a href="youth.html">شباب</a></li>
-      <li><a href="juniors.html">ناشئين</a></li>
-      <li><a href="drivers.html">سائقين</a></li>
-    </ul>
-  </li>
-                    <li><a class="menu-item" href="about.html">حول</a></li>
-                    <li>
-                      <a class="menu-item" href="index.html">الرئيسية</a>
-                    </li>
-                  </ul>
+                  <div class="menu_side_area">
+                    <a href="tickets.html" class="btn-line">اشترِ التذكرة</a>
+                    <span id="menu-btn"></span>
+                  </div>
                 </div>
               </div>
             </div>
           </div>
         </div>
-      </div>
-    </header>
-    <!-- header close -->
+      </header>
+      <!-- header close -->
+
 
     <!-- content begin -->
     <div class="no-bottom no-top" id="content">
@@ -114,10 +190,10 @@
           </div>
           <div class="row g-4">
             <div class="col-lg-4 col-md-4 mb-sm-30">
-              <div class="de-team-list modern-card">
+              <div class="de-team-list member-card">
                 <div class="de-team-item">
                   <div class="de-team-pic">
-                    <img src="images/person/1.jpg" class="img-fluid" alt="" style="max-width: 150px; border-radius: 10px;" />
+                    <img src="images/person/1.jpg" class="img-fluid" alt="" />
                   </div>
                   <div class="de-team-desc">
                     <h4>أحمد محمد</h4>
@@ -136,10 +212,10 @@
               </div>
             </div>
             <div class="col-lg-4 col-md-4 mb-sm-30">
-              <div class="de-team-list modern-card">
+              <div class="de-team-list member-card">
                 <div class="de-team-item">
                   <div class="de-team-pic">
-                    <img src="images/person/2.jpg" class="img-fluid" alt="" style="max-width: 150px; border-radius: 10px;" />
+                    <img src="images/person/2.jpg" class="img-fluid" alt="" />
                   </div>
                   <div class="de-team-desc">
                     <h4>محمد علي</h4>
@@ -158,10 +234,10 @@
               </div>
             </div>
             <div class="col-lg-4 col-md-4 mb-sm-30">
-              <div class="de-team-list modern-card">
+              <div class="de-team-list member-card">
                 <div class="de-team-item">
                   <div class="de-team-pic">
-                    <img src="images/person/3.jpg" class="img-fluid" alt="" style="max-width: 150px; border-radius: 10px;" />
+                    <img src="images/person/3.jpg" class="img-fluid" alt="" />
                   </div>
                   <div class="de-team-desc">
                     <h4>علي حسن</h4>
@@ -184,75 +260,63 @@
       </section>
     </div>
 
-    <!-- footer begin -->
-    <footer>
-      <div class="container">
-        <div class="row">
-          <div class="col-lg-6">
-            <div class="widget">
-              <h5>اتصل بنا</h5>
-              <address class="s1">
-                <span><i class="id-color fa fa-map-marker fa-lg"></i>شارع الملك فيصل، الرياض، المملكة العربية السعودية</span>
-                <span><i class="id-color fa fa-phone fa-lg"></i>+966 11 123 4567</span>
-                <span><i class="id-color fa fa-envelope-o fa-lg"></i><a href="mailto:contact@example.com">contact@example.com</a></span>
-              </address>
-            </div>
-          </div>
-          <div class="col-lg-3">
-            <h5>روابط سريعة</h5>
-            <div class="row">
-              <div class="col-lg-6">
-                <div class="widget">
-                  <ul>
-                    <li><a href="index.html">الرئيسية</a></li>
-                    <li><a href="about.html">حول</a></li>
-                    <li><a href="team.html">الفريق</a></li>
-                    <li><a href="news.html">الأخبار</a></li>
-                  </ul>
-                </div>
-              </div>
-            </div>
-          </div>
-          <div class="col-lg-3">
-            <div class="widget">
-              <h5>تابعنا</h5>
-              <div class="social-icons">
-                <a href="#"><i class="fa fa-facebook"></i></a>
-                <a href="#"><i class="fa fa-twitter"></i></a>
-                <a href="#"><i class="fa fa-instagram"></i></a>
-                <a href="#"><i class="fa fa-youtube"></i></a>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-      <div class="subfooter">
+      <!-- ` begin -->
+      <footer>
         <div class="container">
-          <div class="row">
-            <div class="col-md-12">
-              <div class="de-flex">
-                <div class="de-flex-col">
-                  &copy; 2023 جميع الحقوق محفوظة لفريق السباقات
-                </div>
-                <div class="de-flex-col">
-                  <div class="social-icons">
-                    <a href="#"><i class="fa fa-facebook"></i></a>
-                    <a href="#"><i class="fa fa-twitter"></i></a>
-                    <a href="#"><i class="fa fa-instagram"></i></a>
-                  </div>
-                </div>
+          <div class="row g-4">
+            <div class="col-lg-4 text-lg-start text-sm-center">
+              <div class="social-icons">
+                <a href="#"><i class="fa fa-facebook fa-lg"></i></a>
+                <a href="#"><i class="fa fa-twitter fa-lg"></i></a>
+                <a href="#"><i class="fa fa-linkedin fa-lg"></i></a>
+                <a href="#"><i class="fa fa-pinterest fa-lg"></i></a>
+                <a href="https://www.instagram.com/mesopotamia_engines_club?utm_source=ig_web_button_share_sheet&igsh=ZDNlZDc0MzIxNw=="><i class="fa fa-instagram fa-lg"></i></a>
               </div>
+            </div>
+            <div class="col-lg-4 text-lg-center text-sm-center">
+              <div id="footer-logo" style="display: inline-flex; align-items: center; gap: 10px; direction: rtl;">
+                <a href="index.html" style="display: inline-flex; align-items: center; text-decoration: none;">
+                  <img
+                    class="logo-main"
+                    src="images/Al-Rafidain-logo.png"
+                    alt="شعار نادي بلاد الرافدين"
+                    style="width: 75px;"
+                  />
+                  <span
+                    style="
+                      font-size: 22px;
+                      font-weight: 700;
+                      background: linear-gradient(90deg, #00b894, #e74c3c);
+                      background-clip: text;
+                      -webkit-background-clip: text;
+                      -webkit-text-fill-color: transparent;
+                      margin-right: 10px;
+                      font-family: 'Cairo', 'Tajawal', sans-serif;
+                      white-space: nowrap;
+                      letter-spacing: 0.5px;
+                      text-shadow: 0 0 6px rgba(0,0,0,0.4);
+                    "
+                    >نادي بلاد الرافدين</span
+                  >
+                </a>
+              </div>
+            </div>
+            <div class="col-lg-4 text-lg-end text-sm-center">
+              حقوق النشر 2025 - نادي بلاد الرافدين
             </div>
           </div>
         </div>
-      </div>
-    </footer>
+      </footer>
+      <!-- footer close -->
   </div>
 
-  <!-- Javascript Files
-  ================================================== -->
-  <script src="js/plugins.js"></script>
-  <script src="js/designesia.js"></script>
+    <!-- Javascript Files
+    ================================================== -->
+    <script src="js/plugins.js"></script>
+    <script src="js/designesia.js"></script>
+    <script src="js/custom-marquee.js"></script>
+    <script src="js/jquery.countdown.js"></script>
+    <script src="js/countdown-custom.js"></script>
 </body>
 
 </html>

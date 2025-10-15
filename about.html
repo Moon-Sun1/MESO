@@ -31,6 +31,41 @@
       rel="stylesheet"
       type="text/css"
     />
+
+    <style>
+      /* Dropdown menu styles */
+            .dropdown {
+              position: relative;
+            }
+            .dropdown-menu {
+              display: none;
+              position: absolute;
+              top: 80%;
+              left: 0;
+              background: #141416;
+              border-radius: 0;
+              min-width: 150px;
+              z-index: 1000;
+            }
+            .dropdown:hover .dropdown-menu {
+              display: block;
+            }
+            .dropdown-menu li {
+              list-style: none;
+            }
+            .dropdown-menu li a {
+              display: block;
+              padding: 10px 15px;
+              color: #fff;
+              text-decoration: none;
+              transition: background .2s ease;
+              font-weight: 400;
+              font-size: 14px;
+            }
+            .dropdown-menu li a:hover {
+              background: #242426;
+            }  
+          </style>
   </head>
 
   <body class="dark-scheme">
