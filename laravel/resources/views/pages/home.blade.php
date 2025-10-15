@@ -1,0 +1,1759 @@
+<x-layout title="الرئيسية - نادي بلاد الرافدين">
+
+
+    <style>
+        /* Dropdown menu styles */
+              .dropdown {
+                position: relative;
+              }
+              .dropdown-menu {
+                display: none;
+                position: absolute;
+                top: 80%;
+                left: 0;
+                background: #141416;
+                border-radius: 0;
+                min-width: 150px;
+                z-index: 1000;
+              }
+              .dropdown:hover .dropdown-menu {
+                display: block;
+              }
+              .dropdown-menu li {
+                list-style: none;
+              }
+              .dropdown-menu li a {
+                display: block;
+                padding: 10px 15px;
+                color: #fff;
+                text-decoration: none;
+                transition: background .2s ease;
+                font-weight: 400;
+                font-size: 14px;
+              }
+              .dropdown-menu li a:hover {
+                background: #242426;
+              }
+               /* Live content modern cards */
+              .live-card { position: relative; background: rgba(20,20,22,.8); border: 1px solid #242426; border-radius: 18px; overflow: hidden; box-shadow: 0 10px 30px rgba(0,0,0,.25); transition: transform .25s ease, box-shadow .25s ease, border-color .25s ease; height: 100%; }
+              .live-card:hover { transform: translateY(-6px); box-shadow: 0 16px 40px rgba(0,0,0,.35); border-color: #2d2f33; }
+              .live-thumb { position: relative; height: 210px; overflow: hidden; }
+              .live-thumb img { width: 100%; height: 100%; object-fit: cover; transform: scale(1.02); transition: transform .6s ease; }
+              .live-card:hover .live-thumb img { transform: scale(1.07); }
+              .live-overlay { position: absolute; inset: 0; background: linear-gradient(180deg, rgba(0,0,0,.0) 40%, rgba(0,0,0,.55) 100%); display: flex; align-items: flex-end; justify-content: space-between; padding: 14px; }
+              .live-badges { display: flex; gap: 8px; }
+              .badge-live { background: linear-gradient(45deg, #e74c3c, #ff6b6b); color: #fff; font-weight: 800; border-radius: 999px; padding: 6px 10px; font-size: 11px; display: inline-flex; align-items: center; gap: 6px; box-shadow: 0 6px 16px rgba(231,76,60,.4); }
+              .badge-type { background: rgba(255,255,255,.12); color: #fff; border: 1px solid rgba(255,255,255,.14); padding: 6px 10px; border-radius: 999px; font-size: 11px; }
+              .play-btn { width: 64px; height: 64px; border-radius: 50%; display: grid; place-items: center; background: rgba(255,255,255,.18); border: 1px solid rgba(255,255,255,.3); backdrop-filter: blur(8px); -webkit-backdrop-filter: blur(8px); box-shadow: 0 8px 24px rgba(0,0,0,.35); transition: transform .2s ease, background .2s ease; }
+              .play-btn:hover { transform: scale(1.06); background: rgba(255,255,255,.24); }
+              .live-body { padding: 16px; display: flex; flex-direction: column; height: calc(100% - 210px); }
+              .live-title { margin: 0 0 8px 0; font-weight: 800; letter-spacing: .2px; }
+              .live-meta { display: flex; gap: 10px; flex-wrap: wrap; margin-bottom: 12px; }
+              .chip { background:#141417; border:1px solid #26282b; color:#cfd3d6; padding:6px 10px; border-radius:10px; font-size:12px; display:inline-flex; align-items:center; gap:6px; }
+              .chip i { color:#8aa1ff; }
+              .progress-wrap { background:#17181b; border:1px solid #24262a; border-radius: 999px; height: 10px; overflow: hidden; position: relative; }
+              .progress-bar { height: 100%; background: linear-gradient(90deg, #00b894, #00cec9); width: 0; transition: width .8s ease; }
+              .live-actions { margin-top: auto; display: flex; gap: 10px; }
+              .btn-soft { background: #16181b; border: 1px solid #292b2f; color: #eaecef; border-radius: 12px; padding: 10px 14px; font-weight: 700; transition: transform .2s ease, background .2s ease, border-color .2s ease; display: inline-flex; align-items: center; gap: 8px; }
+              .btn-soft:hover { transform: translateY(-2px); background:#1b1e22; border-color:#2f3237; }
+
+              /* Live matches table */
+              .live-table-wrap { background: rgba(20,20,22,.8); border:1px solid #242426; border-radius: 16px; overflow: hidden; box-shadow: 0 10px 30px rgba(0,0,0,.2); }
+              .live-table { width: 100%; border-collapse: separate; border-spacing: 0; }
+              .live-table thead th { background: linear-gradient(180deg, #141416, #121214); color:#cfd3d6; font-weight:800; letter-spacing:.2px; padding:14px; border-bottom:1px solid #242426; }
+              .live-table tbody td { padding:14px; border-bottom:1px solid #202124; vertical-align: middle; }
+              .live-table tbody td:last-child { text-align:center; white-space:nowrap; }
+              .live-row { transition: background .2s ease; }
+              .live-row:hover { background: rgba(255,255,255,.03); }
+              .pill { display:inline-flex; align-items:center; gap:6px; padding:6px 10px; border-radius:999px; font-size:12px; font-weight:700; }
+              .pill-live { background: linear-gradient(45deg, #e74c3c, #ff6b6b); color:#fff; box-shadow:0 6px 16px rgba(231,76,60,.35); }
+              .pill-upcoming { background:#16221f; color:#7ce8d8; border:1px solid #224a43; }
+              .pill-finished { background:#1b1b1b; color:#aab1b8; border:1px solid #2b2f33; }
+              .team { display:flex; align-items:center; gap:10px; }
+              .badge-team { width:28px; height:28px; border-radius:8px; display:grid; place-items:center; color:#fff; font-weight:800; font-size:12px; }
+              .badge-blue { background: linear-gradient(135deg,#2563eb,#3b82f6); }
+              .badge-red { background: linear-gradient(135deg,#ef4444,#f97316); }
+              .badge-green { background: linear-gradient(135deg,#10b981,#22d3ee); }
+              .badge-gold { background: linear-gradient(135deg,#d97706,#f59e0b); }
+              .btn-stream { background: linear-gradient(45deg, #00b894, #00cec9); color:#fff; padding:10px 14px; border-radius:12px; font-weight:800; text-decoration:none; display:inline-flex; align-items:center; gap:8px; line-height:1; direction: rtl; min-width: 130px; justify-content:center; }
+              .btn-stream i { margin-left:6px; }
+              .btn-stream:hover { filter: brightness(1.05); }
+              .score { font-weight:900; color:#eaeaea; }
+            </style>
+      <!-- header close -->
+      <!-- content begin -->
+      <div class="no-bottom no-top" id="content">
+        <!-- float text begin -->
+        <div class="float-text">
+          <div class="de_social-icons">
+            <a href="#"><i class="fa fa-facebook fa-lg"></i></a>
+            <a href="#"><i class="fa fa-twitter fa-lg"></i></a>
+            <a href="https://www.instagram.com/mesopotamia_engines_club?utm_source=ig_web_button_share_sheet&igsh=ZDNlZDc0MzIxNw=="><i class="fa fa-instagram fa-lg"></i></a>
+          </div>
+          <span><a href="tickets.html">احصل على التذكرة</a></span>
+        </div>
+        <!-- float text close -->
+
+        <div id="top"></div>
+        <section id="section-hero" class="jarallax">
+          <img src="images/background/new-hero-2.png" class="jarallax-img" alt="" />
+          <div class="container position-relative z1000 wow fadeInDown">
+            <div class="row align-items-center position-relative">
+              <div class="spacer-double d-lg-none d-sm-block"></div>
+              <div class="col-lg-12 z1000">
+                <div class="spacer-double"></div>
+                <h5 class="mb-4 s2">
+                  <span class="wow fadeInRight" data-wow-delay=".2s"
+                    ><i class="id-color fa fa-calendar-o"></i>النادي مفتوح يومياً</span
+                  ><span class="wow fadeInRight" data-wow-delay=".2s"
+                    ><i class="id-color fa fa-map-marker"></i>بغداد،
+                    العراق</span
+                  >
+                </h5>
+                <h1 class="ultra-big text-uppercase mb-4 wow fadeInRight">
+                  <span class="wow fadeInLeft" data-wow-delay=".4s">انضم</span>
+                  <span class="text-line">إلى</span>
+                  <span class="text-gradient">أكبر</span>
+                  <span class="text-line wow fadeInRight" data-wow-delay=".4s"
+                    >نادي</span
+                  >
+                  رياضي في العراق
+                </h1>
+              </div>
+              <div class="col-lg-4 sm-hide">
+                <img
+                  src="images/misc/iraq-car.png"
+                  class="sm-img-fluid position-absolute top-0 end-0 anim-up-down wow fadeInDown"
+                  alt=""
+                />
+              </div>
+              <div class="clearfix"></div>
+              <div class="col-lg-1 col-2">
+                <img
+                  src="images/misc/arrow-up-right.png"
+                  class="img-fluid wow fadeInLeft"
+                  alt=""
+                />
+              </div>
+              <div class="col-lg-5 col-10">
+                <div class="position-relative">
+<p class="lead no-bottom wow fadeInLeft">
+                    انغمس في عالم الرياضة مع نادي بلاد الرافدين: مركز التميز الرياضي في العراق حيث يلتقي الشغف بالأداء والإنجازات الرياضية في بيئة مثالية للرياضيين من جميع الأعمار.
+                  </p>
+                </div>
+              </div>
+
+              <div class="spacer-single d-lg-none d-sm-block"></div>
+
+              <div class="col-lg-3">
+                <a class="btn-main big wow fadeInLeft" href="#section-tickets"
+                  >احصل على التذكرة</a
+                >
+              </div>
+            </div>
+          </div>
+          <div class="de-gradient-edge-bottom"></div>
+        </section>
+
+        <section aria-label="section" class="no-top no-bottom">
+          <div class="wow fadeInRight d-flex">
+            <div class="de-marquee-list wow">
+              <div class="d-item">
+                <span class="d-item-txt">Ferrari</span>
+                <span class="d-item-display">
+                  <i class="d-item-block"></i>
+                </span>
+                <span class="d-item-txt">Porsche</span>
+                <span class="d-item-display">
+                  <i class="d-item-block"></i>
+                </span>
+                <span class="d-item-txt">Lamborghini</span>
+                <span class="d-item-display">
+                  <i class="d-item-block"></i>
+                </span>
+                <span class="d-item-txt">McLaren</span>
+                <span class="d-item-display">
+                  <i class="d-item-block"></i>
+                </span>
+                <span class="d-item-txt">Mercedes-Benz</span>
+                <span class="d-item-display">
+                  <i class="d-item-block"></i>
+                </span>
+                <span class="d-item-txt">Red Bull Racing</span>
+                <span class="d-item-display">
+                  <i class="d-item-block"></i>
+                </span>
+                <span class="d-item-txt">Aston Martin</span>
+                <span class="d-item-display">
+                  <i class="d-item-block"></i>
+                </span>
+                <span class="d-item-txt">Bugatti</span>
+                <span class="d-item-display">
+                  <i class="d-item-block"></i>
+                </span>
+                <span class="d-item-txt">Koenigsegg</span>
+                <span class="d-item-display">
+                  <i class="d-item-block"></i>
+                </span>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <section id="section-about" aria-label="section" class="no-bottom">
+          <div class="container">
+            <div class="row">
+              <div class="col-lg-12" data-jarallax-element="-50">
+                <p class="lead big wow fadeInUp">
+                  مرحباً بكم في عالم يلتقي فيه العجائب الهندسية مع التصميم
+                  الفني، حيث يأخذ الابتكار المسرح الرئيسي، ويُعرض شغف التميز في
+                  رياضات السيارات. ادخلوا إلى عالم حدث نادي الرافدين الساحر،
+                  رحلة غامرة عبر تطور التكنولوجيا والأسلوب والأداء في رياضات
+                  السيارات.
+                </p>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <section>
+          <div class="container">
+            <div class="row">
+              <div class="col-lg-8 offset-lg-2 text-center">
+                <h1 class="text-uppercase">
+                  <span class="wow fadeInUp">ديسمبر</span>
+                  <span
+                    class="text-gradient wow fadeInUp"
+                    data-wow-delay="
+                                .3s"
+                    >3 - 7</span
+                  >
+                </h1>
+              </div>
+            </div>
+
+            <div class="row align-items-center">
+              <div class="col-lg-6 position-relative">
+                <div class="images-deco-1">
+                  <img src="images/misc/car-1.jpg" class="d-img-1" alt="" />
+                  <img
+                    src="images/misc/dotted.png"
+                    class="d-img-2"
+                    alt=""
+                    data-jarallax-element="40"
+                  />
+                  <div class="d-img-3 bg-color"></div>
+                </div>
+              </div>
+              <div
+                class="col-lg-6 position-relative"
+                data-jarallax-element="-60"
+              >
+                <div class="position-relative z1000">
+                  <h2
+                    class="text-uppercase wow fadeInRight"
+                    data-wow-delay=".3s"
+                  >
+                    مرحباً بكم في <span class="text-line">أكبر</span>
+                    <span class="text-gradient">حدث رياضي للسيارات</span> 2025
+                  </h2>
+                  <div class="row">
+                    <div class="col-lg-2 col-2">
+                      <img
+                        src="images/misc/arrow-up-left.png"
+                        class="img-fluid"
+                        alt=""
+                        data-jarallax-element="30"
+                      />
+                    </div>
+                    <div class="col-lg-10 col-10">
+                      <p class="wow fadeInRight" data-wow-delay=".4s">
+                        نادي الرافدين احتفال بالعبقرية البشرية وشهادة على المشهد
+                        المتطور لرياضات السيارات. من الديناميكيات الهوائية
+                        الأنيقة إلى الحلول المستدامة الثورية، يجسد كل معرض روح
+                        التقدم التي تدفع عالم رياضات السيارات إلى الأمام.
+                      </p>
+                    </div>
+                  </div>
+                </div>
+                <img
+                  src="images/misc/circle-gradient.png"
+                  class="position-absolute top-50 start-50 translate-middle"
+                  alt=""
+                />
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <section class="no-top">
+          <div class="container">
+            <div class="row text-center">
+              <div class="col-md-3 col-sm-6 mb-sm-30 position-relative">
+                <div
+                  class="de_count position-absolute top-50 start-50 translate-middle text-light wow fadeInUp"
+                >
+                  <h3
+                    class="timer text-gradient"
+                    data-to="150"
+                    data-speed="3000"
+                  >
+                    0
+                  </h3>
+                  <h4 class="text-uppercase">علامات السيارات<br />التجارية</h4>
+                </div>
+                <img
+                  src="images/misc/circle-gradient.png"
+                  class="img-fluid"
+                  alt=""
+                />
+              </div>
+              <div
+                class="col-md-3 col-sm-6 mb-sm-30 position-relative"
+                data-jarallax-element="-50"
+              >
+                <div
+                  class="de_count position-absolute top-50 start-50 translate-middle text-light wow fadeInUp"
+                >
+                  <h3 class="timer text-line" data-to="32" data-speed="3000">
+                    0
+                  </h3>
+                  <h4 class="text-uppercase">الدول<br />المشاركة</h4>
+                </div>
+                <img
+                  src="images/misc/circle-gradient-2.png"
+                  class="img-fluid"
+                  alt=""
+                />
+              </div>
+              <div class="col-md-3 col-sm-6 mb-sm-30 position-relative">
+                <div
+                  class="de_count position-absolute top-50 start-50 translate-middle text-light wow fadeInUp"
+                >
+                  <h3
+                    class="timer text-gradient"
+                    data-to="12"
+                    data-speed="3000"
+                  >
+                    0
+                  </h3>
+                  <h4 class="text-uppercase">شخصيات<br />السيارات</h4>
+                </div>
+                <img
+                  src="images/misc/circle-gradient.png"
+                  class="img-fluid"
+                  alt=""
+                />
+              </div>
+              <div
+                class="col-md-3 col-sm-6 mb-sm-30 position-relative"
+                data-jarallax-element="-50"
+              >
+                <div
+                  class="de_count position-absolute top-50 start-50 translate-middle text-light wow fadeInUp"
+                >
+                  <h3 class="timer text-line" data-to="5" data-speed="3000">
+                    0
+                  </h3>
+                  <h4 class="text-uppercase">أيام<br />المعرض</h4>
+                </div>
+                <img
+                  src="images/misc/circle-gradient-2.png"
+                  class="img-fluid"
+                  alt=""
+                />
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <section id="section-experts">
+          <div class="container position-relative z1000">
+            <div class="row align-items-center">
+              <div
+                class="col-lg-6 position-relative"
+                data-jarallax-element="60"
+              >
+                <div class="position-relative z1000">
+                  <h2
+                    class="text-uppercase wow fadeInRight"
+                    data-wow-delay=".3s"
+                  >
+                    <span class="text-line">سائقي</span>
+                    <span class="text-gradient">الفريق</span>
+                  </h2>
+                  <div class="row">
+                    <div class="col-lg-2 col-2">
+                      <img
+                        src="images/misc/arrow-up-right.png"
+                        class="img-fluid"
+                        alt=""
+                        data-jarallax-element="-30"
+                      />
+                    </div>
+                    <div class="col-lg-10 col-10">
+                      <p class="wow fadeInRight" data-wow-delay=".4s">
+                        تعرف على سائقي فريقنا المتميزين، الذين يقودون السيارات بمهارة فائقة وشغف لا يُضاهى. كل سائق يمثل روح الفريق في السباقات والتحديات، ملتزمين بالتميز والإنجازات الرياضية.
+                      </p>
+                    </div>
+                  </div>
+                </div>
+                <img
+                  src="images/misc/circle-gradient-2.png"
+                  class="position-absolute top-50 start-50 translate-middle"
+                  alt=""
+                />
+              </div>
+              <div class="col-lg-6">
+                <div class="row g-3">
+                  <div class="col-lg-3 col-6">
+                    <div class="de-img-cap-1">
+                      <div class="d-cap">Elon Musk</div>
+                      <img src="images/person/1.jpg" class="img-fluid" alt="" />
+                    </div>
+                  </div>
+                  <div class="col-lg-3 col-6">
+                    <div class="de-img-cap-1">
+                      <div class="d-cap">Junior Cuther</div>
+                      <img src="images/person/2.jpg" class="img-fluid" alt="" />
+                    </div>
+                  </div>
+                  <div class="col-lg-3 col-6">
+                    <div class="de-img-cap-1">
+                      <div class="d-cap">Claris Grinage</div>
+                      <img src="images/person/3.jpg" class="img-fluid" alt="" />
+                    </div>
+                  </div>
+                  <div class="col-lg-3 col-6">
+                    <div class="de-img-cap-1">
+                      <div class="d-cap">Donnetta Letran</div>
+                      <img src="images/person/4.jpg" class="img-fluid" alt="" />
+                    </div>
+                  </div>
+                  <div class="col-lg-3 col-6">
+                    <div class="de-img-cap-1">
+                      <div class="d-cap">Kizzie Mertz</div>
+                      <img src="images/person/5.jpg" class="img-fluid" alt="" />
+                    </div>
+                  </div>
+                  <div class="col-lg-3 col-6">
+                    <div class="de-img-cap-1">
+                      <div class="d-cap">Vernia Picot</div>
+                      <img src="images/person/6.jpg" class="img-fluid" alt="" />
+                    </div>
+                  </div>
+                  <div class="col-lg-3 col-6">
+                    <div class="de-img-cap-1">
+                      <div class="d-cap">Fermina Prass</div>
+                      <img src="images/person/7.jpg" class="img-fluid" alt="" />
+                    </div>
+                  </div>
+                  <div class="col-lg-3 col-6">
+                    <div class="de-img-cap-1">
+                      <div class="d-cap">Bonnie Torralba</div>
+                      <img src="images/person/8.jpg" class="img-fluid" alt="" />
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="de-gradient-edge-bottom"></div>
+        </section>
+
+        <section id="section-schedule" class="jarallax no-bottom">
+          <img src="images/background/4.jpg" class="jarallax-img" alt="" />
+          <div class="de-gradient-edge-top"></div>
+          <div class="container position-relative z1000">
+            <div class="row">
+              <div class="col-md-6 offset-md-3 text-center wow fadeInUp">
+                <h2 class="text-uppercase wow fadeInUp">
+                  <span class="text-line">جدول</span>
+                  <span class="text-gradient">الأنشطة الرياضية</span>
+                </h2>
+                <div class="spacer-single"></div>
+              </div>
+
+              <div class="col-md-12 wow fadeInUp">
+                <div class="de_tab tab_style_4 text-center">
+                  <ul class="de_nav de_nav_dark">
+                    <li class="active" data-link="#section-services-tab">
+                      <h3>اليوم 1</h3>
+                      <h4>ديسمبر 3, 2025</h4>
+                    </li>
+                    <li data-link="#section-services-tab">
+                      <h3>اليوم 2</h3>
+                      <h4>ديسمبر 4, 2025</h4>
+                    </li>
+                    <li data-link="#section-services-tab">
+                      <h3>اليوم 3</h3>
+                      <h4>ديسمبر 5, 2025</h4>
+                    </li>
+                    <li data-link="#section-services-tab">
+                      <h3>اليوم 4</h3>
+                      <h4>ديسمبر 6, 2025</h4>
+                    </li>
+                    <li data-link="#section-services-tab">
+                      <h3>اليوم 5</h3>
+                      <h4>ديسمبر 7, 2025</h4>
+                    </li>
+                  </ul>
+
+                  <div class="text-start">
+                    <div class="de_tab_content">
+                      <div id="tab1" class="tab_single_content dark">
+                        <div class="row">
+                          <div class="col-md-12">
+                            <div class="schedule-listing">
+                              <div class="schedule-item">
+                                <div class="sc-time">08:00 - 10:00 ص</div>
+                                <div class="sc-pic">
+                                  <img src="images/person/1.jpg" alt="" />
+                                </div>
+                                <div class="sc-name">
+                                  <h4>المدرب أحمد</h4>
+                                  <span>مدرب كرة القدم</span>
+                                </div>
+                                <div class="sc-info">
+                                  <h3>
+                                    تدريب كرة القدم للشباب
+                                  </h3>
+                                  <p>
+                                    تدريب مكثف لفريق الشباب في كرة القدم، التركيز على المهارات والتكتيكات واللياقة البدنية.
+                                  </p>
+                                </div>
+                                <div class="clearfix"></div>
+                              </div>
+                            </div>
+
+                            <div class="schedule-listing">
+                              <div class="schedule-item">
+                                <div class="sc-time">12:00 - 14:00 م</div>
+                                <div class="sc-pic">
+                                  <img src="images/person/2.jpg" alt="" />
+                                </div>
+                                <div class="sc-name">
+                                  <h4>المدربة سارة</h4>
+                                  <span>مدربة كرة السلة</span>
+                                </div>
+                                <div class="sc-info">
+                                  <h3>
+                                    تدريب كرة السلة
+                                  </h3>
+                                  <p>
+                                    جلسة تدريبية لفريق كرة السلة، تحسين المهارات واللعب الجماعي.
+                                  </p>
+                                </div>
+                                <div class="clearfix"></div>
+                              </div>
+                            </div>
+
+                            <div class="schedule-listing">
+                              <div class="schedule-item">
+                                <div class="sc-time">16:00 - 18:00 م</div>
+                                <div class="sc-pic">
+                                  <img src="images/person/3.jpg" alt="" />
+                                </div>
+                                <div class="sc-name">
+                                  <h4>المدرب محمد</h4>
+                                  <span>مدرب السباحة</span>
+                                </div>
+                                <div class="sc-info">
+                                  <h3>
+                                    درس السباحة
+                                  </h3>
+                                  <p>
+                                    دروس سباحة للمبتدئين والمتقدمين في المسبح الأولمبي.
+                                  </p>
+                                </div>
+                                <div class="clearfix"></div>
+                              </div>
+                            </div>
+
+                            <div class="schedule-listing">
+                              <div class="schedule-item">
+                                <div class="sc-time">20:00 - 22:00 م</div>
+                                <div class="sc-pic">
+                                  <img src="images/person/4.jpg" alt="" />
+                                </div>
+                                <div class="sc-name">
+                                  <h4>المدربة لينا</h4>
+                                  <span>مدربة اللياقة البدنية</span>
+                                </div>
+                                <div class="sc-info">
+                                  <h3>فئة اللياقة البدنية</h3>
+                                  <p>
+                                    تمارين لياقة بدنية شاملة لجميع الأعمار.
+                                  </p>
+                                </div>
+                                <div class="clearfix"></div>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+
+                      <div id="tab2" class="tab_single_content dark">
+                        <div class="row">
+                          <div class="col-md-12">
+                            <div class="schedule-listing">
+                              <div class="schedule-item">
+                                <div class="sc-time">08:00 - 12:00 AM</div>
+                                <div class="sc-pic">
+                                  <img src="images/person/5.jpg" alt="" />
+                                </div>
+                                <div class="sc-name">
+                                  <h4>Kizzie Mertz</h4>
+                                  <span>Founder & CEO</span>
+                                </div>
+                                <div class="sc-info">
+                                  <h3>
+                                    كيف تحوّل السيارات الكهربائية مشهد السيارات
+                                  </h3>
+                                   <p>
+                                                                       Get ready to your excitement and fuel your
+                                    passion for all things automotive at this
+                                    year's highly anticipated car event! Buckle
+                                    up andget ready to immerse yourself in the
+                                    captivating world of cars!
+                                  </p>
+                                </div>
+                                <div class="clearfix"></div>
+                              </div>
+                            </div>
+
+                            <div class="schedule-listing">
+                              <div class="schedule-item">
+                                <div class="sc-time">12:00 - 14:00 PM</div>
+                                <div class="sc-pic">
+                                  <img src="images/person/6.jpg" alt="" />
+                                </div>
+                                <div class="sc-name">
+                                  <h4>Vernia Picot</h4>
+                                  <span>Founder & CEO</span>
+                                </div>
+                                <div class="sc-info">
+                                  <h3>
+                                    أحدث التطورات في تقنيات السلامة السيارات
+                                  </h3>
+                                  <p>
+                                                                       Get ready to your excitement and fuel your
+                                    passion for all things automotive at this
+                                    year's highly anticipated car event! Buckle
+                                    up andget ready to immerse yourself in the
+                                    captivating world of cars!
+                                  </p>
+                                </div>
+                                <div class="clearfix"></div>
+                              </div>
+                            </div>
+
+                            <div class="schedule-listing">
+                              <div class="schedule-item">
+                                <div class="sc-time">16:00 - 18:00 PM</div>
+                                <div class="sc-pic">
+                                  <img src="images/person/7.jpg" alt="" />
+                                </div>
+                                <div class="sc-name">
+                                  <h4>Fermina Prass</h4>
+                                  <span>Founder & CEO</span>
+                                </div>
+                                <div class="sc-info">
+                                  <h3>
+                                    علم تصميم السيارات وديناميكيات الهواء
+                                  </h3>
+                                  <p>
+                                                                       Get ready to your excitement and fuel your
+                                    passion for all things automotive at this
+                                    year's highly anticipated car event! Buckle
+                                    up andget ready to immerse yourself in the
+                                    captivating world of cars!
+                                  </p>
+                                </div>
+                                <div class="clearfix"></div>
+                              </div>
+                            </div>
+
+                            <div class="schedule-listing">
+                              <div class="schedule-item">
+                                <div class="sc-time">20:00 - 22:00 PM</div>
+                                <div class="sc-pic">
+                                  <img src="images/person/1.jpg" alt="" />
+                                </div>
+                                <div class="sc-name">
+                                  <h4>Elon Musk</h4>
+                                  <span>Founder & CEO</span>
+                                </div>
+                                <div class="sc-info">
+                                  <h3>دور إنترنت الأشياء في السيارات الحديثة</h3>
+                                  <p>
+                                                                       Get ready to your excitement and fuel your
+                                    passion for all things automotive at this
+                                    year's highly anticipated car event! Buckle
+                                    up andget ready to immerse yourself in the
+                                    captivating world of cars!
+                                  </p>
+                                </div>
+                                <div class="clearfix"></div>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+
+                      <div id="tab3" class="tab_single_content dark">
+                        <div class="row">
+                          <div class="col-md-12">
+                            <div class="schedule-listing">
+                              <div class="schedule-item">
+                                <div class="sc-time">08:00 - 12:00 AM</div>
+                                <div class="sc-pic">
+                                  <img src="images/person/2.jpg" alt="" />
+                                </div>
+                                <div class="sc-name">
+                                  <h4>Junior Cuther</h4>
+                                  <span>Founder & CEO</span>
+                                </div>
+                                <div class="sc-info">
+                                  <h3>
+                                    استكشاف صعود السيارات الطرق الوعرة والمغامرة
+                                  </h3>
+                                  <p>
+                                                                       Get ready to your excitement and fuel your
+                                    passion for all things automotive at this
+                                    year's highly anticipated car event! Buckle
+                                    up andget ready to immerse yourself in the
+                                    captivating world of cars!
+                                  </p>
+                                </div>
+                                <div class="clearfix"></div>
+                              </div>
+                            </div>
+
+                            <div class="schedule-listing">
+                              <div class="schedule-item">
+                                <div class="sc-time">12:00 - 14:00 PM</div>
+                                <div class="sc-pic">
+                                  <img src="images/person/3.jpg" alt="" />
+                                </div>
+                                <div class="sc-name">
+                                  <h4>Claris Grinage</h4>
+                                  <span>Founder & CEO</span>
+                                </div>
+                                <div class="sc-info">
+                                  <h3>
+                                    البحث عن السيارات الفعالة في استهلاك الوقود والهجينة
+                                  </h3>
+                                  <p>
+                                                                       Get ready to your excitement and fuel your
+                                    passion for all things automotive at this
+                                    year's highly anticipated car event! Buckle
+                                    up andget ready to immerse yourself in the
+                                    captivating world of cars!
+                                  </p>
+                                </div>
+                                <div class="clearfix"></div>
+                              </div>
+                            </div>
+
+                            <div class="schedule-listing">
+                              <div class="schedule-item">
+                                <div class="sc-time">16:00 - 18:00 PM</div>
+                                <div class="sc-pic">
+                                  <img src="images/person/4.jpg" alt="" />
+                                </div>
+                                <div class="sc-name">
+                                  <h4>Donnetta Letran</h4>
+                                  <span>Founder & CEO</span>
+                                </div>
+                                <div class="sc-info">
+                                  <h3>
+                                    الدليل النهائي للسيارات الفاخرة
+                                  </h3>
+                                  <p>
+                                                                       Get ready to your excitement and fuel your
+                                    passion for all things automotive at this
+                                    year's highly anticipated car event! Buckle
+                                    up andget ready to immerse yourself in the
+                                    captivating world of cars!
+                                  </p>
+                                </div>
+                                <div class="clearfix"></div>
+                              </div>
+                            </div>
+
+                            <div class="schedule-listing">
+                              <div class="schedule-item">
+                                <div class="sc-time">20:00 - 22:00 AM</div>
+                                <div class="sc-pic">
+                                  <img src="images/person/5.jpg" alt="" />
+                                </div>
+                                <div class="sc-name">
+                                  <h4>Kizzie Mertz</h4>
+                                  <span>Founder & CEO</span>
+                                </div>
+                                <div class="sc-info">
+                                  <h3>النساء في صناعة السيارات</h3>
+                                  <p>
+                                                                       Get ready to your excitement and fuel your
+                                    passion for all things automotive at this
+                                    year's highly anticipated car event! Buckle
+                                    up andget ready to immerse yourself in the
+                                    captivating world of cars!
+                                  </p>
+                                </div>
+                                <div class="clearfix"></div>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+
+                      <div id="tab4" class="tab_single_content dark">
+                        <div class="row">
+                          <div class="col-md-12">
+                            <div class="schedule-listing">
+                              <div class="schedule-item">
+                                <div class="sc-time">08:00 - 12:00 AM</div>
+                                <div class="sc-pic">
+                                  <img src="images/person/6.jpg" alt="" />
+                                </div>
+                                <div class="sc-name">
+                                  <h4>Vernia Picot</h4>
+                                  <span>Founder & CEO</span>
+                                </div>
+                                <div class="sc-info">
+                                  <h3>
+                                    استكشاف لوائح السيارات ذاتية القيادة
+                                  </h3>
+                                  <p>
+                                                                       Get ready to your excitement and fuel your
+                                    passion for all things automotive at this
+                                    year's highly anticipated car event! Buckle
+                                    up andget ready to immerse yourself in the
+                                    captivating world of cars!
+                                  </p>
+                                </div>
+                                <div class="clearfix"></div>
+                              </div>
+                            </div>
+
+                            <div class="schedule-listing">
+                              <div class="schedule-item">
+                                <div class="sc-time">12:00 - 14:00 PM</div>
+                                <div class="sc-pic">
+                                  <img src="images/person/7.jpg" alt="" />
+                                </div>
+                                <div class="sc-name">
+                                  <h4>Fermina Prass</h4>
+                                  <span>Founder & CEO</span>
+                                </div>
+                                <div class="sc-info">
+                                  <h3>
+                                    عالم التكنولوجيا العالية في هندسة الفورمولا 1
+                                  </h3>
+                                  <p>
+                                                                       Get ready to your excitement and fuel your
+                                    passion for all things automotive at this
+                                    year's highly anticipated car event! Buckle
+                                    up andget ready to immerse yourself in the
+                                    captivating world of cars!
+                                  </p>
+                                </div>
+                                <div class="clearfix"></div>
+                              </div>
+                            </div>
+
+                            <div class="schedule-listing">
+                              <div class="schedule-item">
+                                <div class="sc-time">16:00 - 18:00 PM</div>
+                                <div class="sc-pic">
+                                  <img src="images/person/1.jpg" alt="" />
+                                </div>
+                                <div class="sc-name">
+                                  <h4>Elon Musk</h4>
+                                  <span>Founder & CEO</span>
+                                </div>
+                                <div class="sc-info">
+                                  <h3>نظرة retrospec على نماذج السيارات الأيقونية</h3>
+                                  <p>
+                                                                       Get ready to your excitement and fuel your
+                                    passion for all things automotive at this
+                                    year's highly anticipated car event! Buckle
+                                    up andget ready to immerse yourself in the
+                                    captivating world of cars!
+                                  </p>
+                                </div>
+                                <div class="clearfix"></div>
+                              </div>
+                            </div>
+
+                            <div class="schedule-listing">
+                              <div class="schedule-item">
+                                <div class="sc-time">20:00 - 22:00 PM</div>
+                                <div class="sc-pic">
+                                  <img src="images/person/2.jpg" alt="" />
+                                </div>
+                                <div class="sc-name">
+                                  <h4>Junior Cuther</h4>
+                                  <span>Founder & CEO</span>
+                                </div>
+                                <div class="sc-info">
+                                  <p>
+                                                                       Get ready to your excitement and fuel your
+                                    passion for all things automotive at this
+                                    year's highly anticipated car event! Buckle
+                                    up andget ready to immerse yourself in the
+                                    captivating world of cars!
+                                  </p>
+                                </div>
+                                <div class="clearfix"></div>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+
+                      <div id="tab5" class="tab_single_content dar">
+                        <div class="row">
+                          <div class="col-md-12">
+                            <div class="schedule-listing">
+                              <div class="schedule-item">
+                                <div class="sc-time">08:00 - 12:00 AM</div>
+                                <div class="sc-pic">
+                                  <img src="images/person/1.jpg" alt="" />
+                                </div>
+                                <div class="sc-name">
+                                  <h4>Elon Musk</h4>
+                                  <span>Founder & CEO</span>
+                                </div>
+                                <div class="sc-info">
+                                  <h3>فن وأعمال السيارات الكهربائية</h3>
+                                  <p>
+                                                                       Get ready to your excitement and fuel your
+                                    passion for all things automotive at this
+                                    year's highly anticipated car event! Buckle
+                                    up andget ready to immerse yourself in the
+                                    captivating world of cars!
+                                  </p>
+                                </div>
+                                <div class="clearfix"></div>
+                              </div>
+                            </div>
+
+                            <div class="schedule-listing">
+                              <div class="schedule-item">
+                                <div class="sc-time">08:00 - 12:00 AM</div>
+                                <div class="sc-pic">
+                                  <img src="images/person/2.jpg" alt="" />
+                                </div>
+                                <div class="sc-name">
+                                  <h4>Elon Musk</h4>
+                                  <span>Founder & CEO</span>
+                                </div>
+                                <div class="sc-info">
+                                  <h3>
+                                    كشف أسرار أنواع المحركات والأداء
+                                  </h3>
+                                  <p>
+                                                                       Get ready to your excitement and fuel your
+                                    passion for all things automotive at this
+                                    year's highly anticipated car event! Buckle
+                                    up andget ready to immerse yourself in the
+                                    captivating world of cars!
+                                  </p>
+                                </div>
+                                <div class="clearfix"></div>
+                              </div>
+                            </div>
+
+                            <div class="schedule-listing">
+                              <div class="schedule-item">
+                                <div class="sc-time">08:00 - 12:00 AM</div>
+                                <div class="sc-pic">
+                                  <img src="images/person/3.jpg" alt="" />
+                                </div>
+                                <div class="sc-name">
+                                  <h4>Claris Grinage</h4>
+                                  <span>Founder & CEO</span>
+                                </div>
+                                <div class="sc-info">
+                                  <h3>تطور أنظمة الصوت في السيارات</h3>
+                                  <p>
+                                                                       Get ready to your excitement and fuel your
+                                    passion for all things automotive at this
+                                    year's highly anticipated car event! Buckle
+                                    up andget ready to immerse yourself in the
+                                    captivating world of cars!
+                                  </p>
+                                </div>
+                                <div class="clearfix"></div>
+                              </div>
+                            </div>
+
+                            <div class="schedule-listing">
+                              <div class="schedule-item">
+                                <div class="sc-time">08:00 - 12:00 AM</div>
+                                <div class="sc-pic">
+                                  <img src="images/person/4.jpg" alt="" />
+                                </div>
+                                <div class="sc-name">
+                                  <h4>Donnetta Letran</h4>
+                                  <span>Founder & CEO</span>
+                                </div>
+                                <div class="sc-info">
+                                  <h3>حفل ختام الحدث وجوائز الباب</h3>
+                                  <p>
+                                                                       Get ready to your excitement and fuel your
+                                    passion for all things automotive at this
+                                    year's highly anticipated car event! Buckle
+                                    up andget ready to immerse yourself in the
+                                    captivating world of cars!
+                                  </p>
+                                </div>
+                                <div class="clearfix"></div>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="de-gradient-edge-bottom"></div>
+        </section>
+
+        <section id="section-live-matches" class="jarallax no-bottom">
+          <img src="images/background/5.jpg" class="jarallax-img" alt="" />
+          <div class="de-gradient-edge-top"></div>
+          <div class="container position-relative z1000">
+            <div class="row">
+              <div class="col-md-12 text-center wow fadeInUp">
+                <h2 class="text-uppercase wow fadeInUp">
+                  <span class="text-line">جدول</span>
+                  <span class="text-gradient">المباريات البث المباشر</span>
+                </h2>
+                <div class="spacer-single"></div>
+              </div>
+
+              <div class="col-md-12 wow fadeInUp">
+                <div class="live-table-wrap">
+                  <table class="live-table">
+                    <thead>
+                      <tr>
+                        <th>الوقت</th>
+                        <th>الحالة</th>
+                        <th>الفعالية</th>
+                        <th>النتائج</th>
+                        <th>الفئة / المسار</th>
+                        <th>البطولة</th>
+                        <th>البث</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      <!-- Live: Karting Sprint -->
+                      <tr class="live-row">
+                        <td>10:00 ص</td>
+                        <td><span class="pill pill-live"><i class="fa fa-circle"></i> مباشر</span></td>
+                        <td>
+                          <div class="team">
+                            <span class="badge-team badge-green">AR</span>
+                            <span>سبرنت كارتينغ — الجولة 3</span>
+                          </div>
+                        </td>
+                        <td class="score">لفة 12/20 • أفضل زمن 1:04.328</td>
+                        <td>
+                          <div class="team">
+                            <span class="badge-team badge-blue">IN</span>
+                            <span>مسار الكارتينغ الداخلي</span>
+                          </div>
+                        </td>
+                        <td>بطولة الكارتينغ العراقية (فئة الناشئين)</td>
+                        <td><a href="#" class="btn-stream"><i class="fa fa-play"></i> شاهد الآن</a></td>
+                      </tr>
+
+                      <!-- Upcoming: Drift Showcase -->
+                      <tr class="live-row">
+                        <td>12:30 م</td>
+                        <td><span class="pill pill-upcoming"><i class="fa fa-clock-o"></i> قريباً</span></td>
+                        <td>
+                          <div class="team">
+                            <span class="badge-team badge-red">DF</span>
+                            <span>عرض الدرفت الحر</span>
+                          </div>
+                        </td>
+                        <td class="score">—</td>
+                        <td>
+                          <div class="team">
+                            <span class="badge-team badge-gold">EX</span>
+                            <span>حلبة الاستعراض الحر</span>
+                          </div>
+                        </td>
+                        <td>فعالية النادي المدعومة من الاتحاد العراقي</td>
+                        <td><a href="#" class="btn-stream"><i class="fa fa-bell-o"></i> تذكير</a></td>
+                      </tr>
+
+                      <!-- Upcoming: Time Attack -->
+                      <tr class="live-row">
+                        <td>3:00 م</td>
+                        <td><span class="pill pill-upcoming"><i class="fa fa-clock-o"></i> قريباً</span></td>
+                        <td>
+                          <div class="team">
+                            <span class="badge-team badge-blue">TA</span>
+                            <span>تايم أتاك — تصفيات الجولة 2</span>
+                          </div>
+                        </td>
+                        <td class="score">—</td>
+                        <td>
+                          <div class="team">
+                            <span class="badge-team badge-green">TT</span>
+                            <span>مضمار التوقيت المصغر</span>
+                          </div>
+                        </td>
+                        <td>كأس التوقيت العراقي (سيارات سياحية)</td>
+                        <td><a href="#" class="btn-stream"><i class="fa fa-bell-o"></i> تذكير</a></td>
+                      </tr>
+
+                      <!-- Finished: Endurance Kart Relay -->
+                      <tr class="live-row">
+                        <td>5:30 م</td>
+                        <td><span class="pill pill-finished"><i class="fa fa-check"></i> انتهت</span></td>
+                        <td>
+                          <div class="team">
+                            <span class="badge-team badge-green">AR</span>
+                            <span>تحمل كارتينغ — سباق الفرق 60 دقيقة</span>
+                          </div>
+                        </td>
+                        <td class="score">AR 122 لفّة • BN 118 لفّة</td>
+                        <td>
+                          <div class="team">
+                            <span class="badge-team badge-blue">KR</span>
+                            <span>مسار الكارتينغ الرئيسي</span>
+                          </div>
+                        </td>
+                        <td>سلسلة التحمل للأندية</td>
+                        <td><a href="#" class="btn-stream"><i class="fa fa-video-camera"></i> الملخص</a></td>
+                      </tr>
+
+                      <!-- Live: Autocross Qualifiers -->
+                      <tr class="live-row">
+                        <td>8:00 م</td>
+                        <td><span class="pill pill-live"><i class="fa fa-circle"></i> مباشر</span></td>
+                        <td>
+                          <div class="team">
+                            <span class="badge-team badge-gold">AX</span>
+                            <span>أوتوكروس — تجارب تأهيلية (الهواة)</span>
+                          </div>
+                        </td>
+                        <td class="score">الصدارة 00:58.771</td>
+                        <td>
+                          <div class="team">
+                            <span class="badge-team badge-red">AR</span>
+                            <span>ساحة الأوتوكروس</span>
+                          </div>
+                        </td>
+                        <td>دوري رياضات المحركات بالنادي</td>
+                        <td><a href="#" class="btn-stream"><i class="fa fa-play"></i> شاهد الآن</a></td>
+                      </tr>
+                    </tbody>
+                  </table>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="de-gradient-edge-bottom"></div>
+        </section>
+
+
+
+        <section id="section-tickets"  style="direction: ltr;">
+          <div class="container">
+            <div class="row">
+              <div class="col-lg-12 text-center">
+                <h2 class="text-uppercase wow fadeInUp">
+                  احصل على <span class="text-gradient">التذاكر</span>
+                </h2>
+                <div class="spacer-20"></div>
+              </div>
+
+              <div class="col-lg-4" data-jarallax-element="20">
+                <div class="de-pricing-s1">
+                  <div class="d-content" style="direction: rtl;">
+                    <h3>عادية<span>تذكرة</span></h3>
+                    <div class="d-price">49</div>
+                    <ul class="d-list">
+                      <li>تذكرة عادية</li>
+                      <li>فرصة للفوز بجائزة</li>
+                      <li class="no">بضائع مجانية</li>
+                      <li class="no">قسائم مجانية</li>
+                      <li class="no">لقاء النجوم الضيوف</li>
+                    </ul>
+                    <div class="spacer-20"></div>
+                    <div class="text-center">
+                      <a class="btn-main" href="tickets.html">اشترِ التذكرة</a>
+                    </div>
+                  </div>
+                  <div class="d-deco-top"></div>
+                  <div class="d-deco-bottom"></div>
+                  <img
+                    src="images/misc/arrow-up-right.png"
+                    class="d-image-deco"
+                    alt=""
+                  />
+                </div>
+              </div>
+
+              <div class="col-lg-4" data-jarallax-element="-40">
+                <div class="de-pricing-s1">
+                  <div class="d-content" style="direction: rtl;">
+                    <h3>VIP<span>تذكرة</span></h3>
+                    <div class="d-price">89</div>
+                    <ul class="d-list">
+                      <li>تذكرة VIP</li>
+                      <li>فرصة للفوز بجائزة</li>
+                      <li>بضائع مجانية</li>
+                      <li class="no">قسائم مجانية</li>
+                      <li class="no">لقاء النجوم الضيوف</li>
+                    </ul>
+                    <div class="spacer-20"></div>
+                    <div class="text-center">
+                      <a class="btn-main" href="tickets.html">اشترِ التذكرة</a>
+                    </div>
+                  </div>
+                  <div class="d-deco-top"></div>
+                  <div class="d-deco-bottom"></div>
+                  <img
+                    src="images/misc/arrow-up-right.png"
+                    class="d-image-deco"
+                    alt=""
+                  />
+                </div>
+              </div>
+
+              <div class="col-lg-4" data-jarallax-element="-20" >
+                <div class="de-pricing-s1">
+                  <div class="d-content" style="direction: rtl;">
+                    <h3>موسمية<span>تذكرة</span></h3>
+                    <div class="d-price">109</div>
+                    <ul class="d-list">
+                      <li>تذكرة موسمية</li>
+                      <li>فرصة للفوز بجائزة</li>
+                      <li>بضائع مجانية</li>
+                      <li>قسائم مجانية</li>
+                      <li>لقاء النجوم الضيوف</li>
+                    </ul>
+                    <div class="spacer-20"></div>
+                    <div class="text-center">
+                      <a class="btn-main" href="tickets.html">اشترِ التذكرة</a>
+                    </div>
+                  </div>
+                  <div class="d-deco-top"></div>
+                  <div class="d-deco-bottom"></div>
+                  <img
+                    src="images/misc/arrow-up-right.png"
+                    class="d-image-deco"
+                    alt=""
+                  />
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <section id="section-team-registration" class="no-top no-bottom">
+          <div class="container">
+            <div class="row align-items-center">
+              <div class="col-lg-6 position-relative" data-jarallax-element="60">
+                <div class="position-relative z1000">
+                  <h2 class="text-uppercase wow fadeInRight" data-wow-delay=".3s">
+                    انضم <span class="text-line">إلى</span>
+                    <span class="text-gradient">فريقنا</span>
+                  </h2>
+                  <div class="row">
+                    <div class="col-lg-2 col-2">
+                      <img src="images/misc/arrow-up-right.png" class="img-fluid" alt="" data-jarallax-element="-30" />
+                    </div>
+                    <div class="col-lg-10 col-10">
+                      <p class="wow fadeInRight" data-wow-delay=".4s">
+                        كن جزءاً من أكبر نادي رياضي في العراق! انضم إلى فريقنا وشارك في تدريبات كرة القدم، كرة السلة، السباحة، والأنشطة الرياضية الأخرى. نحن نبحث عن مواهب جديدة لتعزيز فرقنا وتحقيق الإنجازات.
+                      </p>
+                    </div>
+                  </div>
+                  <div class="spacer-single"></div>
+                  <a class="btn-main wow fadeInLeft" href="register.html">سجل الآن</a>
+                </div>
+                <img src="images/misc/circle-gradient-2.png" class="position-absolute top-50 start-50 translate-middle" alt="" />
+              </div>
+              <div class="col-lg-6">
+                <div class="images-deco-1">
+                  <img src="images/misc/car-2.png" class="d-img-1" alt="" />
+                  <img src="images/misc/dotted.png" class="d-img-2" alt="" data-jarallax-element="40" />
+                  <div class="d-img-3 bg-color"></div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="de-gradient-edge-bottom"></div>
+        </section>
+
+        <!-- what they says-->
+        <section id="section-testimonial" class="no-top no-bottom" style="direction: ltr;">
+          <div class="container-fluid">
+            <div class="row">
+              <div class="col-lg-6 offset-lg-3 text-center">
+                <h2 class="text-uppercase wow fadeInUp">
+                  <span class="text-line">ماذا</span>
+                  <span class="text-gradient">يقولون</span> هم
+                </h2>
+                <div class="spacer-single"></div>
+              </div>
+              <div
+                class="owl-carousel owl-theme wow fadeInUp"
+                id="testimonial-carousel"
+              >
+                <div class="item">
+                  <div class="de_testi type-2">
+                    <blockquote>
+                      <p>
+                        حضور حدث السيارات كان حلمًا يتحقق بالنسبة لي. الإثارة في
+                        رؤية السيارات النادرة والأيقونية عن قرب كانت لا تُنسى.
+                        من الكلاسيكيات القديمة إلى السيارات الرياضية الفائقة
+                        المتطورة.
+                      </p>
+                      <div class="de_testi_by">
+                        <img
+                          alt=""
+                          class="rounded-circle"
+                          src="images/people/1.jpg"
+                        />
+                        <span>Michael S. (عاشق السيارات)</span>
+                      </div>
+                    </blockquote>
+                  </div>
+                </div>
+                <div class="item">
+                  <div class="de_testi type-2">
+                    <blockquote>
+                      <p>
+                        لا أستطيع شكر المنظمين بما فيه الكفاية على تنظيم حدث
+                        سيارات معلوماتي كهذا. كانت الورش والعروض العملية مثيرة
+                        للإعجاب بشكل لا يُصدق.
+                      </p>
+                      <div class="de_testi_by">
+                        <img
+                          alt=""
+                          class="rounded-circle"
+                          src="images/people/2.jpg"
+                        />
+                        <span>Sarah L. (ميكانيكي طموح)</span>
+                      </div>
+                    </blockquote>
+                  </div>
+                </div>
+                <div class="item">
+                  <div class="de_testi type-2">
+                    <blockquote>
+                      <p>
+                        ما أروع حدث السيارات الودي للعائلات! كان أطفالي بعيون
+                        واسعة من الإثارة وهم يستكشفون عروض السيارات المختلفة
+                        ويشاركون في الأنشطة التفاعلية.
+                      </p>
+                      <div class="de_testi_by">
+                        <img
+                          alt=""
+                          class="rounded-circle"
+                          src="images/people/3.jpg"
+                        />
+                        <span>Jake M. (حضور عائلي)</span>
+                      </div>
+                    </blockquote>
+                  </div>
+                </div>
+                <div class="item">
+                  <div class="de_testi type-2">
+                    <blockquote>
+                      <p>
+                        كان اندماج التكنولوجيا والسيارات في هذا الحدث مذهلاً. من
+                        السيارات الكهربائية والمستقلة إلى أنظمة الترفيه
+                        المتطورة.
+                      </p>
+                      <div class="de_testi_by">
+                        <img
+                          alt=""
+                          class="rounded-circle"
+                          src="images/people/4.jpg"
+                        />
+                        <span>Amanda P. (عاشق التكنولوجيا)</span>
+                      </div>
+                    </blockquote>
+                  </div>
+                </div>
+                <div class="item">
+                  <div class="de_testi type-2">
+                    <blockquote>
+                      <p>
+                        حضرت العديد من أحداث السيارات، لكن هذا الحدث تجاوز
+                        توقعاتي حقًا. عرضت مزادات السيارات النادرة بعض أجمل
+                        السيارات التي رأيتها على الإطلاق.
+                      </p>
+                      <div class="de_testi_by">
+                        <img
+                          alt=""
+                          class="rounded-circle"
+                          src="images/people/5.jpg"
+                        />
+                        <span>Carlos R. (جامع سيارات كلاسيكية)</span>
+                      </div>
+                    </blockquote>
+                  </div>
+                </div>
+                <div class="item">
+                  <div class="de_testi type-2">
+                    <blockquote>
+                      <p>
+                        حضور هذا الحدث السيارات كان مثل الدخول إلى عالم السرعة
+                        والأدرينالين. كانت سباقات الحلبة مثيرة للقلب، والمهارة
+                        التي أظهرها السائقون كانت مذهلة.
+                      </p>
+                      <div class="de_testi_by">
+                        <img
+                          alt=""
+                          class="rounded-circle"
+                          src="images/people/6.jpg"
+                        />
+                        <span>Elena B. (عاشق السباقات)</span>
+                      </div>
+                    </blockquote>
+                  </div>
+                </div>
+                <div class="item">
+                  <div class="de_testi type-2">
+                    <blockquote>
+                      <p>
+                        أقوم بترميم سيارة كلاسيكية في جراجي، وكان هذا الحدث
+                        كنزًا من نصائح الترميم والموارد. كانت ورش الترميم
+                        والندوات معلوماتية بشكل لا يُصدق.
+                      </p>
+                      <div class="de_testi_by">
+                        <img
+                          alt=""
+                          class="rounded-circle"
+                          src="images/people/7.jpg"
+                        />
+                        <span>Daniel H. (هواية السيارات الكلاسيكية)</span>
+                      </div>
+                    </blockquote>
+                  </div>
+                </div>
+                <div class="item">
+                  <div class="de_testi type-2">
+                    <blockquote>
+                      <p>
+                        التقاط جمال السيارات أمام خلفيات مذهلة كان حلم مصور
+                        يتحقق في هذا الحدث. وفر المنظمون مناطق تصوير مخصصة.
+                      </p>
+                      <div class="de_testi_by">
+                        <img
+                          alt=""
+                          class="rounded-circle"
+                          src="images/people/8.jpg"
+                        />
+                        <span>Linda G. (عاشق التصوير)</span>
+                      </div>
+                    </blockquote>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <section id="section-gallery" class="jarallax" style="direction: ltr;">
+          <img src="images/background/2-flip.jpg" class="jarallax-img" alt="" />
+          <div class="container">
+            <div class="row">
+              <div class="col-lg-12 text-center">
+                <h2 class="text-uppercase wow fadeInUp">
+                  <span class="text-line">معرضنا</span>
+                  <span class="text-gradient">الصور</span>
+                </h2>
+              </div>
+              <div class="spacer-single"></div>
+            </div>
+            <div class="row">
+              <div class="col-lg-8 offset-lg-2">
+                <div
+                  id="carouselExampleIndicators"
+                  class="carousel slide carousel-fade wow fadeInUp"
+                  data-mdb-ride="carousel"
+                >
+                  <!-- Slides -->
+                  <div class="carousel-inner mb-5">
+                    <div class="carousel-item active">
+                      <img
+                        src="images/gallery/1.jpg"
+                        class="d-block w-100"
+                        alt=""
+                      />
+                    </div>
+                    <div class="carousel-item">
+                      <img
+                        src="images/gallery/2.jpg"
+                        class="d-block w-100"
+                        alt=""
+                      />
+                    </div>
+                    <div class="carousel-item">
+                      <img
+                        src="images/gallery/3.jpg"
+                        class="d-block w-100"
+                        alt=""
+                      />
+                    </div>
+                    <div class="carousel-item">
+                      <img
+                        src="images/gallery/4.jpg"
+                        class="d-block w-100"
+                        alt=""
+                      />
+                    </div>
+                    <div class="carousel-item">
+                      <img
+                        src="images/gallery/5.jpg"
+                        class="d-block w-100"
+                        alt=""
+                      />
+                    </div>
+                    <div class="carousel-item">
+                      <img
+                        src="images/gallery/6.jpg"
+                        class="d-block w-100"
+                        alt=""
+                      />
+                    </div>
+                  </div>
+                  <!-- Slides -->
+                  <!-- Controls -->
+                  <button
+                    class="carousel-control-prev"
+                    type="button"
+                    data-mdb-target="#carouselExampleIndicators"
+                    data-mdb-slide="prev"
+                  >
+                    <span
+                      class="carousel-control-prev-icon"
+                      aria-hidden="true"
+                    ></span>
+                    <span class="visually-hidden">Previous</span>
+                  </button>
+                  <button
+                    class="carousel-control-next"
+                    type="button"
+                    data-mdb-target="#carouselExampleIndicators"
+                    data-mdb-slide="next"
+                  >
+                    <span
+                      class="carousel-control-next-icon"
+                      aria-hidden="true"
+                    ></span>
+                    <span class="visually-hidden">Next</span>
+                  </button>
+                  <!-- Controls -->
+                  <!-- Thumbnails -->
+                  <div class="carousel-indicators" style="margin-bottom: -20px">
+                    <button
+                      type="button"
+                      data-mdb-target="#carouselExampleIndicators"
+                      data-mdb-slide-to="0"
+                      class="active"
+                      aria-current="true"
+                      aria-label="Slide 1"
+                      style="width: 100px"
+                    >
+                      <img
+                        class="d-block w-100 img-fluid"
+                        src="images/gallery/1.jpg"
+                        alt=""
+                      />
+                    </button>
+                    <button
+                      type="button"
+                      data-mdb-target="#carouselExampleIndicators"
+                      data-mdb-slide-to="1"
+                      aria-label="Slide 2"
+                      style="width: 100px"
+                    >
+                      <img
+                        class="d-block w-100 img-fluid"
+                        src="images/gallery/2.jpg"
+                        alt=""
+                      />
+                    </button>
+                    <button
+                      type="button"
+                      data-mdb-target="#carouselExampleIndicators"
+                      data-mdb-slide-to="2"
+                      aria-label="Slide 3"
+                      style="width: 100px"
+                    >
+                      <img
+                        class="d-block w-100 img-fluid"
+                        src="images/gallery/3.jpg"
+                        alt=""
+                      />
+                    </button>
+                    <button
+                      type="button"
+                      data-mdb-target="#carouselExampleIndicators"
+                      data-mdb-slide-to="3"
+                      aria-label="Slide 4"
+                      style="width: 100px"
+                    >
+                      <img
+                        class="d-block w-100 img-fluid"
+                        src="images/gallery/4.jpg"
+                        alt=""
+                      />
+                    </button>
+                    <button
+                      type="button"
+                      data-mdb-target="#carouselExampleIndicators"
+                      data-mdb-slide-to="4"
+                      aria-label="Slide 5"
+                      style="width: 100px"
+                    >
+                      <img
+                        class="d-block w-100 img-fluid"
+                        src="images/gallery/5.jpg"
+                        alt=""
+                      />
+                    </button>
+                    <button
+                      type="button"
+                      data-mdb-target="#carouselExampleIndicators"
+                      data-mdb-slide-to="5"
+                      aria-label="Slide 6"
+                      style="width: 100px"
+                    >
+                      <img
+                        class="d-block w-100 img-fluid"
+                        src="images/gallery/6.jpg"
+                        alt=""
+                      />
+                    </button>
+                  </div>
+                  <!-- Thumbnails -->
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <section class="pt60 no-bottom">
+          <div class="container">
+            <div class="row">
+              <div class="col-md-12 text-center">
+                <h2 class="text-uppercase wow fadeInUp">
+                  <span class="text-line">رعاة</span>
+                  <span class="text-gradient">الحدث</span>
+                </h2>
+              </div>
+              <div class="spacer-single"></div>
+            </div>
+            <div class="row g-custom-x">
+              <div class="col-lg-2 col-md-4 col-6 mb-sm-30">
+                <img
+                  src="images/sponsors/logo-1.png"
+                  class="img-deco-1 img-fluid"
+                  alt=""
+                />
+              </div>
+              <div class="col-lg-2 col-md-4 col-6 mb-sm-30">
+                <img
+                  src="images/sponsors/logo-2.png"
+                  class="img-deco-1 img-fluid"
+                  alt=""
+                />
+              </div>
+              <div class="col-lg-2 col-md-4 col-6 mb-sm-30">
+                <img
+                  src="images/sponsors/logo-3.png"
+                  class="img-deco-1 img-fluid"
+                  alt=""
+                />
+              </div>
+              <div class="col-lg-2 col-md-4 col-6 mb-sm-30">
+                <img
+                  src="images/sponsors/logo-4.png"
+                  class="img-deco-1 img-fluid"
+                  alt=""
+                />
+              </div>
+              <div class="col-lg-2 col-md-4 col-6 mb-sm-30">
+                <img
+                  src="images/sponsors/logo-5.png"
+                  class="img-deco-1 img-fluid"
+                  alt=""
+                />
+              </div>
+              <div class="col-lg-2 col-md-4 col-6 mb-sm-30">
+                <img
+                  src="images/sponsors/logo-6.png"
+                  class="img-deco-1 img-fluid"
+                  alt=""
+                />
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <section id="section-location">
+          <div class="container">
+            <div class="row">
+              <div class="col-md-12 text-center">
+                <h2 class="text-uppercase wow fadeInUp">
+                  <span class="text-line">الوصول</span>
+                  <span class="text-gradient">إلى هناك</span>
+                </h2>
+              </div>
+              <div class="spacer-single"></div>
+
+              <div class="col-lg-12">
+                <div class="map-container map-fullwidth">
+                  <iframe
+                    src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d1496.9412587962427!2d44.282216503108316!3d33.31722953063715!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x15577d343b4edd4d%3A0xcb4396baa99e0d87!2z2YbYp9iv2Yog2KjZhNin2K8g2KfZhNix2KfZgdiv2YrZhiDZhNix2YrYp9i22Kkg2KfZhNiz2YrYp9ix2KfYqg!5e1!3m2!1sen!2siq!4v1760429576418!5m2!1sen!2siq"
+                    width="600"
+                    height="450"
+                    frameborder="0"
+                    style="border: 0"
+                    allowfullscreen=""
+                    aria-hidden="false"
+                    tabindex="0"
+                  ></iframe>
+                </div>
+              </div>
+
+              <div class="spacer-single"></div>
+
+              <div class="col-lg-4 col-md-4 text-center">
+                <p class="lead no-bottom">الموقع</p>
+                <h4 class="s2">879J+2RJ, Baghdad, Baghdad Governorate</h4>
+              </div>
+              <div class="col-lg-4 col-md-4 text-center">
+                <p class="lead no-bottom">الهاتف</p>
+                <h4 class="s2">07712345678</h4>
+              </div>
+              <div class="col-lg-4 col-md-4 text-center">
+                <p class="lead no-bottom">البريد الإلكتروني</p>
+                <h4 class="s2">info@iraqmotorsport.com</h4>
+              </div>
+            </div>
+          </div>
+        </section>
+      </div>
+
+</x-layout>
