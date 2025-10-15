@@ -31,6 +31,7 @@
       rel="stylesheet"
       type="text/css"
     />
+    <style>
     /* Dropdown menu styles */
       .dropdown {
         position: relative;
@@ -63,7 +64,7 @@
       .dropdown-menu li a:hover {
         background: #242426;
       }      /* Custom styles for checkout page */
-      .checkout-hero { background: linear-gradient(135deg, #00b894, #e74c3c); padding: 60px 0; text-align: center; color: #fff; margin-bottom: 40px; }
+      .checkout-hero { background: linear-gradient(135deg, #00b894, #e74c3c); padding: 60px 0; text-align: center; color: #fff; margin-bottom: 0; }
       .checkout-hero h1 { font-size: 3rem; font-weight: 900; margin-bottom: 10px; }
       .checkout-hero p { font-size: 1.2rem; opacity: 0.9; }
       .checkout-form { background: rgba(20,20,22,.9); padding: 40px; border-radius: 18px; margin-bottom: 40px; }
@@ -73,6 +74,8 @@
       .checkout-form input::placeholder { color: #aaa; }
       .checkout-form .btn-submit { background: linear-gradient(45deg, #00b894, #00cec9); color: #fff; border: none; padding: 15px 30px; border-radius: 15px; font-weight: 900; font-size: 1.2rem; text-decoration: none; display: inline-block; transition: transform .2s ease; width: 100%; text-align: center; }
       .checkout-form .btn-submit:hover { transform: scale(1.05); }
+      /* Tighten space between hero and form */
+      #section-checkout { padding-top: 24px; }
     </style>
   </head>
 
@@ -123,45 +126,25 @@
                 </div>
       
                 <div class="de-flex-col header-col-mid">
-                  <ul id="mainmenu">
-                    <li>
-                      <a class="menu-item" href="#section-hero">الرئيسية</a>
-                      <ul>
-                        <li>
-                          <a class="menu-item" href="index.html">المعرض الرئيسي الأول</a>
-                        </li>
-                        <li>
-                          <a class="menu-item" href="index-expo-2.html">المعرض الرئيسي الثاني</a>
-                        </li>
-                        <li>
-                          <a class="menu-item" href="index-expo-3.html">المعرض الرئيسي الثالث</a>
-                        </li>
-                        <li>
-                          <a class="menu-item" href="index-expo-4.html">المعرض الرئيسي الرابع</a>
-                        </li>
-                        <li>
-                          <a class="menu-item" href="index-car-1.html">السيارة الرئيسي الأولى</a>
-                        </li>
-                      </ul>
-                    </li>
-                    <li><a class="menu-item" href="about.html">حول</a></li>
-                    <li class="dropdown">
-    <a class="menu-item" href="drivers.html">الفريق</a>
-    <ul class="dropdown-menu">
-      <li><a href="youth.html">شباب</a></li>
-      <li><a href="juniors.html">ناشئين</a></li>
-      <li><a href="drivers.html">سائقين</a></li>
-    </ul>
-  </li>
-                    <li><a class="menu-item" href="live.html">الاحداث</a></li>
-                    <li><a class="menu-item" href="tickets.html">التذاكر</a></li>
-                    <li><a class="menu-item" href="hall.html">حجز القاعة</a></li>
-                    <li><a class="menu-item" href="#section-gallery">المعرض</a></li>
-                    <li><a class="menu-item" href="shop.html">المتجر</a></li>
-                    <li><a class="menu-item" href="news.html">الأخبار</a></li>
-                    
-                    
-                  </ul>
+      <ul id="mainmenu">
+        <li><a class="menu-item" href="news.html">الأخبار</a></li>
+        <li><a class="menu-item" href="shop.html">المتجر</a></li>
+       
+        <li><a class="menu-item" href="tickets.html">التذاكر</a></li>
+        <li><a class="menu-item" href="live.html">الاحداث</a></li>
+        <li class="dropdown">
+          <a class="menu-item" href="drivers.html">الفريق</a>
+          <ul class="dropdown-menu">
+            <li><a href="youth.html">شباب</a></li>
+            <li><a href="juniors.html">ناشئين</a></li>
+            <li><a href="drivers.html">سائقين</a></li>
+          </ul>
+        </li>
+        <li><a class="menu-item" href="about.html">حول</a></li>
+        <li>
+          <a class="menu-item" href="index.html">الرئيسية</a>
+        </li>
+      </ul>
                 </div>
       
                 <div class="de-flex-col">
@@ -175,7 +158,8 @@
           </div>
         </div>
       </header>
-      <!-- header close -->
+      
+            <!-- header close -->
 
       <!-- content begin -->
       <div class="no-bottom no-top" id="content">

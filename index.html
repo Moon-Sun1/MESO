@@ -13,6 +13,13 @@
     <meta content="نادي بلاد الرافدين, رياضة, كرة قدم, كرة سلة, سباحة, العراق, بغداد" name="keywords" />
     <meta content="نادي بلاد الرافدين" name="author" />
 
+
+    <!-- temproray font link-->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@200;300;400;500;700;800;900&display=swap" rel="stylesheet">
+
+
     <!-- CSS Files
     ================================================== -->
     <link
@@ -64,7 +71,8 @@
       }
       .dropdown-menu li a:hover {
         background: #242426;
-      }      /* Live content modern cards */
+      }     
+       /* Live content modern cards */
       .live-card { position: relative; background: rgba(20,20,22,.8); border: 1px solid #242426; border-radius: 18px; overflow: hidden; box-shadow: 0 10px 30px rgba(0,0,0,.25); transition: transform .25s ease, box-shadow .25s ease, border-color .25s ease; height: 100%; }
       .live-card:hover { transform: translateY(-6px); box-shadow: 0 16px 40px rgba(0,0,0,.35); border-color: #2d2f33; }
       .live-thumb { position: relative; height: 210px; overflow: hidden; }
@@ -92,6 +100,7 @@
       .live-table { width: 100%; border-collapse: separate; border-spacing: 0; }
       .live-table thead th { background: linear-gradient(180deg, #141416, #121214); color:#cfd3d6; font-weight:800; letter-spacing:.2px; padding:14px; border-bottom:1px solid #242426; }
       .live-table tbody td { padding:14px; border-bottom:1px solid #202124; vertical-align: middle; }
+      .live-table tbody td:last-child { text-align:center; white-space:nowrap; }
       .live-row { transition: background .2s ease; }
       .live-row:hover { background: rgba(255,255,255,.03); }
       .pill { display:inline-flex; align-items:center; gap:6px; padding:6px 10px; border-radius:999px; font-size:12px; font-weight:700; }
@@ -104,7 +113,8 @@
       .badge-red { background: linear-gradient(135deg,#ef4444,#f97316); }
       .badge-green { background: linear-gradient(135deg,#10b981,#22d3ee); }
       .badge-gold { background: linear-gradient(135deg,#d97706,#f59e0b); }
-      .btn-stream { background: linear-gradient(45deg, #00b894, #00cec9); color:#fff; padding:8px 12px; border-radius:10px; font-weight:800; text-decoration:none; display:inline-flex; align-items:center; gap:8px; }
+      .btn-stream { background: linear-gradient(45deg, #00b894, #00cec9); color:#fff; padding:10px 14px; border-radius:12px; font-weight:800; text-decoration:none; display:inline-flex; align-items:center; gap:8px; line-height:1; direction: rtl; min-width: 130px; justify-content:center; }
+      .btn-stream i { margin-left:6px; }
       .btn-stream:hover { filter: brightness(1.05); }
       .score { font-weight:900; color:#eaeaea; }
     </style>
@@ -1278,116 +1288,7 @@
           <div class="de-gradient-edge-bottom"></div>
         </section>
 
-        <section id="section-live-content" class="jarallax no-bottom">
-          <img src="images/background/6.jpg" class="jarallax-img" alt="" />
-          <div class="de-gradient-edge-top"></div>
-          <div class="container position-relative z1000">
-            <div class="row">
-              <div class="col-md-12 text-center wow fadeInUp">
-                <h2 class="text-uppercase wow fadeInUp">
-                  <span class="text-line">المحتوى</span>
-                  <span class="text-gradient">المباشر</span>
-                </h2>
-                <div class="spacer-single"></div>
-              </div>
 
-              <div class="col-md-12 wow fadeInUp">
-                <div class="row g-4">
-                  <div class="col-lg-4 col-md-6">
-                    <div class="live-card h-100">
-                      <div class="live-thumb">
-                        <img src="images/gallery/1.jpg" alt="سباق السيارات الرياضية">
-                        <div class="live-overlay">
-                          <div class="live-badges">
-                            <span class="badge-live"><i class="fa fa-circle"></i> مباشر الآن</span>
-                            <span class="badge-type">بث مباشر</span>
-                          </div>
-                          <a href="#" class="play-btn text-white"><i class="fa fa-play fa-lg"></i></a>
-                        </div>
-                      </div>
-                      <div class="live-body">
-                        <h5 class="live-title text-gradient">سباق السيارات الرياضية</h5>
-                        <div class="live-meta">
-                          <span class="chip"><i class="fa fa-clock-o"></i> 45 دقيقة متبقية</span>
-                          <span class="chip"><i class="fa fa-users"></i> 1.2k مشاهد</span>
-                        </div>
-                        <div class="progress-wrap mb-3">
-                          <div class="progress-bar" style="width: 68%;"></div>
-                        </div>
-                        <p style="opacity:.9;">شاهد السباق الحي بين فريق الأسود وفريق النسور في بطولة السيارات الرياضية. تعليق مباشر وتحليل فني.</p>
-                        <div class="live-actions">
-                          <a href="#" class="btn-soft"><i class="fa fa-play-circle"></i> شاهد الآن</a>
-                          <a href="#" class="btn-soft"><i class="fa fa-bell-o"></i> تذكير</a>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-
-                  <div class="col-lg-4 col-md-6">
-                    <div class="live-card h-100">
-                      <div class="live-thumb">
-                        <img src="images/gallery/2.jpg" alt="ورشة عمل السيارات الكهربائية">
-                        <div class="live-overlay">
-                          <div class="live-badges">
-                            <span class="badge-live"><i class="fa fa-circle"></i> مباشر الآن</span>
-                            <span class="badge-type">تحديثات</span>
-                          </div>
-                          <a href="#" class="play-btn text-white"><i class="fa fa-play fa-lg"></i></a>
-                        </div>
-                      </div>
-                      <div class="live-body">
-                        <h5 class="live-title text-gradient">ورشة عمل السيارات الكهربائية</h5>
-                        <div class="live-meta">
-                          <span class="chip"><i class="fa fa-clock-o"></i> بدأ منذ 10 د</span>
-                          <span class="chip"><i class="fa fa-users"></i> 820 مشارك</span>
-                        </div>
-                        <div class="progress-wrap mb-3">
-                          <div class="progress-bar" style="width: 30%;"></div>
-                        </div>
-                        <p style="opacity:.9;">انضم إلى ورشة العمل التفاعلية حول أحدث التطورات في السيارات الكهربائية مع الخبراء الميدانيين.</p>
-                        <div class="live-actions">
-                          <a href="#" class="btn-soft"><i class="fa fa-play-circle"></i> انضم الآن</a>
-                          <a href="#" class="btn-soft"><i class="fa fa-share"></i> مشاركة</a>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-
-                  <div class="col-lg-4 col-md-6">
-                    <div class="live-card h-100">
-                      <div class="live-thumb">
-                        <img src="images/gallery/1.jpg" alt="مقابلة مع السائقين">
-                        <div class="live-overlay">
-                          <div class="live-badges">
-                            <span class="badge-live"><i class="fa fa-circle"></i> مباشر الآن</span>
-                            <span class="badge-type">مقابلات</span>
-                          </div>
-                          <a href="#" class="play-btn text-white"><i class="fa fa-play fa-lg"></i></a>
-                        </div>
-                      </div>
-                      <div class="live-body">
-                        <h5 class="live-title text-gradient">مقابلة مع السائقين</h5>
-                        <div class="live-meta">
-                          <span class="chip"><i class="fa fa-clock-o"></i> 15 د متبقية</span>
-                          <span class="chip"><i class="fa fa-users"></i> 2.3k مشاهد</span>
-                        </div>
-                        <div class="progress-wrap mb-3">
-                          <div class="progress-bar" style="width: 80%;"></div>
-                        </div>
-                        <p style="opacity:.9;">استمع إلى قصص السائقين المحترفين وخبراتهم في عالم رياضات السيارات. مقابلات حصرية من خلف الكواليس.</p>
-                        <div class="live-actions">
-                          <a href="#" class="btn-soft"><i class="fa fa-play-circle"></i> شاهد المقابلة</a>
-                          <a href="#" class="btn-soft"><i class="fa fa-bookmark-o"></i> حفظ</a>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-          <div class="de-gradient-edge-bottom"></div>
-        </section>
 
         <section id="section-tickets"  style="direction: ltr;">
           <div class="container">
