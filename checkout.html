@@ -1,0 +1,267 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+  <head>
+    <title>الدفع - نادي بلاد الرافدين</title>
+    <link rel="icon" href="images/Al-Rafidain-logo.png" type="image/png" sizes="32x32" />
+    <meta content="text/html;charset=utf-8" http-equiv="Content-Type" />
+    <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+    <meta
+      content="صفحة الدفع لشراء التذاكر في نادي بلاد الرافدين."
+      name="description"
+    />
+    <meta content="نادي بلاد الرافدين, تذاكر, دفع, أحداث رياضية" name="keywords" />
+    <meta content="نادي بلاد الرافدين" name="author" />
+
+    <!-- CSS Files
+    ================================================== -->
+    <link
+      href="css/bootstrap.min.css"
+      rel="stylesheet"
+      type="text/css"
+      id="bootstrap"
+    />
+    <link href="css/mdb.min.css" rel="stylesheet" type="text/css" id="mdb" />
+    <link href="css/plugins.css" rel="stylesheet" type="text/css" />
+    <link href="css/style.css" rel="stylesheet" type="text/css" />
+    <link href="css/coloring.css" rel="stylesheet" type="text/css" />
+    <!-- color scheme -->
+    <link
+      id="colors"
+      href="css/colors/blue-teal.css"
+      rel="stylesheet"
+      type="text/css"
+    />
+    <style>
+    /* Dropdown menu styles */
+      .dropdown {
+        position: relative;
+      }
+      .dropdown-menu {
+        display: none;
+        position: absolute;
+        top: 80%;
+        left: 0;
+        background: #141416;
+        border-radius: 0;
+        min-width: 150px;
+        z-index: 1000;
+      }
+      .dropdown:hover .dropdown-menu {
+        display: block;
+      }
+      .dropdown-menu li {
+        list-style: none;
+      }
+      .dropdown-menu li a {
+        display: block;
+        padding: 10px 15px;
+        color: #fff;
+        text-decoration: none;
+        transition: background .2s ease;
+        font-weight: 400;
+        font-size: 14px;
+      }
+      .dropdown-menu li a:hover {
+        background: #242426;
+      }      /* Custom styles for checkout page */
+      .checkout-hero { background: linear-gradient(135deg, #00b894, #e74c3c); padding: 60px 0; text-align: center; color: #fff; margin-bottom: 0; }
+      .checkout-hero h1 { font-size: 3rem; font-weight: 900; margin-bottom: 10px; }
+      .checkout-hero p { font-size: 1.2rem; opacity: 0.9; }
+      .checkout-form { background: rgba(20,20,22,.9); padding: 40px; border-radius: 18px; margin-bottom: 40px; }
+      .checkout-form .form-group { margin-bottom: 20px; }
+      .checkout-form label { display: block; margin-bottom: 8px; font-weight: 600; color: #fff; }
+      .checkout-form input, .checkout-form select { width: 100%; padding: 12px; border: 1px solid #242426; border-radius: 10px; background: #16181b; color: #fff; }
+      .checkout-form input::placeholder { color: #aaa; }
+      .checkout-form .btn-submit { background: linear-gradient(45deg, #00b894, #00cec9); color: #fff; border: none; padding: 15px 30px; border-radius: 15px; font-weight: 900; font-size: 1.2rem; text-decoration: none; display: inline-block; transition: transform .2s ease; width: 100%; text-align: center; }
+      .checkout-form .btn-submit:hover { transform: scale(1.05); }
+      /* Tighten space between hero and form */
+      #section-checkout { padding-top: 24px; }
+    </style>
+  </head>
+
+  <body class="dark-scheme">
+    <div id="wrapper">
+      <div class="scrollbar"></div>
+      <!-- page preloader begin -->
+      <div id="de-loader"></div>
+      <!-- page preloader close -->
+
+      <!-- header begin -->
+      <header class="transparent">
+        <div class="container">
+          <div class="row">
+            <div class="col-md-12">
+              <div class="de-flex sm-pt10">
+                <div class="de-flex-col">
+                  <div class="de-flex-col">
+      <!-- logo begin -->
+      <div id="logo" style="display: flex; align-items: center; gap: 10px; direction: rtl;">
+        <a href="index.html" style="display: flex; align-items: center; text-decoration: none;">
+          <img
+            class="logo-main"
+            src="images/Al-Rafidain-logo.png"
+            alt="شعار نادي بلاد الرافدين"
+            style="width: 75px;"
+          />
+          <span
+            style="
+              font-size: 22px;
+              font-weight: 700;
+              background: linear-gradient(90deg, #00b894, #e74c3c);
+              background-clip: text;
+              -webkit-background-clip: text;
+              -webkit-text-fill-color: transparent;
+              margin-right: 10px;
+              font-family: 'Cairo', 'Tajawal', sans-serif;
+              white-space: nowrap;
+              letter-spacing: 0.5px;
+              text-shadow: 0 0 6px rgba(0,0,0,0.4);
+            "
+            >نادي بلاد الرافدين</span
+          >
+        </a>
+      </div>
+      <!-- logo close -->
+      
+                </div>
+      
+                <div class="de-flex-col header-col-mid">
+      <ul id="mainmenu">
+        <li><a class="menu-item" href="news.html">الأخبار</a></li>
+        <li><a class="menu-item" href="shop.html">المتجر</a></li>
+       
+        <li><a class="menu-item" href="tickets.html">التذاكر</a></li>
+        <li><a class="menu-item" href="live.html">الاحداث</a></li>
+        <li class="dropdown">
+          <a class="menu-item" href="drivers.html">الفريق</a>
+          <ul class="dropdown-menu">
+            <li><a href="youth.html">شباب</a></li>
+            <li><a href="juniors.html">ناشئين</a></li>
+            <li><a href="drivers.html">سائقين</a></li>
+          </ul>
+        </li>
+        <li><a class="menu-item" href="about.html">حول</a></li>
+        <li>
+          <a class="menu-item" href="index.html">الرئيسية</a>
+        </li>
+      </ul>
+                </div>
+      
+                <div class="de-flex-col">
+                  <div class="menu_side_area">
+                    <a href="tickets.html" class="btn-line">اشترِ التذكرة</a>
+                    <span id="menu-btn"></span>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </header>
+      
+            <!-- header close -->
+
+      <!-- content begin -->
+      <div class="no-bottom no-top" id="content">
+        <div id="top"></div>
+
+        <!-- Checkout Hero Section -->
+        <section class="checkout-hero wow fadeInUp">
+          <div class="container">
+            <h1>إتمام الشراء</h1>
+            <p>أدخل تفاصيلك لإكمال عملية شراء التذكرة.</p>
+          </div>
+        </section>
+
+        <section id="section-checkout" class="pt60 pb60">
+          <div class="container">
+            <div class="checkout-form wow fadeInUp">
+              <form action="#" method="post">
+                <div class="form-group">
+                  <label for="quantity">الكمية:</label>
+                  <input type="number" id="quantity" name="quantity" min="1" max="10" value="1" required>
+                </div>
+                <div class="form-group">
+                  <label for="name">الاسم الكامل:</label>
+                  <input type="text" id="name" name="name" placeholder="أدخل اسمك الكامل" required>
+                </div>
+                <div class="form-group">
+                  <label for="email">البريد الإلكتروني:</label>
+                  <input type="email" id="email" name="email" placeholder="أدخل بريدك الإلكتروني" required>
+                </div>
+                <div class="form-group">
+                  <label for="phone">رقم الهاتف:</label>
+                  <input type="tel" id="phone" name="phone" placeholder="أدخل رقم هاتفك" required>
+                </div>
+                <button type="submit" class="btn-submit">إتمام الشراء</button>
+              </form>
+            </div>
+
+            <div class="row">
+              <div class="col-lg-12 text-center">
+                <a href="tickets.html" class="btn-main big wow fadeInUp">العودة إلى التذاكر</a>
+              </div>
+            </div>
+          </div>
+        </section>
+      </div>
+      <!-- content close -->
+
+      <a href="#" id="back-to-top"></a>
+
+      <!-- footer begin -->
+      <footer>
+        <div class="container">
+          <div class="row g-4">
+            <div class="col-lg-4 text-lg-start text-sm-center">
+              <div class="social-icons">
+                <a href="#"><i class="fa fa-facebook fa-lg"></i></a>
+                <a href="#"><i class="fa fa-twitter fa-lg"></i></a>
+                <a href="#"><i class="fa fa-linkedin fa-lg"></i></a>
+                <a href="#"><i class="fa fa-pinterest fa-lg"></i></a>
+                <a href="https://www.instagram.com/mesopotamia_engines_club?utm_source=ig_web_button_share_sheet&igsh=ZDNlZDc0MzIxNw=="><i class="fa fa-instagram fa-lg"></i></a>
+              </div>
+            </div>
+            <div class="col-lg-4 text-lg-center text-sm-center">
+              <div id="footer-logo" style="display: inline-flex; align-items: center; gap: 10px; direction: rtl;">
+                <a href="index.html" style="display: inline-flex; align-items: center; text-decoration: none;">
+                  <img
+                    class="logo-main"
+                    src="images/Al-Rafidain-logo.png"
+                    alt="شعار نادي بلاد الرافدين"
+                    style="width: 75px;"
+                  />
+                  <span
+                    style="
+                      font-size: 22px;
+                      font-weight: 700;
+                      background: linear-gradient(90deg, #00b894, #e74c3c);
+                      background-clip: text;
+                      -webkit-background-clip: text;
+                      -webkit-text-fill-color: transparent;
+                      margin-right: 10px;
+                      font-family: 'Cairo', 'Tajawal', sans-serif;
+                      white-space: nowrap;
+                      letter-spacing: 0.5px;
+                      text-shadow: 0 0 6px rgba(0,0,0,0.4);
+                    "
+                    >نادي بلاد الرافدين</span
+                  >
+                </a>
+              </div>
+            </div>
+            <div class="col-lg-4 text-lg-end text-sm-center">
+              حقوق النشر 2025 - نادي بلاد الرافدين
+            </div>
+          </div>
+        </div>
+      </footer>
+      <!-- footer close -->
+    </div>
+
+    <!-- Javascript Files
+    ================================================== -->
+    <script src="js/plugins.js"></script>
+    <script src="js/designesia.js"></script>
+  </body>
+</html>

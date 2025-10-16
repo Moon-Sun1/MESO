@@ -1,25 +1,5 @@
-<!DOCTYPE html>
-<html lang="ar" dir="rtl">
+<x-layout title="نادي بلاد الرافدين">
 
-
-<!-- Mirrored from madebydesignesia.com/themes/autovent/blog-single.html by HTTrack Website Copier/3.x [XR&CO'2014], Mon, 13 Oct 2025 08:53:12 GMT -->
-<head>
-    <title>مقال - نادي بلاد الرافدين</title>
-    <link rel="icon" href="images/icon.png" type="image/gif" sizes="16x16">
-    <meta content="text/html;charset=utf-8" http-equiv="Content-Type">
-    <meta content="width=device-width, initial-scale=1.0" name="viewport" >
-    <meta content="عرض المقالات المختارة من أخبار نادي بلاد الرافدين" name="description" >
-    <meta content="" name="keywords" >
-    <meta content="" name="author" >
-    <!-- CSS Files
-    ================================================== -->
-    <link href="css/bootstrap.min.css" rel="stylesheet" type="text/css" id="bootstrap">
-    <link href="css/mdb.min.css" rel="stylesheet" type="text/css" id="mdb" >
-    <link href="css/plugins.css" rel="stylesheet" type="text/css" >
-    <link href="css/style.css" rel="stylesheet" type="text/css" >
-    <link href="css/coloring.css" rel="stylesheet" type="text/css" >
-    <!-- color scheme -->
-    <link id="colors" href="css/colors/blue-teal.css" rel="stylesheet" type="text/css" >
     <style>
     /* Dropdown menu styles */
       .dropdown {
@@ -74,85 +54,11 @@
 
 <body class="dark-scheme">
     <div id="wrapper">
-        
+
         <!-- page preloader begin -->
         <div id="de-loader"></div>
         <!-- page preloader close -->
 
-       <!-- header begin -->
-       <header class="transparent">
-        <div class="container">
-          <div class="row">
-            <div class="col-md-12">
-              <div class="de-flex sm-pt10">
-                <div class="de-flex-col">
-                  <div class="de-flex-col">
-      <!-- logo begin -->
-      <div id="logo" style="display: flex; align-items: center; gap: 10px; direction: rtl;">
-        <a href="index.html" style="display: flex; align-items: center; text-decoration: none;">
-          <img
-            class="logo-main"
-            src="images/Al-Rafidain-logo.png"
-            alt="شعار نادي بلاد الرافدين"
-            style="width: 75px;"
-          />
-          <span
-            style="
-              font-size: 22px;
-              font-weight: 700;
-              background: linear-gradient(90deg, #00b894, #e74c3c);
-              background-clip: text;
-              -webkit-background-clip: text;
-              -webkit-text-fill-color: transparent;
-              margin-right: 10px;
-              font-family: 'Cairo', 'Tajawal', sans-serif;
-              white-space: nowrap;
-              letter-spacing: 0.5px;
-              text-shadow: 0 0 6px rgba(0,0,0,0.4);
-            "
-            >نادي بلاد الرافدين</span
-          >
-        </a>
-      </div>
-      <!-- logo close -->
-      
-                </div>
-      
-                <div class="de-flex-col header-col-mid">
-      <ul id="mainmenu">
-        <li><a class="menu-item" href="news.html">الأخبار</a></li>
-        <li><a class="menu-item" href="shop.html">المتجر</a></li>
-       
-        <li><a class="menu-item" href="tickets.html">التذاكر</a></li>
-        <li><a class="menu-item" href="live.html">الاحداث</a></li>
-        <li class="dropdown">
-          <a class="menu-item" href="drivers.html">الفريق</a>
-          <ul class="dropdown-menu">
-            <li><a href="youth.html">شباب</a></li>
-            <li><a href="juniors.html">ناشئين</a></li>
-            <li><a href="drivers.html">سائقين</a></li>
-          </ul>
-        </li>
-        <li><a class="menu-item" href="about.html">حول</a></li>
-        <li>
-          <a class="menu-item" href="index.html">الرئيسية</a>
-        </li>
-      </ul>
-                </div>
-      
-                <div class="de-flex-col">
-                  <div class="menu_side_area">
-                    <a href="tickets.html" class="btn-line">اشترِ التذكرة</a>
-                    <span id="menu-btn"></span>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </header>
-      
-            <!-- header close -->
         <div class="no-bottom no-top" id="content">
             <div class="progressbar" id="readProgress"></div>
             <div id="top"></div>
@@ -172,8 +78,8 @@
 
             <div class="breadcrumbs">
               <div class="container">
-                <a href="index.html">الرئيسية</a> <span style="opacity:.6; margin:0 6px;">›</span>
-                <a href="news.html">الأخبار</a> <span style="opacity:.6; margin:0 6px;">›</span>
+                <a href="{{ route('home') }}">الرئيسية</a> <span style="opacity:.6; margin:0 6px;">›</span>
+                <a href="{{ route('news') }}">الأخبار</a> <span style="opacity:.6; margin:0 6px;">›</span>
                 <span id="bcTitle">—</span>
               </div>
             </div>
@@ -226,44 +132,8 @@
         </div>
         <!-- content close -->
         <a href="#" id="back-to-top"></a>
-        <!-- footer begin -->
-        <footer>
-            <div class="container">
-                <div class="row g-4">
-                    
-                    <div class="col-lg-4 text-lg-start text-sm-center">
-                        <div class="social-icons">
-                            <a href="#"><i class="fa fa-facebook fa-lg"></i></a>
-                            <a href="#"><i class="fa fa-twitter fa-lg"></i></a>
-                            <a href="#"><i class="fa fa-linkedin fa-lg"></i></a>
-                            <a href="#"><i class="fa fa-pinterest fa-lg"></i></a>
-                            <a href="#"><i class="fa fa-rss fa-lg"></i></a>
-                        </div>
-                    </div>
-                    <div class="col-lg-4 text-lg-center text-sm-center">
-                        <div id="footer-logo" style="display: inline-flex; align-items: center; gap: 10px; direction: rtl;">
-                          <a href="index.html" style="display: inline-flex; align-items: center; text-decoration: none;">
-                            <img class="logo-main" src="images/Al-Rafidain-logo.png" alt="شعار نادي بلاد الرافدين" style="width: 75px;" >
-                            <span style="font-size: 22px; font-weight: 700; background: linear-gradient(90deg, #00b894, #e74c3c); background-clip: text; -webkit-background-clip: text; -webkit-text-fill-color: transparent; margin-right: 10px; font-family: 'Cairo', 'Tajawal', sans-serif; white-space: nowrap; letter-spacing: 0.5px; text-shadow: 0 0 6px rgba(0,0,0,0.4);">نادي بلاد الرافدين</span>
-                          </a>
-                        </div>
-                    </div>
-                    <div class="col-lg-4 text-lg-end text-sm-center">
-                        حقوق النشر 2025 - نادي بلاد الرافدين
-                    </div>
-                </div>
-            </div>
-        </footer>
-        <!-- footer close -->
-    </div>
-    
-    <!-- Javascript Files
-    ================================================== -->
-    <script src="js/plugins.js"></script>
-    <script src="js/designesia.js"></script>
-    <script src="js/custom-marquee.js"></script>
     <script>
-      // Simple in-page article catalog matching ids used in news.html
+      // Simple in-page article catalog matching ids used in news page
       const articles = {
         1: {
           title: 'الاتحاد العراقي يعتمد جولة "تايم أتاك" ضمن أجندة النادي',
@@ -359,7 +229,7 @@
       function render(){
         const id = getId();
         const a = articles[id];
-        if(!a){ location.href = 'news.html'; return; }
+        if(!a){ location.href = '{{ route('news') }}'; return; }
         document.getElementById('postTitle').textContent = a.title;
         document.getElementById('bcTitle').textContent = a.title;
         document.getElementById('postCategory').textContent = a.category || '—';
@@ -379,15 +249,15 @@
         const i = ids.indexOf(id);
         const prevId = ids[i-1]; const nextId = ids[i+1];
         const pn = document.getElementById('prevNext');
-        pn.innerHTML = `${prevId?`<a href="blog-single.html?id=${prevId}"><i class=\"fa fa-angle-right\"></i> السابق</a>`:''}<span></span>${nextId?`<a href="blog-single.html?id=${nextId}">التالي <i class=\"fa fa-angle-left\"></i></a>`:''}`;
+        pn.innerHTML = `${prevId?`<a href="{{ route('blog.single') }}?id=${prevId}"><i class=\"fa fa-angle-right\"></i> السابق</a>`:''}<span></span>${nextId?`<a href="{{ route('blog.single') }}?id=${nextId}">التالي <i class=\"fa fa-angle-left\"></i></a>`:''}`;
         const latest = document.getElementById('latestList'); latest.innerHTML='';
-        ids.slice(-5).reverse().forEach(k=>{ const li=document.createElement('li'); li.innerHTML=`<a href="blog-single.html?id=${k}">${articles[k].title}</a>`; latest.appendChild(li); });
+        ids.slice(-5).reverse().forEach(k=>{ const li=document.createElement('li'); li.innerHTML=`<a href="{{ route('blog.single') }}?id=${k}">${articles[k].title}</a>`; latest.appendChild(li); });
         const cats = document.getElementById('catChips'); cats.innerHTML='';
         ;['رسمي','تحليل','تقرير','مقال'].forEach(c=>{ const s=document.createElement('span'); s.className='chip'; s.textContent=c; cats.appendChild(s); });
         const related = document.getElementById('relatedGrid'); related.innerHTML='';
         ids.filter(k=>k!==id).slice(0,4).forEach(k=>{
           const col=document.createElement('div'); col.className='col-6';
-          col.innerHTML = `<a href="blog-single.html?id=${k}" class="card text-decoration-none"><img src="${articles[k].image}" alt=""><div class="p-2" style="color:#fff; font-weight:700; font-size:12px;">${articles[k].title}</div></a>`;
+          col.innerHTML = `<a href="{{ route('blog.single') }}?id=${k}" class="card text-decoration-none"><img src="${articles[k].image}" alt=""><div class="p-2" style="color:#fff; font-weight:700; font-size:12px;">${articles[k].title}</div></a>`;
           related.appendChild(col);
         });
       }
@@ -408,9 +278,4 @@
         onScroll();
       });
     </script>
-
-</body>
-
-
-<!-- Mirrored from madebydesignesia.com/themes/autovent/blog-single.html by HTTrack Website Copier/3.x [XR&CO'2014], Mon, 13 Oct 2025 08:53:12 GMT -->
-</html>
+</x-layout>

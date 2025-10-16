@@ -1,36 +1,5 @@
-<!DOCTYPE html>
-<html lang="ar" dir="rtl">
-  <head>
-    <title>التذاكر - نادي بلاد الرافدين</title>
-    <link rel="icon" href="images/Al-Rafidain-logo.png" type="image/png" sizes="32x32" />
-    <meta content="text/html;charset=utf-8" http-equiv="Content-Type" />
-    <meta content="width=device-width, initial-scale=1.0" name="viewport" />
-    <meta
-      content="صفحة التذاكر لنادي بلاد الرافدين - اختر تذاكرك للأحداث الرياضية المختلفة."
-      name="description"
-    />
-    <meta content="نادي بلاد الرافدين, تذاكر, أحداث رياضية, كرة قدم, سباحة, العراق" name="keywords" />
-    <meta content="نادي بلاد الرافدين" name="author" />
+<x-layout title="نادي بلاد الرافدين">
 
-    <!-- CSS Files
-    ================================================== -->
-    <link
-      href="css/bootstrap.min.css"
-      rel="stylesheet"
-      type="text/css"
-      id="bootstrap"
-    />
-    <link href="css/mdb.min.css" rel="stylesheet" type="text/css" id="mdb" />
-    <link href="css/plugins.css" rel="stylesheet" type="text/css" />
-    <link href="css/style.css" rel="stylesheet" type="text/css" />
-    <link href="css/coloring.css" rel="stylesheet" type="text/css" />
-    <!-- color scheme -->
-    <link
-      id="colors"
-      href="css/colors/blue-teal.css"
-      rel="stylesheet"
-      type="text/css"
-    />
     <style>
 /* Dropdown menu styles */
       .dropdown {
@@ -63,8 +32,16 @@
       }
       .dropdown-menu li a:hover {
         background: #242426;
-      }      /* Custom styles for tickets page */
-      .hero-offer { background: linear-gradient(135deg, #00b894, #e74c3c); padding: 60px 0; text-align: center; color: #fff; margin-bottom: 40px; }
+      }
+
+      /* Force header to be solid on tickets page */
+      header {
+        background: #141416 !important;
+        box-shadow: 0 2px 10px rgba(0,0,0,.3);
+      }
+
+      /* Custom styles for tickets page */
+      .hero-offer { background: linear-gradient(135deg, #00b894, #e74c3c); padding: 60px 0; text-align: center; color: #fff; margin-bottom: 0px; }
       .hero-offer h1 { font-size: 3rem; font-weight: 900; margin-bottom: 10px; }
       .hero-offer p { font-size: 1.2rem; opacity: 0.9; }
       .filters-search { background: rgba(20,20,22,.9); padding: 30px; border-radius: 18px; margin-bottom: 40px; }
@@ -96,93 +73,8 @@
       .ticket-price { font-size: 18px; font-weight: 900; color: #00b894; margin: 8px 0; }
       .btn-buy { background: linear-gradient(45deg, #00b894, #00cec9); color: #fff; border: none; padding: 8px 16px; border-radius: 8px; font-weight: 800; text-decoration: none; display: inline-block; transition: filter .2s ease; width: 100%; text-align: center; font-size: 0.9rem; }
       .btn-buy:hover { filter: brightness(1.05); }
-      /* Tighten space between hero CTA and filters */
-      .hero-offer { margin-bottom: 0px; }
-      #section-tickets-page { padding-top: 24px; }
+      #section-tickets-page { padding-top: 0px; }
     </style>
-  </head>
-
-  <body class="dark-scheme">
-    <div id="wrapper">
-      <div class="scrollbar"></div>
-      <!-- page preloader begin -->
-      <div id="de-loader"></div>
-      <!-- page preloader close -->
-
-      <!-- header begin -->
-      <header class="transparent">
-        <div class="container">
-          <div class="row">
-            <div class="col-md-12">
-              <div class="de-flex sm-pt10">
-                <div class="de-flex-col">
-                  <div class="de-flex-col">
-      <!-- logo begin -->
-      <div id="logo" style="display: flex; align-items: center; gap: 10px; direction: rtl;">
-        <a href="index.html" style="display: flex; align-items: center; text-decoration: none;">
-          <img
-            class="logo-main"
-            src="images/Al-Rafidain-logo.png"
-            alt="شعار نادي بلاد الرافدين"
-            style="width: 75px;"
-          />
-          <span
-            style="
-              font-size: 22px;
-              font-weight: 700;
-              background: linear-gradient(90deg, #00b894, #e74c3c);
-              background-clip: text;
-              -webkit-background-clip: text;
-              -webkit-text-fill-color: transparent;
-              margin-right: 10px;
-              font-family: 'Cairo', 'Tajawal', sans-serif;
-              white-space: nowrap;
-              letter-spacing: 0.5px;
-              text-shadow: 0 0 6px rgba(0,0,0,0.4);
-            "
-            >نادي بلاد الرافدين</span
-          >
-        </a>
-      </div>
-      <!-- logo close -->
-      
-                </div>
-      
-                <div class="de-flex-col header-col-mid">
-      <ul id="mainmenu">
-        <li><a class="menu-item" href="news.html">الأخبار</a></li>
-        <li><a class="menu-item" href="shop.html">المتجر</a></li>
-       
-        <li><a class="menu-item" href="tickets.html">التذاكر</a></li>
-        <li><a class="menu-item" href="live.html">الاحداث</a></li>
-        <li class="dropdown">
-          <a class="menu-item" href="drivers.html">الفريق</a>
-          <ul class="dropdown-menu">
-            <li><a href="youth.html">شباب</a></li>
-            <li><a href="juniors.html">ناشئين</a></li>
-            <li><a href="drivers.html">سائقين</a></li>
-          </ul>
-        </li>
-        <li><a class="menu-item" href="about.html">حول</a></li>
-        <li>
-          <a class="menu-item" href="index.html">الرئيسية</a>
-        </li>
-      </ul>
-                </div>
-      
-                <div class="de-flex-col">
-                  <div class="menu_side_area">
-                    <a href="tickets.html" class="btn-line">اشترِ التذكرة</a>
-                    <span id="menu-btn"></span>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </header>
-      <!-- header close -->
-
       <!-- content begin -->
       <div class="no-bottom " id="content">
         <div id="top"></div>
@@ -251,13 +143,13 @@
                         <h4>تذكرة عادية</h4>
                         <p>دخول عام مع فرصة للفوز بجوائز</p>
                         <div class="ticket-price">49 دولار</div>
-                        <a href="checkout.html" class="btn-buy">اشترِ الآن</a>
+                        <a href="{{ route('checkout') }}" class="btn-buy">اشترِ الآن</a>
                       </div>
                       <div class="ticket-option">
                         <h4>تذكرة VIP</h4>
                         <p>دخول VIP مع بضائع مجانية ومقاعد أفضل</p>
                         <div class="ticket-price">89 دولار</div>
-                        <a href="checkout.html" class="btn-buy">اشترِ الآن</a>
+                        <a href="{{ route('checkout') }}" class="btn-buy">اشترِ الآن</a>
                       </div>
                     </div>
                   </div>
@@ -283,13 +175,13 @@
                         <h4>تذكرة عادية</h4>
                         <p>دخول عام مع فرصة للفوز بجوائز</p>
                         <div class="ticket-price">49 دولار</div>
-                        <a href="checkout.html" class="btn-buy">اشترِ الآن</a>
+                        <a href="{{ route('checkout') }}" class="btn-buy">اشترِ الآن</a>
                       </div>
                       <div class="ticket-option">
                         <h4>تذكرة VIP</h4>
                         <p>دخول VIP مع بضائع مجانية ومقاعد أفضل</p>
                         <div class="ticket-price">89 دولار</div>
-                        <a href="checkout.html" class="btn-buy">اشترِ الآن</a>
+                        <a href="{{ route('checkout') }}" class="btn-buy">اشترِ الآن</a>
                       </div>
                     </div>
                   </div>
@@ -315,13 +207,13 @@
                         <h4>تذكرة عادية</h4>
                         <p>دخول عام مع فرصة للفوز بجوائز</p>
                         <div class="ticket-price">49 دولار</div>
-                        <a href="checkout.html" class="btn-buy">اشترِ الآن</a>
+                        <a href="{{ route('checkout') }}" class="btn-buy">اشترِ الآن</a>
                       </div>
                       <div class="ticket-option">
                         <h4>تذكرة VIP</h4>
                         <p>دخول VIP مع بضائع مجانية ومقاعد أفضل</p>
                         <div class="ticket-price">89 دولار</div>
-                        <a href="checkout.html" class="btn-buy">اشترِ الآن</a>
+                        <a href="{{ route('checkout') }}" class="btn-buy">اشترِ الآن</a>
                       </div>
                     </div>
                   </div>
@@ -350,13 +242,13 @@
                         <h4>تذكرة عادية</h4>
                         <p>دخول عام مع فرصة للفوز بجوائز</p>
                         <div class="ticket-price">49 دولار</div>
-                        <a href="checkout.html" class="btn-buy">اشترِ الآن</a>
+                        <a href="{{ route('checkout') }}" class="btn-buy">اشترِ الآن</a>
                       </div>
                       <div class="ticket-option">
                         <h4>تذكرة VIP</h4>
                         <p>دخول VIP مع بضائع مجانية ومقاعد أفضل</p>
                         <div class="ticket-price">89 دولار</div>
-                        <a href="checkout.html" class="btn-buy">اشترِ الآن</a>
+                        <a href="{{ route('checkout') }}" class="btn-buy">اشترِ الآن</a>
                       </div>
                     </div>
                   </div>
@@ -382,13 +274,13 @@
                         <h4>تذكرة عادية</h4>
                         <p>دخول عام مع فرصة للفوز بجوائز</p>
                         <div class="ticket-price">49 دولار</div>
-                        <a href="checkout.html" class="btn-buy">اشترِ الآن</a>
+                        <a href="{{ route('checkout') }}" class="btn-buy">اشترِ الآن</a>
                       </div>
                       <div class="ticket-option">
                         <h4>تذكرة VIP</h4>
                         <p>دخول VIP مع بضائع مجانية ومقاعد أفضل</p>
                         <div class="ticket-price">89 دولار</div>
-                        <a href="checkout.html" class="btn-buy">اشترِ الآن</a>
+                        <a href="{{ route('checkout') }}" class="btn-buy">اشترِ الآن</a>
                       </div>
                     </div>
                   </div>
@@ -416,69 +308,12 @@
 
             <div class="row">
               <div class="col-lg-12 text-center">
-                <a href="index.html" class="btn-main big wow fadeInUp">العودة إلى الصفحة الرئيسية</a>
+                <a href="{{ route('home') }}" class="btn-main big wow fadeInUp">العودة إلى الصفحة الرئيسية</a>
               </div>
             </div>
           </div>
         </section>
       </div>
       <!-- content close -->
-
       <a href="#" id="back-to-top"></a>
-
-      <!-- footer begin -->
-      <footer>
-        <div class="container">
-          <div class="row g-4">
-            <div class="col-lg-4 text-lg-start text-sm-center">
-              <div class="social-icons">
-                <a href="#"><i class="fa fa-facebook fa-lg"></i></a>
-                <a href="#"><i class="fa fa-twitter fa-lg"></i></a>
-                <a href="#"><i class="fa fa-linkedin fa-lg"></i></a>
-                <a href="#"><i class="fa fa-pinterest fa-lg"></i></a>
-                <a href="https://www.instagram.com/mesopotamia_engines_club?utm_source=ig_web_button_share_sheet&igsh=ZDNlZDc0MzIxNw=="><i class="fa fa-instagram fa-lg"></i></a>
-              </div>
-            </div>
-            <div class="col-lg-4 text-lg-center text-sm-center">
-              <div id="footer-logo" style="display: inline-flex; align-items: center; gap: 10px; direction: rtl;">
-                <a href="index.html" style="display: inline-flex; align-items: center; text-decoration: none;">
-                  <img
-                    class="logo-main"
-                    src="images/Al-Rafidain-logo.png"
-                    alt="شعار نادي بلاد الرافدين"
-                    style="width: 75px;"
-                  />
-                  <span
-                    style="
-                      font-size: 22px;
-                      font-weight: 700;
-                      background: linear-gradient(90deg, #00b894, #e74c3c);
-                      background-clip: text;
-                      -webkit-background-clip: text;
-                      -webkit-text-fill-color: transparent;
-                      margin-right: 10px;
-                      font-family: 'Cairo', 'Tajawal', sans-serif;
-                      white-space: nowrap;
-                      letter-spacing: 0.5px;
-                      text-shadow: 0 0 6px rgba(0,0,0,0.4);
-                    "
-                    >نادي بلاد الرافدين</span
-                  >
-                </a>
-              </div>
-            </div>
-            <div class="col-lg-4 text-lg-end text-sm-center">
-              حقوق النشر 2025 - نادي بلاد الرافدين
-            </div>
-          </div>
-        </div>
-      </footer>
-      <!-- footer close -->
-    </div>
-
-    <!-- Javascript Files
-    ================================================== -->
-    <script src="js/plugins.js"></script>
-    <script src="js/designesia.js"></script>
-  </body>
-</html>
+</x-layout>

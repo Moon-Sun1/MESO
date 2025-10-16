@@ -1,205 +1,85 @@
-<!DOCTYPE html>
-<html lang="ar" dir="rtl">
-  <!-- Mirrored from madebydesignesia.com/themes/autovent/index.html by HTTrack Website Copier/3.x [XR&CO'2014], Mon, 13 Oct 2025 08:52:52 GMT -->
-  <head>
-    <title>نادي بلاد الرافدين - النادي الرياضي الأول في العراق</title>
-    <link rel="icon" href="images/Al-Rafidain-logo.png" type="image/png" sizes="32x32" />
-    <meta content="text/html;charset=utf-8" http-equiv="Content-Type" />
-    <meta content="width=device-width, initial-scale=1.0" name="viewport" />
-    <meta
-      content="نادي بلاد الرافدين - الوجهة الأولى للرياضة والترفيه في العراق. كرة قدم، كرة سلة، سباحة، وأنشطة رياضية متنوعة."
-      name="description"
-    />
-    <meta content="نادي بلاد الرافدين, رياضة, كرة قدم, كرة سلة, سباحة, العراق, بغداد" name="keywords" />
-    <meta content="نادي بلاد الرافدين" name="author" />
+<x-layout title="الرئيسية - نادي بلاد الرافدين">
 
 
-    <!-- temproray font link-->
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@200;300;400;500;700;800;900&display=swap" rel="stylesheet">
-
-
-    <!-- CSS Files
-    ================================================== -->
-    <link
-      href="css/bootstrap.min.css"
-      rel="stylesheet"
-      type="text/css"
-      id="bootstrap"
-    />
-    <link href="css/mdb.min.css" rel="stylesheet" type="text/css" id="mdb" />
-    <link href="css/plugins.css" rel="stylesheet" type="text/css" />
-    <link href="css/style.css" rel="stylesheet" type="text/css" />
-    <link href="css/coloring.css" rel="stylesheet" type="text/css" />
-    <!-- color scheme -->
-    <link
-      id="colors"
-      href="css/colors/blue-teal.css"
-      rel="stylesheet"
-      type="text/css"
-    />
     <style>
-/* Dropdown menu styles */
-      .dropdown {
-        position: relative;
-      }
-      .dropdown-menu {
-        display: none;
-        position: absolute;
-        top: 80%;
-        left: 0;
-        background: #141416;
-        border-radius: 0;
-        min-width: 150px;
-        z-index: 1000;
-      }
-      .dropdown:hover .dropdown-menu {
-        display: block;
-      }
-      .dropdown-menu li {
-        list-style: none;
-      }
-      .dropdown-menu li a {
-        display: block;
-        padding: 10px 15px;
-        color: #fff;
-        text-decoration: none;
-        transition: background .2s ease;
-        font-weight: 400;
-        font-size: 14px;
-      }
-      .dropdown-menu li a:hover {
-        background: #242426;
-      }     
-       /* Live content modern cards */
-      .live-card { position: relative; background: rgba(20,20,22,.8); border: 1px solid #242426; border-radius: 18px; overflow: hidden; box-shadow: 0 10px 30px rgba(0,0,0,.25); transition: transform .25s ease, box-shadow .25s ease, border-color .25s ease; height: 100%; }
-      .live-card:hover { transform: translateY(-6px); box-shadow: 0 16px 40px rgba(0,0,0,.35); border-color: #2d2f33; }
-      .live-thumb { position: relative; height: 210px; overflow: hidden; }
-      .live-thumb img { width: 100%; height: 100%; object-fit: cover; transform: scale(1.02); transition: transform .6s ease; }
-      .live-card:hover .live-thumb img { transform: scale(1.07); }
-      .live-overlay { position: absolute; inset: 0; background: linear-gradient(180deg, rgba(0,0,0,.0) 40%, rgba(0,0,0,.55) 100%); display: flex; align-items: flex-end; justify-content: space-between; padding: 14px; }
-      .live-badges { display: flex; gap: 8px; }
-      .badge-live { background: linear-gradient(45deg, #e74c3c, #ff6b6b); color: #fff; font-weight: 800; border-radius: 999px; padding: 6px 10px; font-size: 11px; display: inline-flex; align-items: center; gap: 6px; box-shadow: 0 6px 16px rgba(231,76,60,.4); }
-      .badge-type { background: rgba(255,255,255,.12); color: #fff; border: 1px solid rgba(255,255,255,.14); padding: 6px 10px; border-radius: 999px; font-size: 11px; }
-      .play-btn { width: 64px; height: 64px; border-radius: 50%; display: grid; place-items: center; background: rgba(255,255,255,.18); border: 1px solid rgba(255,255,255,.3); backdrop-filter: blur(8px); -webkit-backdrop-filter: blur(8px); box-shadow: 0 8px 24px rgba(0,0,0,.35); transition: transform .2s ease, background .2s ease; }
-      .play-btn:hover { transform: scale(1.06); background: rgba(255,255,255,.24); }
-      .live-body { padding: 16px; display: flex; flex-direction: column; height: calc(100% - 210px); }
-      .live-title { margin: 0 0 8px 0; font-weight: 800; letter-spacing: .2px; }
-      .live-meta { display: flex; gap: 10px; flex-wrap: wrap; margin-bottom: 12px; }
-      .chip { background:#141417; border:1px solid #26282b; color:#cfd3d6; padding:6px 10px; border-radius:10px; font-size:12px; display:inline-flex; align-items:center; gap:6px; }
-      .chip i { color:#8aa1ff; }
-      .progress-wrap { background:#17181b; border:1px solid #24262a; border-radius: 999px; height: 10px; overflow: hidden; position: relative; }
-      .progress-bar { height: 100%; background: linear-gradient(90deg, #00b894, #00cec9); width: 0; transition: width .8s ease; }
-      .live-actions { margin-top: auto; display: flex; gap: 10px; }
-      .btn-soft { background: #16181b; border: 1px solid #292b2f; color: #eaecef; border-radius: 12px; padding: 10px 14px; font-weight: 700; transition: transform .2s ease, background .2s ease, border-color .2s ease; display: inline-flex; align-items: center; gap: 8px; }
-      .btn-soft:hover { transform: translateY(-2px); background:#1b1e22; border-color:#2f3237; }
+        /* Dropdown menu styles */
+              .dropdown {
+                position: relative;
+              }
+              .dropdown-menu {
+                display: none;
+                position: absolute;
+                top: 80%;
+                left: 0;
+                background: #141416;
+                border-radius: 0;
+                min-width: 150px;
+                z-index: 1000;
+              }
+              .dropdown:hover .dropdown-menu {
+                display: block;
+              }
+              .dropdown-menu li {
+                list-style: none;
+              }
+              .dropdown-menu li a {
+                display: block;
+                padding: 10px 15px;
+                color: #fff;
+                text-decoration: none;
+                transition: background .2s ease;
+                font-weight: 400;
+                font-size: 14px;
+              }
+              .dropdown-menu li a:hover {
+                background: #242426;
+              }
+               /* Live content modern cards */
+              .live-card { position: relative; background: rgba(20,20,22,.8); border: 1px solid #242426; border-radius: 18px; overflow: hidden; box-shadow: 0 10px 30px rgba(0,0,0,.25); transition: transform .25s ease, box-shadow .25s ease, border-color .25s ease; height: 100%; }
+              .live-card:hover { transform: translateY(-6px); box-shadow: 0 16px 40px rgba(0,0,0,.35); border-color: #2d2f33; }
+              .live-thumb { position: relative; height: 210px; overflow: hidden; }
+              .live-thumb img { width: 100%; height: 100%; object-fit: cover; transform: scale(1.02); transition: transform .6s ease; }
+              .live-card:hover .live-thumb img { transform: scale(1.07); }
+              .live-overlay { position: absolute; inset: 0; background: linear-gradient(180deg, rgba(0,0,0,.0) 40%, rgba(0,0,0,.55) 100%); display: flex; align-items: flex-end; justify-content: space-between; padding: 14px; }
+              .live-badges { display: flex; gap: 8px; }
+              .badge-live { background: linear-gradient(45deg, #e74c3c, #ff6b6b); color: #fff; font-weight: 800; border-radius: 999px; padding: 6px 10px; font-size: 11px; display: inline-flex; align-items: center; gap: 6px; box-shadow: 0 6px 16px rgba(231,76,60,.4); }
+              .badge-type { background: rgba(255,255,255,.12); color: #fff; border: 1px solid rgba(255,255,255,.14); padding: 6px 10px; border-radius: 999px; font-size: 11px; }
+              .play-btn { width: 64px; height: 64px; border-radius: 50%; display: grid; place-items: center; background: rgba(255,255,255,.18); border: 1px solid rgba(255,255,255,.3); backdrop-filter: blur(8px); -webkit-backdrop-filter: blur(8px); box-shadow: 0 8px 24px rgba(0,0,0,.35); transition: transform .2s ease, background .2s ease; }
+              .play-btn:hover { transform: scale(1.06); background: rgba(255,255,255,.24); }
+              .live-body { padding: 16px; display: flex; flex-direction: column; height: calc(100% - 210px); }
+              .live-title { margin: 0 0 8px 0; font-weight: 800; letter-spacing: .2px; }
+              .live-meta { display: flex; gap: 10px; flex-wrap: wrap; margin-bottom: 12px; }
+              .chip { background:#141417; border:1px solid #26282b; color:#cfd3d6; padding:6px 10px; border-radius:10px; font-size:12px; display:inline-flex; align-items:center; gap:6px; }
+              .chip i { color:#8aa1ff; }
+              .progress-wrap { background:#17181b; border:1px solid #24262a; border-radius: 999px; height: 10px; overflow: hidden; position: relative; }
+              .progress-bar { height: 100%; background: linear-gradient(90deg, #00b894, #00cec9); width: 0; transition: width .8s ease; }
+              .live-actions { margin-top: auto; display: flex; gap: 10px; }
+              .btn-soft { background: #16181b; border: 1px solid #292b2f; color: #eaecef; border-radius: 12px; padding: 10px 14px; font-weight: 700; transition: transform .2s ease, background .2s ease, border-color .2s ease; display: inline-flex; align-items: center; gap: 8px; }
+              .btn-soft:hover { transform: translateY(-2px); background:#1b1e22; border-color:#2f3237; }
 
-      /* Live matches table */
-      .live-table-wrap { background: rgba(20,20,22,.8); border:1px solid #242426; border-radius: 16px; overflow: hidden; box-shadow: 0 10px 30px rgba(0,0,0,.2); }
-      .live-table { width: 100%; border-collapse: separate; border-spacing: 0; }
-      .live-table thead th { background: linear-gradient(180deg, #141416, #121214); color:#cfd3d6; font-weight:800; letter-spacing:.2px; padding:14px; border-bottom:1px solid #242426; }
-      .live-table tbody td { padding:14px; border-bottom:1px solid #202124; vertical-align: middle; }
-      .live-table tbody td:last-child { text-align:center; white-space:nowrap; }
-      .live-row { transition: background .2s ease; }
-      .live-row:hover { background: rgba(255,255,255,.03); }
-      .pill { display:inline-flex; align-items:center; gap:6px; padding:6px 10px; border-radius:999px; font-size:12px; font-weight:700; }
-      .pill-live { background: linear-gradient(45deg, #e74c3c, #ff6b6b); color:#fff; box-shadow:0 6px 16px rgba(231,76,60,.35); }
-      .pill-upcoming { background:#16221f; color:#7ce8d8; border:1px solid #224a43; }
-      .pill-finished { background:#1b1b1b; color:#aab1b8; border:1px solid #2b2f33; }
-      .team { display:flex; align-items:center; gap:10px; }
-      .badge-team { width:28px; height:28px; border-radius:8px; display:grid; place-items:center; color:#fff; font-weight:800; font-size:12px; }
-      .badge-blue { background: linear-gradient(135deg,#2563eb,#3b82f6); }
-      .badge-red { background: linear-gradient(135deg,#ef4444,#f97316); }
-      .badge-green { background: linear-gradient(135deg,#10b981,#22d3ee); }
-      .badge-gold { background: linear-gradient(135deg,#d97706,#f59e0b); }
-      .btn-stream { background: linear-gradient(45deg, #00b894, #00cec9); color:#fff; padding:10px 14px; border-radius:12px; font-weight:800; text-decoration:none; display:inline-flex; align-items:center; gap:8px; line-height:1; direction: rtl; min-width: 130px; justify-content:center; }
-      .btn-stream i { margin-left:6px; }
-      .btn-stream:hover { filter: brightness(1.05); }
-      .score { font-weight:900; color:#eaeaea; }
-    </style>
-  </head>
-
-  <body class="dark-scheme">
-    <div id="wrapper">
-      <div class="scrollbar"></div>
-      <!-- page preloader begin -->
-      <div id="de-loader"></div>
-      <!-- page preloader close -->
-
-      <!-- header begin -->
-<header class="transparent">
-  <div class="container">
-    <div class="row">
-      <div class="col-md-12">
-        <div class="de-flex sm-pt10">
-          <div class="de-flex-col">
-            <div class="de-flex-col">
-<!-- logo begin -->
-<div id="logo" style="display: flex; align-items: center; gap: 10px; direction: rtl;">
-  <a href="index.html" style="display: flex; align-items: center; text-decoration: none;">
-    <img
-      class="logo-main"
-      src="images/Al-Rafidain-logo.png"
-      alt="شعار نادي بلاد الرافدين"
-      style="width: 75px;"
-    />
-    <span
-      style="
-        font-size: 22px;
-        font-weight: 700;
-        background: linear-gradient(90deg, #00b894, #e74c3c);
-        background-clip: text;
-        -webkit-background-clip: text;
-        -webkit-text-fill-color: transparent;
-        margin-right: 10px;
-        font-family: 'Cairo', 'Tajawal', sans-serif;
-        white-space: nowrap;
-        letter-spacing: 0.5px;
-        text-shadow: 0 0 6px rgba(0,0,0,0.4);
-      "
-      >نادي بلاد الرافدين</span
-    >
-  </a>
-</div>
-<!-- logo close -->
-
-          </div>
-
-          <div class="de-flex-col header-col-mid">
-<ul id="mainmenu">
-  <li><a class="menu-item" href="news.html">الأخبار</a></li>
-  <li><a class="menu-item" href="shop.html">المتجر</a></li>
-  <li><a class="menu-item" href="#section-gallery">المعرض</a></li>
-  <li><a class="menu-item" href="tickets.html">التذاكر</a></li>
-  <li><a class="menu-item" href="live.html">الاحداث</a></li>
-  <li class="dropdown">
-    <a class="menu-item" href="drivers.html">الفريق</a>
-    <ul class="dropdown-menu">
-      <li><a href="youth.html">شباب</a></li>
-      <li><a href="juniors.html">ناشئين</a></li>
-      <li><a href="drivers.html">سائقين</a></li>
-    </ul>
-  </li>
-  <li><a class="menu-item" href="about.html">حول</a></li>
-  <li>
-    <a class="menu-item" href="index.html">الرئيسية</a>
-  </li>
-</ul>
-          </div>
-
-          <div class="de-flex-col">
-            <div class="menu_side_area">
-              <a href="tickets.html" class="btn-line">اشترِ التذكرة</a>
-              <span id="menu-btn"></span>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
-</header>
-
+              /* Live matches table */
+              .live-table-wrap { background: rgba(20,20,22,.8); border:1px solid #242426; border-radius: 16px; overflow: hidden; box-shadow: 0 10px 30px rgba(0,0,0,.2); }
+              .live-table { width: 100%; border-collapse: separate; border-spacing: 0; }
+              .live-table thead th { background: linear-gradient(180deg, #141416, #121214); color:#cfd3d6; font-weight:800; letter-spacing:.2px; padding:14px; border-bottom:1px solid #242426; }
+              .live-table tbody td { padding:14px; border-bottom:1px solid #202124; vertical-align: middle; }
+              .live-table tbody td:last-child { text-align:center; white-space:nowrap; }
+              .live-row { transition: background .2s ease; }
+              .live-row:hover { background: rgba(255,255,255,.03); }
+              .pill { display:inline-flex; align-items:center; gap:6px; padding:6px 10px; border-radius:999px; font-size:12px; font-weight:700; }
+              .pill-live { background: linear-gradient(45deg, #e74c3c, #ff6b6b); color:#fff; box-shadow:0 6px 16px rgba(231,76,60,.35); }
+              .pill-upcoming { background:#16221f; color:#7ce8d8; border:1px solid #224a43; }
+              .pill-finished { background:#1b1b1b; color:#aab1b8; border:1px solid #2b2f33; }
+              .team { display:flex; align-items:center; gap:10px; }
+              .badge-team { width:28px; height:28px; border-radius:8px; display:grid; place-items:center; color:#fff; font-weight:800; font-size:12px; }
+              .badge-blue { background: linear-gradient(135deg,#2563eb,#3b82f6); }
+              .badge-red { background: linear-gradient(135deg,#ef4444,#f97316); }
+              .badge-green { background: linear-gradient(135deg,#10b981,#22d3ee); }
+              .badge-gold { background: linear-gradient(135deg,#d97706,#f59e0b); }
+              .btn-stream { background: linear-gradient(45deg, #00b894, #00cec9); color:#fff; padding:10px 14px; border-radius:12px; font-weight:800; text-decoration:none; display:inline-flex; align-items:center; gap:8px; line-height:1; direction: rtl; min-width: 130px; justify-content:center; }
+              .btn-stream i { margin-left:6px; }
+              .btn-stream:hover { filter: brightness(1.05); }
+              .score { font-weight:900; color:#eaeaea; }
+            </style>
       <!-- header close -->
       <!-- content begin -->
       <div class="no-bottom no-top" id="content">
@@ -210,13 +90,13 @@
             <a href="#"><i class="fa fa-twitter fa-lg"></i></a>
             <a href="https://www.instagram.com/mesopotamia_engines_club?utm_source=ig_web_button_share_sheet&igsh=ZDNlZDc0MzIxNw=="><i class="fa fa-instagram fa-lg"></i></a>
           </div>
-          <span><a href="tickets.html">احصل على التذكرة</a></span>
+          <span><a href="{{ route('tickets') }}">احصل على التذكرة</a></span>
         </div>
         <!-- float text close -->
 
         <div id="top"></div>
         <section id="section-hero" class="jarallax">
-          <img src="images/background/new-hero-2-light.png" class="jarallax-img" alt="" />
+          <img src="images/background/new-hero-2.png" class="jarallax-img" alt="" />
           <div class="container position-relative z1000 wow fadeInDown">
             <div class="row align-items-center position-relative">
               <div class="spacer-double d-lg-none d-sm-block"></div>
@@ -355,7 +235,7 @@
             <div class="row align-items-center">
               <div class="col-lg-6 position-relative">
                 <div class="images-deco-1">
-                  <img src="images/misc/car-1.jpg" class="d-img-1" alt="" />
+                  <img src="images/misc/event_blog.png" class="d-img-1" alt="" />
                   <img
                     src="images/misc/dotted.png"
                     class="d-img-2"
@@ -1314,7 +1194,7 @@
                     </ul>
                     <div class="spacer-20"></div>
                     <div class="text-center">
-                      <a class="btn-main" href="tickets.html">اشترِ التذكرة</a>
+                      <a class="btn-main" href="{{ route('tickets') }}">اشترِ التذكرة</a>
                     </div>
                   </div>
                   <div class="d-deco-top"></div>
@@ -1341,7 +1221,7 @@
                     </ul>
                     <div class="spacer-20"></div>
                     <div class="text-center">
-                      <a class="btn-main" href="tickets.html">اشترِ التذكرة</a>
+                      <a class="btn-main" href="{{ route('tickets') }}">اشترِ التذكرة</a>
                     </div>
                   </div>
                   <div class="d-deco-top"></div>
@@ -1368,7 +1248,7 @@
                     </ul>
                     <div class="spacer-20"></div>
                     <div class="text-center">
-                      <a class="btn-main" href="tickets.html">اشترِ التذكرة</a>
+                      <a class="btn-main" href="{{ route('tickets') }}">اشترِ التذكرة</a>
                     </div>
                   </div>
                   <div class="d-deco-top"></div>
@@ -1404,7 +1284,7 @@
                     </div>
                   </div>
                   <div class="spacer-single"></div>
-                  <a class="btn-main wow fadeInLeft" href="register.html">سجل الآن</a>
+                  <a class="btn-main wow fadeInLeft" href="{{ route('register') }}">سجل الآن</a>
                 </div>
                 <img src="images/misc/circle-gradient-2.png" class="position-absolute top-50 start-50 translate-middle" alt="" />
               </div>
@@ -1875,66 +1755,5 @@
           </div>
         </section>
       </div>
-      <!-- content close -->
-      <a href="#" id="back-to-top"></a>
-      <!-- ` begin -->
-      <footer>
-        <div class="container">
-          <div class="row g-4">
-            <div class="col-lg-4 text-lg-start text-sm-center">
-              <div class="social-icons">
-                <a href="#"><i class="fa fa-facebook fa-lg"></i></a>
-                <a href="#"><i class="fa fa-twitter fa-lg"></i></a>
-                <a href="#"><i class="fa fa-linkedin fa-lg"></i></a>
-                <a href="#"><i class="fa fa-pinterest fa-lg"></i></a>
-                <a href="https://www.instagram.com/mesopotamia_engines_club?utm_source=ig_web_button_share_sheet&igsh=ZDNlZDc0MzIxNw=="><i class="fa fa-instagram fa-lg"></i></a>
-              </div>
-            </div>
-            <div class="col-lg-4 text-lg-center text-sm-center">
-              <div id="footer-logo" style="display: inline-flex; align-items: center; gap: 10px; direction: rtl;">
-                <a href="index.html" style="display: inline-flex; align-items: center; text-decoration: none;">
-                  <img
-                    class="logo-main"
-                    src="images/Al-Rafidain-logo.png"
-                    alt="شعار نادي بلاد الرافدين"
-                    style="width: 75px;"
-                  />
-                  <span
-                    style="
-                      font-size: 22px;
-                      font-weight: 700;
-                      background: linear-gradient(90deg, #00b894, #e74c3c);
-                      background-clip: text;
-                      -webkit-background-clip: text;
-                      -webkit-text-fill-color: transparent;
-                      margin-right: 10px;
-                      font-family: 'Cairo', 'Tajawal', sans-serif;
-                      white-space: nowrap;
-                      letter-spacing: 0.5px;
-                      text-shadow: 0 0 6px rgba(0,0,0,0.4);
-                    "
-                    >نادي بلاد الرافدين</span
-                  >
-                </a>
-              </div>
-            </div>
-            <div class="col-lg-4 text-lg-end text-sm-center">
-              حقوق النشر 2025 - نادي بلاد الرافدين
-            </div>
-          </div>
-        </div>
-      </footer>
-      <!-- footer close -->
-    </div>
 
-    <!-- Javascript Files
-    ================================================== -->
-    <script src="js/plugins.js"></script>
-    <script src="js/designesia.js"></script>
-    <script src="js/custom-marquee.js"></script>
-    <script src="js/jquery.countdown.js"></script>
-    <script src="js/countdown-custom.js"></script>
-  </body>
-
-  <!-- Mirrored from madebydesignesia.com/themes/autovent/index.html by HTTrack Website Copier/3.x [XR&CO'2014], Mon, 13 Oct 2025 08:52:53 GMT -->
-</html>
+</x-layout>
