@@ -235,7 +235,7 @@
             <div class="row align-items-center">
               <div class="col-lg-6 position-relative">
                 <div class="images-deco-1">
-                  <img src="images/misc/car-1.jpg" class="d-img-1" alt="" />
+                  <img src="images/misc/event_blog.png" class="d-img-1" alt="" />
                   <img
                     src="images/misc/dotted.png"
                     class="d-img-2"

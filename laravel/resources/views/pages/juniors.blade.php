@@ -1,4 +1,4 @@
-<x-layout title="نادي بلاد الرافدين">
+<x-layout title="ناشئو الفريق | نادي بلاد الرافدين">
 
       <style>
         /* Dropdown menu styles */
@@ -23,6 +23,7 @@
         .member-card .de-team-desc p { color: #bfc4ce; margin-bottom: 12px; }
         .member-card .de-team-social a { width: 36px; height: 36px; display: inline-flex; align-items: center; justify-content: center; margin-inline-start: 6px; color: #e5e9f0; border: 1px solid rgba(255,255,255,.08); border-radius: 50%; background: rgba(255,255,255,.03); transition: background .2s ease, color .2s ease, border-color .2s ease, transform .2s ease; }
         .member-card .de-team-social a:hover { background: linear-gradient(90deg, rgba(0,184,148,.25), rgba(231,76,60,.25)); border-color: rgba(0,184,148,.45); color: #fff; transform: translateY(-2px); }
+        .section-title { font-weight: 700; letter-spacing: .3px; margin: 4px 0 10px; color: #e5e9f0; }
       </style>
     </head>
 
@@ -31,6 +32,23 @@
         <!-- content begin -->
         <div class="no-bottom no-top" id="content">
           <div id="top"></div>
+
+          <style>
+            /* Toolbar, inputs, and pagination (no header) */
+            .toolbar { display: flex; flex-wrap: wrap; gap: 10px; align-items: center; justify-content: space-between; margin: 10px 0 8px; position: sticky; top: 10px; z-index: 5; }
+            .toolbar-left, .toolbar-right { display: flex; gap: 10px; align-items: center; }
+            .input, .select { background: rgba(22,24,28,.65); border: 1px solid rgba(255,255,255,.08); color: #e5e9f0; border-radius: 10px; padding: 10px 12px; outline: none; transition: border-color .2s ease, background .2s ease; }
+            .input::placeholder { color: #7c8595; }
+            .input:focus, .select:focus { border-color: rgba(0,184,148,.45); background: rgba(22,24,28,.8); }
+            .btn-soft { border: 1px solid rgba(255,255,255,.08); background: rgba(255,255,255,.04); color: #e5e9f0; border-radius: 10px; padding: 10px 12px; }
+            .btn-soft:hover { background: rgba(0,184,148,.18); border-color: rgba(0,184,148,.45); color: #fff; }
+            .pagination-modern { display: flex; gap: 8px; align-items: center; justify-content: center; margin-top: 16px; }
+            .page-btn { min-width: 40px; height: 40px; padding: 0 12px; border-radius: 10px; border: 1px solid rgba(255,255,255,.08); background: rgba(255,255,255,.04); color: #e5e9f0; }
+            .page-btn.active { background: rgba(0,184,148,.22); border-color: rgba(0,184,148,.5); color: #fff; }
+            #section-juniors { padding-top: 8px; }
+            #section-juniors .spacer-single { height: 10px !important; }
+            .soft-divider { height: 1px; background: linear-gradient(90deg, rgba(255,255,255,.06), rgba(255,255,255,.02)); border: 0; margin: 8px 0 12px; }
+          </style>
 
           <!-- section begin -->
           <section id="section-juniors" aria-label="section" class="no-bottom">
@@ -44,8 +62,28 @@
                   <div class="spacer-single"></div>
                 </div>
               </div>
+              <div class="soft-divider"></div>
+              <div class="toolbar" dir="rtl">
+                <div class="toolbar-left">
+                  <input id="searchInputJuniors" class="input" type="text" placeholder="ابحث بالاسم..." />
+                  <select id="filterDisciplineJuniors" class="select">
+                    <option value="">كل التخصصات</option>
+                    <option value="كارتينغ">كارتينغ</option>
+                    <option value="درفت">درفت</option>
+                    <option value="تايم أتاك">تايم أتاك</option>
+                  </select>
+                </div>
+                <div class="toolbar-right">
+                  <button id="resetFiltersJuniors" class="btn-soft">إعادة تعيين</button>
+                </div>
+              </div>
+              <div class="row">
+                <div class="col-12 text-end">
+                  <div class="section-title">قائمة الناشئين</div>
+                </div>
+              </div>
               <div class="row g-4">
-                <div class="col-lg-4 col-md-4 mb-sm-30">
+                <div class="col-lg-4 col-md-4 mb-sm-30 junior-card" data-name="حسن أحمد" data-discipline="كارتينغ">
                   <div class="de-team-list member-card">
                     <div class="de-team-item">
                       <div class="de-team-pic">
@@ -67,7 +105,7 @@
                     </div>
                   </div>
                 </div>
-                <div class="col-lg-4 col-md-4 mb-sm-30">
+                <div class="col-lg-4 col-md-4 mb-sm-30 junior-card" data-name="عمر محمود" data-discipline="درفت">
                   <div class="de-team-list member-card">
                     <div class="de-team-item">
                       <div class="de-team-pic">
@@ -89,7 +127,7 @@
                     </div>
                   </div>
                 </div>
-                <div class="col-lg-4 col-md-4 mb-sm-30">
+                <div class="col-lg-4 col-md-4 mb-sm-30 junior-card" data-name="كريم حسن" data-discipline="تايم أتاك">
                   <div class="de-team-list member-card">
                     <div class="de-team-item">
                       <div class="de-team-pic">
@@ -112,9 +150,48 @@
                   </div>
                 </div>
               </div>
+              <div class="pagination-modern">
+                <button class="page-btn active" type="button">1</button>
+                <button class="page-btn" type="button" disabled>2</button>
+              </div>
             </div>
           </section>
         </div>
 
+<script>
+  (function(){
+    const cards = Array.from(document.querySelectorAll('.junior-card'));
+    const searchInput = document.getElementById('searchInputJuniors');
+    const filterDiscipline = document.getElementById('filterDisciplineJuniors');
+    const resetBtn = document.getElementById('resetFiltersJuniors');
+    const statTotal = document.getElementById('statTotalJuniors');
+
+    function applyFilters(){
+      const q = (searchInput?.value || '').trim().toLowerCase();
+      const disc = (filterDiscipline?.value || '').trim();
+      let visible = 0;
+      cards.forEach(card => {
+        const name = (card.getAttribute('data-name') || '').toLowerCase();
+        const d = card.getAttribute('data-discipline') || '';
+        const matchName = !q || name.includes(q);
+        const matchDisc = !disc || d === disc;
+        const show = matchName && matchDisc;
+        card.style.display = show ? '' : 'none';
+        if(show) visible++;
+      });
+      if (statTotal) statTotal.textContent = String(visible);
+    }
+
+    searchInput?.addEventListener('input', applyFilters);
+    filterDiscipline?.addEventListener('change', applyFilters);
+    resetBtn?.addEventListener('click', () => {
+      if (searchInput) searchInput.value = '';
+      if (filterDiscipline) filterDiscipline.value = '';
+      applyFilters();
+    });
+
+    applyFilters();
+  })();
+</script>
 
 </x-layout>
