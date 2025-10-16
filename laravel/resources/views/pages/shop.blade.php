@@ -552,7 +552,7 @@
                     </div>
                     <div class="product-price">25,000 دينار</div>
                     <button class="btn-add-cart" onclick="addToCart(1)">أضف للسلة</button>
-                    <a class="btn-view-details" href="product.html?id=1">عرض التفاصيل</a>
+                    <a class="btn-view-details" href="{{ route('product', ['id' => 1]) }}">عرض التفاصيل</a>
                   </div>
                 </div>
               </div>
@@ -574,7 +574,7 @@
                     </div>
                     <div class="product-price">45,000 دينار</div>
                     <button class="btn-add-cart" onclick="addToCart(2)">أضف للسلة</button>
-                    <a class="btn-view-details" href="product.html?id=2">عرض التفاصيل</a>
+                    <a class="btn-view-details" href="{{ route('product', ['id' => 2]) }}">عرض التفاصيل</a>
                   </div>
                 </div>
               </div>
@@ -596,7 +596,7 @@
                     </div>
                     <div class="product-price">15,000 دينار</div>
                     <button class="btn-add-cart" onclick="addToCart(3)">أضف للسلة</button>
-                    <a class="btn-view-details" href="product.html?id=3">عرض التفاصيل</a>
+                    <a class="btn-view-details" href="{{ route('product', ['id' => 3]) }}">عرض التفاصيل</a>
                   </div>
                 </div>
               </div>
@@ -618,7 +618,7 @@
                     </div>
                     <div class="product-price">5,000 دينار</div>
                     <button class="btn-add-cart" onclick="addToCart(4)">أضف للسلة</button>
-                    <a class="btn-view-details" href="product.html?id=4">عرض التفاصيل</a>
+                    <a class="btn-view-details" href="{{ route('product', ['id' => 4]) }}">عرض التفاصيل</a>
                   </div>
                 </div>
               </div>
@@ -640,7 +640,7 @@
                     </div>
                     <div class="product-price">8,000 دينار</div>
                     <button class="btn-add-cart" onclick="addToCart(5)">أضف للسلة</button>
-                    <a class="btn-view-details" href="product.html?id=5">عرض التفاصيل</a>
+                    <a class="btn-view-details" href="{{ route('product', ['id' => 5]) }}">عرض التفاصيل</a>
                   </div>
                 </div>
               </div>
@@ -662,7 +662,7 @@
                     </div>
                     <div class="product-price">65,000 دينار</div>
                     <button class="btn-add-cart" onclick="addToCart(6)">أضف للسلة</button>
-                    <a class="btn-view-details" href="product.html?id=6">عرض التفاصيل</a>
+                    <a class="btn-view-details" href="{{ route('product', ['id' => 6]) }}">عرض التفاصيل</a>
                   </div>
                 </div>
               </div>
@@ -684,7 +684,7 @@
                     </div>
                     <div class="product-price">35,000 دينار</div>
                     <button class="btn-add-cart" onclick="addToCart(7)">أضف للسلة</button>
-                    <a class="btn-view-details" href="product.html?id=7">عرض التفاصيل</a>
+                    <a class="btn-view-details" href="{{ route('product', ['id' => 7]) }}">عرض التفاصيل</a>
                   </div>
                 </div>
               </div>
@@ -706,7 +706,7 @@
                     </div>
                     <div class="product-price">12,000 دينار</div>
                     <button class="btn-add-cart" onclick="addToCart(8)">أضف للسلة</button>
-                    <a class="btn-view-details" href="product.html?id=8">عرض التفاصيل</a>
+                    <a class="btn-view-details" href="{{ route('product', ['id' => 8]) }}">عرض التفاصيل</a>
                   </div>
                 </div>
               </div>
@@ -728,7 +728,7 @@
                     </div>
                     <div class="product-price">10,000 دينار</div>
                     <button class="btn-add-cart" onclick="addToCart(9)">أضف للسلة</button>
-                    <a class="btn-view-details" href="product.html?id=9">عرض التفاصيل</a>
+                    <a class="btn-view-details" href="{{ route('product', ['id' => 9]) }}">عرض التفاصيل</a>
                   </div>
                 </div>
               </div>
@@ -750,7 +750,7 @@
                     </div>
                     <div class="product-price">50,000 دينار</div>
                     <button class="btn-add-cart" onclick="addToCart(10)">أضف للسلة</button>
-                    <a class="btn-view-details" href="product.html?id=10">عرض التفاصيل</a>
+                    <a class="btn-view-details" href="{{ route('product', ['id' => 10]) }}">عرض التفاصيل</a>
                   </div>
                 </div>
               </div>

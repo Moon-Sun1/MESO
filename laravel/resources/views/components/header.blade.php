@@ -45,7 +45,7 @@
                   <a class="menu-item {{ request()->routeIs('shop') ? 'active' : '' }}" href="{{ route('shop') }}">المتجر</a>
                 </li>
                 <li>
-                  <a class="menu-item" href="{{ route('home') }}#section-gallery">المعرض</a>
+                  <a class="menu-item" href="{{ route('gallery') }}">المعرض</a>
                 </li>
                 <li>
                   <a class="menu-item {{ request()->routeIs('tickets') ? 'active' : '' }}" href="{{ route('tickets') }}">التذاكر</a>

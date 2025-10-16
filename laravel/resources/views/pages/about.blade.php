@@ -1,5 +1,39 @@
 <x-layout title="نادي بلاد الرافدين">
 
+    <style>
+        /* Dropdown menu styles */
+      .dropdown {
+        position: relative;
+      }
+      .dropdown-menu {
+        display: none;
+        position: absolute;
+        top: 80%;
+        left: 0;
+        background: #141416;
+        border-radius: 0;
+        min-width: 150px;
+        z-index: 1000;
+      }
+      .dropdown:hover .dropdown-menu {
+        display: block;
+      }
+      .dropdown-menu li {
+        list-style: none;
+      }
+      .dropdown-menu li a {
+        display: block;
+        padding: 10px 15px;
+        color: #fff;
+        text-decoration: none;
+        transition: background .2s ease;
+        font-weight: 400;
+        font-size: 14px;
+      }
+      .dropdown-menu li a:hover {
+        background: #242426;
+      }
+    </style>
           <div class="no-bottom no-top" id="content">
             <!-- float text begin -->
             <div class="float-text">
@@ -8,7 +42,7 @@
                 <a href="#"><i class="fa fa-twitter fa-lg"></i></a>
                 <a href="#"><i class="fa fa-instagram fa-lg"></i></a>
               </div>
-              <span><a href="tickets.html">احصل على التذكرة</a></span>
+              <span><a href="{{ route('tickets') }}">احصل على التذكرة</a></span>
             </div>
             <!-- float text close -->
 

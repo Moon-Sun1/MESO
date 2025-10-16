@@ -4,9 +4,12 @@ use Illuminate\Support\Facades\Route;
 
 Route::view('/', 'pages.home')->name('home');
 Route::view('/live', 'pages.live')->name('live');
+Route::view('/live-watch', 'pages.live-watch')->name('live.watch');
 Route::view('/news', 'pages.news')->name('news');
 Route::view('/shop', 'pages.shop')->name('shop');
-Route::view('/product', 'pages.product')->name('product');
+Route::get('/product', function () {
+    return view('pages.product');
+})->name('product');
 Route::view('/checkout', 'pages.checkout')->name('checkout');
 Route::view('/register', 'pages.register')->name('register');
 Route::view('/gallery', 'pages.gallery')->name('gallery');

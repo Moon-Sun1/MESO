@@ -32,8 +32,16 @@
       }
       .dropdown-menu li a:hover {
         background: #242426;
-      }      /* Custom styles for tickets page */
-      .hero-offer { background: linear-gradient(135deg, #00b894, #e74c3c); padding: 60px 0; text-align: center; color: #fff; margin-bottom: 40px; }
+      }
+
+      /* Force header to be solid on tickets page */
+      header {
+        background: #141416 !important;
+        box-shadow: 0 2px 10px rgba(0,0,0,.3);
+      }
+
+      /* Custom styles for tickets page */
+      .hero-offer { background: linear-gradient(135deg, #00b894, #e74c3c); padding: 60px 0; text-align: center; color: #fff; margin-bottom: 0px; }
       .hero-offer h1 { font-size: 3rem; font-weight: 900; margin-bottom: 10px; }
       .hero-offer p { font-size: 1.2rem; opacity: 0.9; }
       .filters-search { background: rgba(20,20,22,.9); padding: 30px; border-radius: 18px; margin-bottom: 40px; }
@@ -65,9 +73,7 @@
       .ticket-price { font-size: 18px; font-weight: 900; color: #00b894; margin: 8px 0; }
       .btn-buy { background: linear-gradient(45deg, #00b894, #00cec9); color: #fff; border: none; padding: 8px 16px; border-radius: 8px; font-weight: 800; text-decoration: none; display: inline-block; transition: filter .2s ease; width: 100%; text-align: center; font-size: 0.9rem; }
       .btn-buy:hover { filter: brightness(1.05); }
-      /* Tighten space between hero CTA and filters */
-      .hero-offer { margin-bottom: 0px; }
-      #section-tickets-page { padding-top: 24px; }
+      #section-tickets-page { padding-top: 0px; }
     </style>
       <!-- content begin -->
       <div class="no-bottom " id="content">
@@ -137,13 +143,13 @@
                         <h4>تذكرة عادية</h4>
                         <p>دخول عام مع فرصة للفوز بجوائز</p>
                         <div class="ticket-price">49 دولار</div>
-                        <a href="checkout.html" class="btn-buy">اشترِ الآن</a>
+                        <a href="{{ route('checkout') }}" class="btn-buy">اشترِ الآن</a>
                       </div>
                       <div class="ticket-option">
                         <h4>تذكرة VIP</h4>
                         <p>دخول VIP مع بضائع مجانية ومقاعد أفضل</p>
                         <div class="ticket-price">89 دولار</div>
-                        <a href="checkout.html" class="btn-buy">اشترِ الآن</a>
+                        <a href="{{ route('checkout') }}" class="btn-buy">اشترِ الآن</a>
                       </div>
                     </div>
                   </div>
@@ -169,13 +175,13 @@
                         <h4>تذكرة عادية</h4>
                         <p>دخول عام مع فرصة للفوز بجوائز</p>
                         <div class="ticket-price">49 دولار</div>
-                        <a href="checkout.html" class="btn-buy">اشترِ الآن</a>
+                        <a href="{{ route('checkout') }}" class="btn-buy">اشترِ الآن</a>
                       </div>
                       <div class="ticket-option">
                         <h4>تذكرة VIP</h4>
                         <p>دخول VIP مع بضائع مجانية ومقاعد أفضل</p>
                         <div class="ticket-price">89 دولار</div>
-                        <a href="checkout.html" class="btn-buy">اشترِ الآن</a>
+                        <a href="{{ route('checkout') }}" class="btn-buy">اشترِ الآن</a>
                       </div>
                     </div>
                   </div>
@@ -201,13 +207,13 @@
                         <h4>تذكرة عادية</h4>
                         <p>دخول عام مع فرصة للفوز بجوائز</p>
                         <div class="ticket-price">49 دولار</div>
-                        <a href="checkout.html" class="btn-buy">اشترِ الآن</a>
+                        <a href="{{ route('checkout') }}" class="btn-buy">اشترِ الآن</a>
                       </div>
                       <div class="ticket-option">
                         <h4>تذكرة VIP</h4>
                         <p>دخول VIP مع بضائع مجانية ومقاعد أفضل</p>
                         <div class="ticket-price">89 دولار</div>
-                        <a href="checkout.html" class="btn-buy">اشترِ الآن</a>
+                        <a href="{{ route('checkout') }}" class="btn-buy">اشترِ الآن</a>
                       </div>
                     </div>
                   </div>
@@ -236,13 +242,13 @@
                         <h4>تذكرة عادية</h4>
                         <p>دخول عام مع فرصة للفوز بجوائز</p>
                         <div class="ticket-price">49 دولار</div>
-                        <a href="checkout.html" class="btn-buy">اشترِ الآن</a>
+                        <a href="{{ route('checkout') }}" class="btn-buy">اشترِ الآن</a>
                       </div>
                       <div class="ticket-option">
                         <h4>تذكرة VIP</h4>
                         <p>دخول VIP مع بضائع مجانية ومقاعد أفضل</p>
                         <div class="ticket-price">89 دولار</div>
-                        <a href="checkout.html" class="btn-buy">اشترِ الآن</a>
+                        <a href="{{ route('checkout') }}" class="btn-buy">اشترِ الآن</a>
                       </div>
                     </div>
                   </div>
@@ -268,13 +274,13 @@
                         <h4>تذكرة عادية</h4>
                         <p>دخول عام مع فرصة للفوز بجوائز</p>
                         <div class="ticket-price">49 دولار</div>
-                        <a href="checkout.html" class="btn-buy">اشترِ الآن</a>
+                        <a href="{{ route('checkout') }}" class="btn-buy">اشترِ الآن</a>
                       </div>
                       <div class="ticket-option">
                         <h4>تذكرة VIP</h4>
                         <p>دخول VIP مع بضائع مجانية ومقاعد أفضل</p>
                         <div class="ticket-price">89 دولار</div>
-                        <a href="checkout.html" class="btn-buy">اشترِ الآن</a>
+                        <a href="{{ route('checkout') }}" class="btn-buy">اشترِ الآن</a>
                       </div>
                     </div>
                   </div>
@@ -302,7 +308,7 @@
 
             <div class="row">
               <div class="col-lg-12 text-center">
-                <a href="index.html" class="btn-main big wow fadeInUp">العودة إلى الصفحة الرئيسية</a>
+                <a href="{{ route('home') }}" class="btn-main big wow fadeInUp">العودة إلى الصفحة الرئيسية</a>
               </div>
             </div>
           </div>

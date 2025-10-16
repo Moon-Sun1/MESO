@@ -90,7 +90,7 @@
             <a href="#"><i class="fa fa-twitter fa-lg"></i></a>
             <a href="https://www.instagram.com/mesopotamia_engines_club?utm_source=ig_web_button_share_sheet&igsh=ZDNlZDc0MzIxNw=="><i class="fa fa-instagram fa-lg"></i></a>
           </div>
-          <span><a href="tickets.html">احصل على التذكرة</a></span>
+          <span><a href="{{ route('tickets') }}">احصل على التذكرة</a></span>
         </div>
         <!-- float text close -->
 
@@ -1194,7 +1194,7 @@
                     </ul>
                     <div class="spacer-20"></div>
                     <div class="text-center">
-                      <a class="btn-main" href="tickets.html">اشترِ التذكرة</a>
+                      <a class="btn-main" href="{{ route('tickets') }}">اشترِ التذكرة</a>
                     </div>
                   </div>
                   <div class="d-deco-top"></div>
@@ -1221,7 +1221,7 @@
                     </ul>
                     <div class="spacer-20"></div>
                     <div class="text-center">
-                      <a class="btn-main" href="tickets.html">اشترِ التذكرة</a>
+                      <a class="btn-main" href="{{ route('tickets') }}">اشترِ التذكرة</a>
                     </div>
                   </div>
                   <div class="d-deco-top"></div>
@@ -1248,7 +1248,7 @@
                     </ul>
                     <div class="spacer-20"></div>
                     <div class="text-center">
-                      <a class="btn-main" href="tickets.html">اشترِ التذكرة</a>
+                      <a class="btn-main" href="{{ route('tickets') }}">اشترِ التذكرة</a>
                     </div>
                   </div>
                   <div class="d-deco-top"></div>
@@ -1284,7 +1284,7 @@
                     </div>
                   </div>
                   <div class="spacer-single"></div>
-                  <a class="btn-main wow fadeInLeft" href="register.html">سجل الآن</a>
+                  <a class="btn-main wow fadeInLeft" href="{{ route('register') }}">سجل الآن</a>
                 </div>
                 <img src="images/misc/circle-gradient-2.png" class="position-absolute top-50 start-50 translate-middle" alt="" />
               </div>

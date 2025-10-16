@@ -1,3 +1,281 @@
 <x-layout title="نادي بلاد الرافدين">
-  {{-- TODO: paste page-specific content converted from the corresponding HTML file into this slot. --}}
+
+    <style>
+    /* Dropdown menu styles */
+      .dropdown {
+        position: relative;
+      }
+      .dropdown-menu {
+        display: none;
+        position: absolute;
+        top: 80%;
+        left: 0;
+        background: #141416;
+        border-radius: 0;
+        min-width: 150px;
+        z-index: 1000;
+      }
+      .dropdown:hover .dropdown-menu {
+        display: block;
+      }
+      .dropdown-menu li {
+        list-style: none;
+      }
+      .dropdown-menu li a {
+        display: block;
+        padding: 10px 15px;
+        color: #fff;
+        text-decoration: none;
+        transition: background .2s ease;
+        font-weight: 400;
+        font-size: 14px;
+      }
+      .dropdown-menu li a:hover {
+        background: #242426;
+      }      /* Scoped blog styles */
+      .post-hero { position: relative; }
+      .post-hero .jarallax-img { filter: brightness(.5); }
+      .post-hero .hero-content { position: relative; z-index: 2; padding: 40px 0; }
+      .chips { display:flex; gap:8px; flex-wrap:wrap; }
+      .chip { background:#151515; border:1px solid #232323; color:#eaeaea; padding:6px 10px; border-radius:999px; font-size:12px; }
+      .chip.grad { background: linear-gradient(45deg,#00b894,#00cec9); color:#07110f; font-weight:800; border:none; }
+      .meta { opacity:.9; display:flex; gap:12px; flex-wrap:wrap; }
+      .progressbar { position: fixed; top: 0; right: 0; height: 4px; width: 0; background: linear-gradient(90deg,#00b894,#00cec9); z-index: 2000; box-shadow: 0 2px 8px rgba(0,0,0,.2); }
+      .breadcrumbs { background:#111; border-bottom:1px solid #222; }
+      .breadcrumbs .container { padding: 10px 0; }
+      .share-actions a { background:#151515; border:1px solid #232323; color:#eaeaea; padding:8px 12px; border-radius:10px; text-decoration:none; display:inline-flex; align-items:center; gap:6px; }
+      .tags a { background:#16181b; border:1px solid #292b2f; color:#cfd3d6; padding:6px 10px; border-radius:10px; margin-inline-start:6px; text-decoration:none; font-size:12px; }
+      .prevnext a { background:#151515; border:1px solid #232323; color:#eaeaea; padding:10px 14px; border-radius:12px; text-decoration:none; display:inline-flex; gap:8px; align-items:center; }
+      .widget h4 { font-weight:800; }
+      .related .card { background:#161616; border:1px solid #2b2b2b; border-radius:14px; overflow:hidden; }
+      .related .card img { height:140px; object-fit:cover; width:100%; }
+    </style>
+</head>
+
+<body class="dark-scheme">
+    <div id="wrapper">
+
+        <!-- page preloader begin -->
+        <div id="de-loader"></div>
+        <!-- page preloader close -->
+
+        <div class="no-bottom no-top" id="content">
+            <div class="progressbar" id="readProgress"></div>
+            <div id="top"></div>
+
+            <section class="jarallax post-hero">
+                <img id="heroImg" src="images/background/4.jpg" class="jarallax-img" alt="">
+                <div class="container hero-content">
+                    <div class="row">
+                        <div class="col-md-10 offset-md-1 text-center">
+                            <div class="chips mb-2"><span class="chip grad" id="postCategory">—</span><span class="chip" id="postDate">—</span><span class="chip" id="postRead">—</span></div>
+                            <h1 id="postTitle">—</h1>
+                        </div>
+                    </div>
+                </div>
+                <div class="de-gradient-edge-bottom"></div>
+            </section>
+
+            <div class="breadcrumbs">
+              <div class="container">
+                <a href="{{ route('home') }}">الرئيسية</a> <span style="opacity:.6; margin:0 6px;">›</span>
+                <a href="{{ route('news') }}">الأخبار</a> <span style="opacity:.6; margin:0 6px;">›</span>
+                <span id="bcTitle">—</span>
+              </div>
+            </div>
+
+            <section aria-label="section">
+                <div class="container">
+                    <div class="row g-4">
+                        <div class="col-md-8">
+                            <div class="blog-read">
+                                <img id="postImage" src="" class="img-fluid mb-3" alt="">
+                                <div class="meta mb-3">
+                                  <span><i class="fa fa-user"></i> <span id="postAuthor">—</span></span>
+                                  <span><i class="fa fa-clock-o"></i> <span id="postReadInline">—</span></span>
+                                </div>
+                                <div class="post-text" id="postBody"></div>
+                                <div class="tags mt-3" id="postTags"></div>
+                                <div class="share-actions mt-3" id="shareActions"></div>
+                                <div class="prevnext mt-4 d-flex justify-content-between" id="prevNext"></div>
+                            </div>
+
+                            <div class="spacer-single"></div>
+
+                            <div id="blog-comment">
+                                <h4>التعليقات</h4>
+                                <p style="opacity:.8;">التعليقات قيد التفعيل قريباً.</p>
+                            </div>
+                        </div>
+
+                        <div id="sidebar" class="col-md-4">
+                            <div class="widget">
+                                <h4>أحدث المنشورات</h4>
+                                <div class="small-border"></div>
+                                <ul id="latestList"></ul>
+                            </div>
+                            <div class="widget">
+                                <h4>التصنيفات</h4>
+                                <div class="small-border"></div>
+                                <div class="chips" id="catChips"></div>
+                            </div>
+
+                            <div class="widget related">
+                                <h4>مواضيع ذات صلة</h4>
+                                <div class="small-border"></div>
+                                <div class="row g-2" id="relatedGrid"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </div>
+        <!-- content close -->
+        <a href="#" id="back-to-top"></a>
+    <script>
+      // Simple in-page article catalog matching ids used in news page
+      const articles = {
+        1: {
+          title: 'الاتحاد العراقي يعتمد جولة "تايم أتاك" ضمن أجندة النادي',
+          image: 'images/blog/1.jpg',
+          hero: 'images/background/4.jpg',
+          category: 'رسمي',
+          date: 'اليوم',
+          read: '3 دقائق قراءة',
+          author: 'إدارة النادي',
+          tags: ['رسمي','تايم أتاك','اتحاد'],
+          body: [
+            'أعلن نادي بلاد الرافدين اعتماد الاتحاد العراقي لرياضة السيارات لجولة "تايم أتاك" ضمن منافسات الموسم الحالي. يأتي ذلك ضمن خطة تطوير البطولات المحلية ورفع مستوى التنافسية.',
+            'سيتم استخدام نظام توقيت إلكتروني محدث مع عرض لحظي للأزمنة والقطاعات، وإتاحة المتابعة المباشرة للجماهير عبر المنصة الرقمية للنادي.'
+          ]
+        },
+        2: {
+          title: 'إطلاق نظام الاشتراك الذكي للفعاليات',
+          image: 'images/blog/2.jpg',
+          hero: 'images/background/5.jpg',
+          category: 'رسمي',
+          date: 'محدث يومياً',
+          read: '2 دقائق قراءة',
+          author: 'الفريق التقني',
+          tags: ['منصة','اشتراك','نتائج'],
+          body: [
+            'أطلق النادي منصة اشتراك ذكي تتيح التسجيل الفوري للمتسابقين وإدارة الفعاليات بكفاءة عالية.',
+            'يشمل النظام إشعارات لحظية، متابعة النتائج، وتنبيهات المواعيد، مع تكامل مع بوابة الدفع ونظام النقاط.'
+          ]
+        },
+        3: {
+          title: 'تحليل سرعات القطاعات في مسار الكارتينغ',
+          image: 'images/blog/3.jpg',
+          hero: 'images/background/6.jpg',
+          category: 'تحليل',
+          date: 'الأسبوع الحالي',
+          read: '6 دقائق قراءة',
+          author: 'قسم التحليلات',
+          tags: ['تحليل','كارتينغ','إطارات'],
+          body: [
+            'يحلل التقرير أزمنة القطاعات لخمسة متسابقين مع مقارنة تأثير ضغط الإطارات على السرعة المتوسطة والخروج من المنعطف.',
+            'النتيجة: ضبط الضغط ضمن النطاق 14-16 psi قدم أفضل توازن بين التماسك ومقاومة التدحرج.'
+          ]
+        },
+        4: {
+          title: 'تقرير السلامة: جاهزية حلبة الاستعراض الحر',
+          image: 'images/blog/4.jpg',
+          hero: 'images/background/3.jpg',
+          category: 'تقرير',
+          date: 'هذا الأسبوع',
+          read: '4 دقائق قراءة',
+          author: 'لجنة السلامة',
+          tags: ['سلامة','استعراض','درفت'],
+          body: [
+            'شملت المراجعة الأسبوعية مسارات الهروب، نقاط الإطفاء، وتوزيع marshals لضمان أقصى درجات الأمان.',
+            'تم اعتماد خطة محكمة لتقسيم المناطق وإدارة الحشود بالتنسيق مع الجهات المختصة.'
+          ]
+        },
+        5: {
+          title: 'كيف تبني مسارك في رياضات المحركات من الهواة إلى المحترفين',
+          image: 'images/features/1.jpg',
+          hero: 'images/background/2.jpg',
+          category: 'مقال',
+          date: 'مقال مختار',
+          read: '7 دقائق قراءة',
+          author: 'تحرير النادي',
+          tags: ['إرشادات','مسار مهني','هواة'],
+          body: [
+            'ابدأ من فعاليات الأوتوكروس لاكتساب أساسيات التحكم بالسيارة، ثم انتقل إلى منافسات التوقيت الرسمية.',
+            'احرص على خطة تدريب تتضمن محاكاة، تحليل بيانات، وتدرج في مستويات المنافسة.'
+          ]
+        },
+        6: {
+          title: 'اختيار الإطارات الأنسب لفعاليات النادي',
+          image: 'images/features/2.jpg',
+          hero: 'images/background/1.jpg',
+          category: 'مقال',
+          date: 'هذا الشهر',
+          read: '5 دقائق قراءة',
+          author: 'الدعم الفني',
+          tags: ['تقنيات','إطارات','إعدادات'],
+          body: [
+            'يعتمد الاختيار على طبيعة المسار ودرجة الحرارة وطبيعة السطح. المركبات الناعمة تمنح تماسكاً أعلى لكنها تتآكل أسرع.',
+            'للمسارات القصيرة، يوصى بمركب متوسط يحقق ثباتاً جيداً مع عمر افتراضي مقبول.'
+          ]
+        }
+      };
+
+      function getId(){
+        const p = new URLSearchParams(location.search);
+        return parseInt(p.get('id')||'0',10);
+      }
+
+      function render(){
+        const id = getId();
+        const a = articles[id];
+        if(!a){ location.href = '{{ route('news') }}'; return; }
+        document.getElementById('postTitle').textContent = a.title;
+        document.getElementById('bcTitle').textContent = a.title;
+        document.getElementById('postCategory').textContent = a.category || '—';
+        document.getElementById('postDate').textContent = a.date || '—';
+        document.getElementById('postRead').textContent = a.read || '—';
+        document.getElementById('postReadInline').textContent = a.read || '—';
+        document.getElementById('postAuthor').textContent = a.author || '—';
+        const hero = document.getElementById('heroImg'); hero.src = a.hero || 'images/background/4.jpg'; hero.alt = a.title;
+        const img = document.getElementById('postImage'); img.src = a.image; img.alt = a.title;
+        const body = document.getElementById('postBody');
+        body.innerHTML = a.body.map(p=>`<p>${p}</p>`).join('');
+        const tags = document.getElementById('postTags');
+        (a.tags||[]).forEach(t=>{ const link=document.createElement('a'); link.href='#'; link.textContent=t; tags.appendChild(link); });
+        const share = document.getElementById('shareActions');
+        share.innerHTML = `<a href="#"><i class="fa fa-twitter"></i> مشاركة</a> <a href="#"><i class="fa fa-facebook"></i> مشاركة</a>`;
+        const ids = Object.keys(articles).map(n=>parseInt(n,10)).sort((x,y)=>x-y);
+        const i = ids.indexOf(id);
+        const prevId = ids[i-1]; const nextId = ids[i+1];
+        const pn = document.getElementById('prevNext');
+        pn.innerHTML = `${prevId?`<a href="{{ route('blog.single') }}?id=${prevId}"><i class=\"fa fa-angle-right\"></i> السابق</a>`:''}<span></span>${nextId?`<a href="{{ route('blog.single') }}?id=${nextId}">التالي <i class=\"fa fa-angle-left\"></i></a>`:''}`;
+        const latest = document.getElementById('latestList'); latest.innerHTML='';
+        ids.slice(-5).reverse().forEach(k=>{ const li=document.createElement('li'); li.innerHTML=`<a href="{{ route('blog.single') }}?id=${k}">${articles[k].title}</a>`; latest.appendChild(li); });
+        const cats = document.getElementById('catChips'); cats.innerHTML='';
+        ;['رسمي','تحليل','تقرير','مقال'].forEach(c=>{ const s=document.createElement('span'); s.className='chip'; s.textContent=c; cats.appendChild(s); });
+        const related = document.getElementById('relatedGrid'); related.innerHTML='';
+        ids.filter(k=>k!==id).slice(0,4).forEach(k=>{
+          const col=document.createElement('div'); col.className='col-6';
+          col.innerHTML = `<a href="{{ route('blog.single') }}?id=${k}" class="card text-decoration-none"><img src="${articles[k].image}" alt=""><div class="p-2" style="color:#fff; font-weight:700; font-size:12px;">${articles[k].title}</div></a>`;
+          related.appendChild(col);
+        });
+      }
+
+      document.addEventListener('DOMContentLoaded', function(){
+        render();
+        const bar=document.getElementById('readProgress');
+        const onScroll=()=>{
+          const el = document.getElementById('postBody');
+          const rect = el.getBoundingClientRect();
+          const view = window.innerHeight || document.documentElement.clientHeight;
+          const total = el.scrollHeight - view;
+          const scrolled = Math.min(Math.max((view - rect.top), 0), total);
+          const pct = total>0 ? Math.round((scrolled/total)*100) : 0;
+          bar.style.width = pct+'%';
+        };
+        document.addEventListener('scroll', onScroll, { passive: true });
+        onScroll();
+      });
+    </script>
 </x-layout>
